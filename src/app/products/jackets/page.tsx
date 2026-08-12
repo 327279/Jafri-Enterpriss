@@ -314,7 +314,7 @@ export default function JacketsPage() {
             playsInline
             className="w-full h-full object-cover scale-105"
           >
-            <source src="/assets/jackets-vintage-hero.mp4" type="video/mp4" />
+            <source src="/assets/jackets-showcase-hero.mp4" type="video/mp4" />
           </video>
           {/* Gradients to fit video cleanly and keep text highly readable */}
           <div
