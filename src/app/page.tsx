@@ -164,16 +164,8 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              Leather That{" "}
-              <span
-                className="block italic"
-                style={{ color: "var(--color-amber-pale)" }}
-              >
-                Defines
-              </span>
-              <span className="block" style={{ color: "#FFFFFF" }}>
-                Quality
-              </span>
+              <span className="block text-white">Leather That</span>
+              <span className="block text-amber-100/90">Defines Quality</span>
             </motion.h1>
 
             {/* Sub Paragraph */}

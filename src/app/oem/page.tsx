@@ -84,19 +84,19 @@ export default function OEMPage() {
           background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 60%)",
         }}
       >
-        <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="absolute inset-0 overflow-hidden opacity-45">
           <video
             autoPlay
             loop
             muted
             playsInline
             poster="/images/hero/oem-workshop.jpg"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
           >
-            <source src="/assets/sanctuary-bg.mp4" type="video/mp4" />
+            <source src="/assets/leather-craftsmanship.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-void) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-obsidian) 0%, rgba(3,2,1,0.5) 60%, transparent 100%)" }} />
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
             <div className="section-eyebrow mb-6">
