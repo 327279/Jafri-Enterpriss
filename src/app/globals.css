@@ -1,0 +1,740 @@
+@import "tailwindcss";
+
+/* ── Archivo Black — Display Font (ships weight 900 only) ── */
+@font-face {
+  font-family: 'Archivo Black';
+  src: url('/fonts/ArchivoBlack-Regular.ttf') format('truetype'),
+       url('/fonts/ArchivoBlack-Regular.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────
+   JAFRI ENTERPRISES — ORIGINAL BROWN LEATHER SYSTEM
+   Exact starting palette restored. The brown amber (#906C56),
+   the brown grounds, the original 0.15 alpha borders.
+   ───────────────────────────────────────────────────────── */
+
+/* ── Design Tokens ─────────────────────────────────────── */
+:root {
+  /* ── Surfaces ────────────────────────────────────────── */
+  --color-void:           #1A1208;
+  --color-obsidian:       #553A2E;
+  --color-dark:           #14100D;
+  --color-brown-deep:     #553A2E;
+  --color-brown:          #6B4520;
+  --color-brown-mid:      #906C56;
+
+  /* Primary references */
+  --color-page:           var(--color-void);
+  --color-surface:        var(--color-obsidian);
+  --color-inverse:        var(--color-void);
+  --color-inverse-2:      var(--color-dark);
+
+  /* ── Brand ──────────────────────────────────────────── */
+  --color-amber:          #906C56;
+  --color-amber-light:    #B6A292;
+  --color-amber-pale:     #C9B5A8;
+
+  /* Aliases so new code reads naturally */
+  --color-tan:            var(--color-amber);
+  --color-tan-deep:       var(--color-brown);
+  --color-tan-light:      var(--color-amber-light);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --color-pure-white:     #FFFFFF;
+  --color-soft-white:     #F6F1EB;
+  --color-cream:          #E8DFD4;
+  --color-warm-white:     #FBF7F2;
+  --color-text:           #B6A292;
+  --color-text-primary:   #B6A292;
+  --color-text-heading:   #F6F1EB;
+  --color-text-on-light:  #3D2A1F;
+  --color-text-body:      #B6A292;
+  --color-text-secondary: #8A7A6E;
+  --color-text-muted:     #8A7A6E;
+  --color-text-on-dark:   #E8DFD4;
+  --color-text-on-dark-2: #B6A292;
+  --color-on-accent:      #FFFFFF;
+
+  /* ── Borders ────────────────────────────────────────── */
+  --color-border:         rgba(85, 58, 46, 0.15);
+  --color-border-strong:  rgba(85, 58, 46, 0.28);
+  --color-border-light:   rgba(85, 58, 46, 0.12);
+  --color-border-on-dark: rgba(232, 223, 212, 0.14);
+
+  /* ── Typography ─────────────────────────────────────── */
+  --font-display: 'Archivo Black', 'Inter', system-ui, sans-serif;
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 28px 70px rgba(0, 0, 0, 0.65);
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 8vw, 9rem);
+  --container-max: 1320px;
+  --container-pad: clamp(1.25rem, 5vw, 3rem);
+
+  /* Transitions */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-snap: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --duration-xslow: 1200ms;
+}
+
+/* ── Reset & Base ──────────────────────────────────────────
+   This reset MUST live in the `base` layer.
+
+   Tailwind v4 emits its utilities inside `@layer utilities`. In the CSS
+   cascade, *unlayered* rules outrank every layered rule regardless of
+   specificity — so an unlayered `* { margin: 0; padding: 0 }` silently
+   beat every `p-*`, `px-*`, `m-*`, `mb-*` and `space-y-*` class in the
+   codebase, collapsing them all to 0. Buttons rendered with no padding
+   and sections with no rhythm.
+
+   Declaring it in `base` puts it below `utilities` in layer order, which
+   is exactly where a reset belongs: it still normalises the defaults,
+   but any utility class now wins over it.
+   ───────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Element defaults belong in `base` for the same reason the reset does:
+   unlayered element rules outrank Tailwind's `utilities` layer, so an
+   unlayered `body { line-height }` or `p { line-height }` would beat every
+   `leading-*` class in the codebase. In `base` they set the default and
+   any utility can still override it. */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Stops iOS Safari from re-flowing type larger when the phone is rotated. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Anything that escapes the container on a narrow screen should be clipped
+     rather than opening a horizontal scroll region beside the page. */
+  html, body { max-width: 100%; }
+
+  /* Long unbroken strings — email addresses, URLs, spec values — are the most
+     common cause of a 320px layout blowing out. */
+  p, li, h1, h2, h3, h4, a, span, td { overflow-wrap: break-word; }
+}
+
+/* ── Custom Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-amber);
+  border-radius: 5px;
+  border: 2px solid var(--color-void);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-amber-light); }
+
+/* ── Selection ─────────────────────────────────────────── */
+::selection {
+  background: var(--color-amber);
+  color: var(--color-void);
+}
+
+/* ── Focus ring — visible for keyboard users ───────────── */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Typography Scale ──────────────────────────────────────
+   Archivo Black ships ONLY weight 900. Every display class
+   declares 900 so the browser never synthesises a faux bold.
+   ───────────────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); font-weight: 900; }
+.font-sans    { font-family: var(--font-sans); }
+
+/* Paragraph default lives in `base` so `leading-*` utilities still win.
+   This is the resting measure for unsized body copy; anything carrying a
+   Tailwind `text-*` class picks up that scale's own line-height, and an
+   explicit `leading-*` overrides both. */
+@layer base {
+  p {
+    line-height: 1.7;
+    /* Avoids single-word last lines. Degrades to normal wrapping. */
+    text-wrap: pretty;
+  }
+}
+
+/* ── Reading measure ───────────────────────────────────────
+   Long paragraphs in a 1320px container run ~150 characters per
+   line, which reads as unedited. These cap them into the 45–75
+   range where the eye tracks a line comfortably.
+
+   The `ch` unit is the advance width of "0", which in Inter is
+   ~1.2× the average lowercase glyph — so a nominal 66ch renders
+   as ~79 real characters. The tokens below are tuned to the
+   measure that ACTUALLY lands, not the nominal one:
+
+     58ch → ~70 characters   (default body)
+     52ch → ~62 characters   (.measure, centred/lede copy)
+     40ch → ~48 characters   (.measure-sm, narrow columns)
+   ───────────────────────────────────────────────────────── */
+:root {
+  --measure:      58ch;
+  --measure-mid:  52ch;
+  --measure-sm:   40ch;
+}
+
+.measure    { max-width: var(--measure-mid); }
+.measure-sm { max-width: var(--measure-sm); }
+
+/* Applies the cap to every paragraph at once rather than at each
+   call site, so the whole site keeps an even ragged right edge.
+   Scoped to `main` so footer/nav microcopy is untouched, and
+   opt-out via `.measure-none` for full-bleed cases. Explicit
+   `.measure`/`.measure-sm` and Tailwind `max-w-*` still win —
+   they are equal or higher specificity and come later. */
+main p:not([class*="max-w-"]):not(.measure):not(.measure-sm):not(.measure-none) {
+  max-width: var(--measure);
+}
+/* Centred paragraphs must keep their auto margins when capped. */
+main p.mx-auto { margin-left: auto; margin-right: auto; }
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.2vw, 4.75rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--color-text-heading);
+  text-wrap: balance;
+}
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--color-text-heading);
+  text-wrap: balance;
+}
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.9vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+  text-wrap: balance;
+}
+.text-display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-text-heading);
+  text-wrap: balance;
+}
+/* Card/list heading — one step below display-sm, still on the scale. */
+.text-display-xs {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+  text-wrap: balance;
+}
+.text-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* These are single-line eyebrows, usually a flex sibling of .divider-gold.
+     Inheriting the 1.7 paragraph leading gave them a tall invisible box that
+     pushed the label off the divider's optical centre. */
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+/* This class doubles as the form-label style. At 0.7rem (11.2px) with
+   0.18em tracking it is the least legible text on the site, so give it
+   a 12px floor and slightly tighter tracking on small screens. */
+@media (max-width: 639px) {
+  .text-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+.on-dark .text-display-xl,
+.on-dark .text-display-lg,
+.on-dark .text-display-md,
+.on-dark .text-display-sm { color: var(--color-text-heading); }
+.on-dark .text-display-xs { color: var(--color-cream); }
+.on-dark .text-label { color: var(--color-amber); }
+.on-dark { color: var(--color-text); }
+
+/* ── Container ─────────────────────────────────────────── */
+.container-luxury {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* ── Section Spacing ───────────────────────────────────── */
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+/* ── Divider ───────────────────────────────────────────── */
+.divider-gold {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--color-amber);
+  flex-shrink: 0;
+}
+.on-dark .divider-gold { background: var(--color-amber); }
+
+/* ── Grain Overlay ─────────────────────────────────────── */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Surface panels ────────────────────────────────────── */
+.glass-panel {
+  background: rgba(26, 18, 8, 0.72);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg);
+}
+.glass-panel-amber {
+  background: rgba(144, 108, 86, 0.08);
+  border: 1px solid rgba(144, 108, 86, 0.24);
+}
+
+/* ── Mid-brown sections ────────────────────────────────────
+   --color-obsidian (#553A2E) is a mid-brown, far lighter than
+   the page ground. The muted browns read at only 2.5:1 on it,
+   so body copy there looked washed out and hard to read.
+
+   No token VALUE changes here — the variables are simply
+   rebound within these sections to lighter colours already in
+   the palette. Because custom properties inherit, even inline
+   `color: var(--color-text-secondary)` picks this up.
+
+     text-on-dark (#E8DFD4) on #553A2E → 7.85:1  (AAA)
+     amber-pale   (#C9B5A8) on #553A2E → 5.25:1  (AA)
+   ───────────────────────────────────────────────────────── */
+.on-brown {
+  --color-text:           var(--color-text-on-dark);
+  --color-text-primary:   var(--color-text-on-dark);
+  --color-text-body:      var(--color-text-on-dark);
+  --color-text-secondary: var(--color-text-on-dark);
+  --color-text-muted:     var(--color-amber-pale);
+  --color-text-on-dark-2: var(--color-amber-pale);
+  --color-border:         rgba(232, 223, 212, 0.16);
+  --color-border-strong:  rgba(232, 223, 212, 0.30);
+}
+/* Eyebrow labels use the amber accent, which reads at only 2.2:1
+   on this ground. Amber-pale is the same family at 5.25:1.
+   Icons and dividers keep the full-strength amber. */
+.on-brown .text-label { color: var(--color-amber-pale); }
+
+/* ── Pill Badge ────────────────────────────────────────── */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(144, 108, 86, 0.12);
+  border: 1px solid rgba(144, 108, 86, 0.30);
+  color: var(--color-amber-light);
+  transition: background var(--duration-fast) ease,
+              border-color var(--duration-fast) ease;
+}
+.pill-badge:hover {
+  background: rgba(144, 108, 86, 0.22);
+  border-color: rgba(144, 108, 86, 0.48);
+}
+.on-dark .pill-badge {
+  background: rgba(144, 108, 86, 0.12);
+  border-color: rgba(144, 108, 86, 0.30);
+  color: var(--color-amber-light);
+}
+
+/* ── Accent text ───────────────────────────────────────── */
+.text-gradient-gold {
+  background: linear-gradient(100deg, #B6A292 0%, #906C56 55%, #B6A292 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-amber-light);
+}
+
+.glow-gold {
+  filter: drop-shadow(0 0 18px rgba(144, 108, 86, 0.30));
+}
+.text-glow-gold {
+  text-shadow: 0 0 24px rgba(144, 108, 86, 0.38);
+}
+
+/* ── Card ──────────────────────────────────────────────── */
+/*
+ * Spotlight card. Three effects, none of which require touching card markup:
+ *   background — a radial wash that tracks the cursor via --mx/--my (written
+ *                by SpotlightTracker). Rides as a background layer rather than
+ *                a pseudo-element so it always paints beneath child content.
+ *   ::before   — a hairline sheen along the top edge, always faintly on. Reads
+ *                as a lit bevel, so the card has depth before it's hovered.
+ *   box-shadow — a layered ambient + contact + rim set rather than one blur,
+ *                which is what actually sells elevation.
+ */
+.card-luxury {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      460px circle at var(--mx, -100%) var(--my, -100%),
+      rgba(144, 108, 86, 0.20),
+      rgba(144, 108, 86, 0.06) 42%,
+      transparent 72%
+    ),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  /* Clips children (images, tag badges) to the rounded shell — otherwise
+     square corners poke out past the radius. */
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  transition: transform var(--duration-base) var(--ease-luxury),
+              box-shadow var(--duration-base) var(--ease-luxury),
+              border-color var(--duration-base) var(--ease-luxury);
+}
+
+/* Top-edge sheen — 1px tall, brightest at the centre. */
+.card-luxury::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(182, 162, 146, 0.20) 25%,
+    rgba(214, 199, 186, 0.40) 50%,
+    rgba(182, 162, 146, 0.20) 75%,
+    transparent 100%
+  );
+  opacity: 0.65;
+  transition: opacity var(--duration-base) var(--ease-luxury);
+}
+
+.card-luxury:hover {
+  transform: translateY(-6px);
+  border-color: rgba(144, 108, 86, 0.42);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.62),
+    0 8px 16px -8px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(144, 108, 86, 0.10),
+    0 0 46px -18px rgba(144, 108, 86, 0.42);
+}
+.card-luxury:hover::before { opacity: 1; }
+
+/* The lift and the wash both read as motion; honour the OS setting. */
+@media (prefers-reduced-motion: reduce) {
+  .card-luxury {
+    transition: border-color var(--duration-fast) ease,
+                box-shadow var(--duration-fast) ease;
+  }
+  .card-luxury:hover { transform: none; }
+}
+
+/* ── Image Parallax Container ──────────────────────────── */
+.parallax-container {
+  overflow: hidden;
+}
+.parallax-image {
+  transform-origin: center;
+  transition: transform 0.1s linear;
+}
+
+/* ── Navbar ────────────────────────────────────────────── */
+.navbar-blur {
+  background: rgba(26, 18, 8, 0.88);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Hero gradient overlays ────────────────────────────── */
+.hero-gradient-bottom {
+  background: linear-gradient(to top, var(--color-void) 0%, transparent 50%);
+}
+.hero-gradient-left {
+  background: linear-gradient(to right, var(--color-void) 0%, rgba(26,18,8,0.55) 40%, transparent 70%);
+}
+
+/* ── Section titles ────────────────────────────────────── */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Button sheen ──────────────────────────────────────────
+   A single diagonal highlight that sweeps across the primary
+   button on hover — the premium "wet ink" catch-light. Driven
+   by a pseudo-element so it never affects layout or the label.
+   Suppressed under reduced-motion. */
+.btn-sheen { position: relative; overflow: hidden; }
+.btn-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  transform: translateX(-160%) skewX(-20deg);
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: transform 0.7s var(--ease-luxury);
+}
+.btn-sheen:hover::after { transform: translateX(280%) skewX(-20deg); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-sheen::after { display: none; }
+}
+
+/* ── Accent hover ──────────────────────────────────────────
+   Link/icon hover that lifts muted text to the brand amber.
+   Replaces the old `hover:text-amber-400` Tailwind utility,
+   which was an off-brand yellow AND a no-op wherever an inline
+   `style={{ color }}` was present (inline styles beat classes).
+   A CSS custom-property flip wins over inline color, so this
+   actually takes effect. Colour transition is inherited from
+   the element's own `transition-colors`. */
+.hover-accent { transition: color var(--duration-fast) ease; }
+.hover-accent:hover { color: var(--color-amber-light) !important; }
+
+/* ── Animated underline ────────────────────────────────── */
+.underline-gold {
+  position: relative;
+}
+.underline-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-amber);
+  transition: width var(--duration-base) var(--ease-luxury);
+}
+.underline-gold:hover::after { width: 100%; }
+
+/* ── Stats number ──────────────────────────────────────── */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--color-amber);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.on-dark .stat-number { color: var(--color-amber); }
+
+/* NumberFlow pads its inner span vertically to give the fade mask room, which
+   makes an animated stat taller than a plain-text one — captions in a mixed
+   row (e.g. "20+" beside "CBR" on /oem) then sit at different heights. Cancel
+   it with the identical expression NumberFlow uses, so if a browser lacks
+   round() both declarations are invalid together and the row stays even. */
+.stat-number number-flow-react {
+  margin-block: calc(
+    round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * -2
+  );
+}
+
+/* ── Product Spec Table ────────────────────────────────── */
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.spec-row:last-child { border-bottom: none; }
+
+/* ── Form fields ───────────────────────────────────────── */
+.form-field {
+  width: 100%;
+  background: rgba(232, 223, 212, 0.04);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 2px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  transition: border-color var(--duration-fast) ease,
+              box-shadow var(--duration-fast) ease,
+              background var(--duration-fast) ease;
+}
+.form-field:focus {
+  background: rgba(232, 223, 212, 0.07);
+  border-color: var(--color-amber);
+  box-shadow: 0 0 0 3px rgba(144, 108, 86, 0.18);
+}
+.form-field::placeholder { color: var(--color-text-muted); opacity: 0.8; }
+
+.form-field option {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* ── Scrollbar hide utility ────────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Modal ─────────────────────────────────────────────────
+   The overlay itself scrolls and aligns to the start on small
+   viewports. With `align-items: center` and no overflow, a panel
+   taller than the visible area is centred so BOTH its header (the
+   close button) and its submit button sit outside the viewport
+   with no way to reach either.
+   ───────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 4, 3, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@media (min-width: 640px) {
+  .modal-overlay {
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+/* Form controls must render at >= 16px or iOS Safari zooms the whole
+   page when a field takes focus, stranding the user at a viewport
+   width they never chose. */
+@media (max-width: 639px) {
+  .form-field { font-size: 1rem; }
+}
+
+/* ── Page header ───────────────────────────────────────── */
+.page-header {
+  position: relative;
+  min-height: 50dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 60%);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+.footer-bg {
+  background: var(--color-void);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* ── Animations ────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-luxury) both;
+}
+.animate-fade-in {
+  animation: fadeIn 1s var(--ease-luxury) both;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-800 { animation-delay: 800ms; }
