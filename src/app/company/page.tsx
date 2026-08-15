@@ -59,47 +59,23 @@ export default function CompanyPage() {
     <div>
       {/* ── Page Hero ─────────────────────────────────── */}
       <div
-        className="relative min-h-[62vh] flex items-end overflow-hidden"
-        style={{ background: "linear-gradient(150deg, var(--color-brown-deep) 0%, var(--color-void) 65%)" }}
+        className="relative min-h-[50vh] flex items-end overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)", color: "#FFFFFF" }}
       >
-        {/* Texture overlay */}
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(144,108,86,0.18) 1px, transparent 0)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-        {/* Ambient gradient */}
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 80% 50%, var(--color-brown) 0%, transparent 70%)",
-          }}
-        />
-
         <div className="container-luxury relative z-10 pb-16 pt-40">
           <AnimatedSection>
-            <p className="text-label mb-4">Company Profile</p>
-            <h1 className="text-display-lg mb-6" style={{ color: "var(--color-cream)" }}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Company Profile</p>
+            <h1 className="text-display-lg mb-6 text-white">
               Crafted for Quality.<br />
-              <span style={{ color: "var(--color-amber-light)" }}>Built to Last.</span>
+              <span className="text-[#EBE3D5] italic font-serif">Built to Last.</span>
             </h1>
             <p
-              className="max-w-xl text-lg leading-relaxed mb-2"
-              style={{ color: "var(--color-text-secondary)" }}
+              className="max-w-xl text-lg leading-relaxed mb-4 text-[#FAF6F0]/90 font-medium"
             >
               Established 2005 · Karachi, Pakistan
             </p>
             <div
-              className="inline-block mt-2 px-5 py-2 rounded-full text-sm font-semibold tracking-widest uppercase"
-              style={{
-                background: "rgba(144,108,86,0.15)",
-                border: "1px solid var(--color-border-strong)",
-                color: "var(--color-amber-light)",
-              }}
+              className="inline-block px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase bg-white/10 border border-white/25 text-[#EBE3D5]"
             >
               Leather Tannery &amp; Exporter
             </div>

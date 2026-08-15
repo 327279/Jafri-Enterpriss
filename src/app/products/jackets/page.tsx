@@ -304,7 +304,7 @@ export default function JacketsPage() {
   return (
     <div>
       {/* Header with Video Background */}
-      <div className="relative min-h-[65vh] flex items-end overflow-hidden">
+      <div className="relative min-h-[60vh] flex items-end overflow-hidden">
         {/* Background Video */}
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -321,25 +321,17 @@ export default function JacketsPage() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(105deg, rgba(85,58,46,0.88) 0%, rgba(3,2,1,0.80) 50%, rgba(3,2,1,0.65) 100%)",
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to top, var(--color-obsidian) 0%, transparent 60%)",
+                "linear-gradient(105deg, rgba(26,14,7,0.85) 0%, rgba(26,14,7,0.70) 50%, rgba(26,14,7,0.55) 100%)",
             }}
           />
         </div>
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
-            <p className="text-label mb-4">Garments Division</p>
-            <h1 className="text-display-lg mb-4">
-              Leather{" "}
-              <span className="text-gradient-gold italic">Jackets</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Garments Division</p>
+            <h1 className="text-display-lg mb-4 text-white">
+              Leather <span className="text-[#EBE3D5] italic font-serif">Jackets</span>
             </h1>
-            <p className="max-w-xl text-lg" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="max-w-xl text-lg text-[#FAF6F0]/90 font-medium">
               Made-to-order leather jackets in all styles and sizes. OEM and private label for global fashion brands.
             </p>
           </AnimatedSection>
@@ -348,8 +340,8 @@ export default function JacketsPage() {
 
       {/* Stats */}
       <section
-        className="py-14 on-brown"
-        style={{ background: "linear-gradient(90deg, var(--color-brown-deep) 0%, var(--color-obsidian) 100%)", borderBottom: "1px solid rgba(232,223,212,0.16)" }}
+        className="py-12"
+        style={{ background: "#FAF6F0", borderBottom: "1px solid rgba(140,87,56,0.18)" }}
       >
         <div className="container-luxury">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
@@ -360,8 +352,8 @@ export default function JacketsPage() {
               { label: "Lead Time", value: "8–10 weeks" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <StatNumber value={s.value} style={{ fontSize: "1.5rem" }} />
-                <div className="text-xs tracking-widest uppercase mt-1" style={{ color: "var(--color-text-muted)" }}>
+                <StatNumber value={s.value} style={{ fontSize: "1.5rem", color: "#1A0E07", fontWeight: 800 }} />
+                <div className="text-xs font-bold tracking-widest uppercase mt-1 text-[#8C5738]">
                   {s.label}
                 </div>
               </div>
@@ -371,16 +363,12 @@ export default function JacketsPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      <section className="section-padding" style={{ background: "#FBF8F3" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-14">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Jacket Styles</p>
-            </div>
-            <h2 className="text-display-md">
-              Find Your{" "}
-              <span className="text-gradient-gold italic">Perfect Style</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">Jacket Styles</p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              Find Your <span className="text-[#8C5738] italic font-serif">Perfect Style</span>
             </h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -399,42 +387,37 @@ export default function JacketsPage() {
         intro={customIntro}
         specs={customSpecs}
         outro={customOutro}
-        background="var(--color-dark)"
+        background="#FAF6F0"
       />
 
       {/* Custom leather builder */}
       <CustomLeatherForm defaultApplication="Garments / Jackets" />
 
       {/* OEM Process */}
-      <section className="section-padding" style={{ background: "var(--color-void)" }}>
+      <section className="section-padding" style={{ background: "#FAF6F0" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-14">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">OEM Process</p>
-            </div>
-            <h2 className="text-display-md">
-              From Concept to{" "}
-              <span className="text-gradient-gold italic">Delivery</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">OEM Process</p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              From Concept to <span className="text-[#8C5738] italic font-serif">Delivery</span>
             </h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {process.map((p, i) => (
               <AnimatedSection key={p.step} delay={i * 0.08}>
                 <div
-                  className="relative p-6 h-full"
-                  style={{ background: "rgba(26,18,8,0.7)", border: "1px solid var(--color-border)" }}
+                  className="rounded-2xl p-6 h-full bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                  style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                 >
                   <div
-                    className="text-4xl font-display leading-none mb-4 opacity-20"
-                    style={{ color: "var(--color-amber)" }}
+                    className="text-4xl font-black leading-none mb-4 font-serif text-[#8C5738]"
                   >
                     {p.step}
                   </div>
-                  <h3 className="text-display-xs mb-2">
+                  <h3 className="text-base font-bold mb-2" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                     {p.title}
                   </h3>
-                  <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="text-xs font-medium leading-relaxed" style={{ color: "#523B2D" }}>
                     {p.desc}
                   </p>
                 </div>
@@ -445,15 +428,14 @@ export default function JacketsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 text-center" style={{ background: "var(--color-dark)", borderTop: "1px solid var(--color-border)" }}>
+      <section className="py-20 text-center text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <AnimatedSection>
-            <p className="text-label mb-4">Start Your Order</p>
-            <h2 className="text-display-md mb-8">
-              Request Samples &{" "}
-              <span className="text-gradient-gold italic">Pricing</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Start Your Order</p>
+            <h2 className="text-display-md mb-8 text-white">
+              Request Samples & <span className="text-[#EBE3D5] italic font-serif">Pricing</span>
             </h2>
-            <QuoteButton label="Request a Quote" hint="jackets" />
+            <QuoteButton label="Request a Quote" hint="jackets" size="lg" />
           </AnimatedSection>
         </div>
       </section>

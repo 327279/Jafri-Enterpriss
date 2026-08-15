@@ -578,23 +578,16 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════
           FINAL CTA
       ══════════════════════════════════════════ */}
-      <section className="section-padding relative overflow-hidden" style={{ background: "var(--color-dark)" }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(44,24,16,0.8) 0%, var(--color-void) 70%)",
-          }}
-        />
+      <section className="section-padding relative overflow-hidden text-white" style={{ background: "#362217" }}>
         <div className="container-luxury relative z-10 text-center">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <p className="text-label mb-4">Start Your Order</p>
-              <h2 className="text-display-lg mb-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Start Your Order</p>
+              <h2 className="text-display-lg mb-6 text-white">
                 Ready to Source{" "}
-                <span className="text-gradient-gold italic">Premium Leather?</span>
+                <span className="text-[#EBE3D5] italic font-serif">Premium Leather?</span>
               </h2>
-              <p className="text-lg mb-12 measure mx-auto" style={{ color: "var(--color-text-secondary)" }}>
+              <p className="text-lg mb-10 text-[#FAF6F0]/90 font-medium max-w-2xl mx-auto">
                 Connect with our export team for pricing, samples, and bulk order arrangements. We ship worldwide.
               </p>
               <div className="flex flex-wrap gap-5 justify-center">
@@ -602,7 +595,7 @@ export default function HomePage() {
                   Request a Quote
                   <ArrowRight />
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="heroOutline" size="lg">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>

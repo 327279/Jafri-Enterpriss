@@ -139,9 +139,8 @@ export default function QuoteModal() {
               transition={SHUTTER}
             >
               <motion.div
-                className="glass-panel max-h-[90dvh] w-full overflow-y-auto overscroll-contain"
+                className="bg-white rounded-2xl shadow-2xl max-h-[90dvh] w-full overflow-y-auto overscroll-contain border border-amber-900/20"
                 data-lenis-prevent
-                style={{ borderRadius: "2px" }}
                 initial={{
                   clipPath: reduceMotion ? ROLLED_DOWN : ROLLED_UP,
                   opacity: reduceMotion ? 0 : 1,
@@ -154,20 +153,19 @@ export default function QuoteModal() {
                 transition={SHUTTER}
               >
               {/* Header */}
-              <div className="flex items-start justify-between gap-4 border-b p-5 pb-5 sm:p-8 sm:pb-6" style={{ borderColor: "var(--color-border)" }}>
+              <div className="flex items-start justify-between gap-4 border-b p-6 sm:p-8" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
                 <div>
-                  <p className="text-label mb-2">B2B Inquiry</p>
-                  <h2 className="text-display-md">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] mb-2 text-[#8C5738]">B2B Inquiry</p>
+                  <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
                     Request a Quote
                   </h2>
-                  <p className="mt-1 text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="mt-1 text-sm font-medium" style={{ color: "#523B2D" }}>
                     Our team typically responds within 24 business hours.
                   </p>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="-mr-2 -mt-2 flex size-11 shrink-0 items-center justify-center transition-colors hover-accent"
-                  style={{ color: "var(--color-text-muted)" }}
+                  className="-mr-2 -mt-2 flex size-11 shrink-0 items-center justify-center rounded-full text-[#523B2D] hover:bg-[#FAF6F0] hover:text-[#1A0E07] transition-colors"
                   aria-label="Close"
                 >
                   <X size={22} />
@@ -175,31 +173,31 @@ export default function QuoteModal() {
               </div>
 
               {/* Body */}
-              <div className="p-5 sm:p-8">
+              <div className="p-6 sm:p-8">
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="text-label block mb-2">Full Name *</label>
+                        <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Full Name *</label>
                         <input required name="name" type="text" placeholder="John Smith" className="form-field" />
                       </div>
                       <div>
-                        <label className="text-label block mb-2">Company *</label>
+                        <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Company *</label>
                         <input required name="company" type="text" placeholder="Your Company Ltd." className="form-field" />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="text-label block mb-2">Email Address *</label>
+                        <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Email Address *</label>
                         <input required name="email" type="email" placeholder="john@company.com" className="form-field" />
                       </div>
                       <div>
-                        <label className="text-label block mb-2">Phone</label>
+                        <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Phone</label>
                         <input name="phone" type="tel" placeholder="+1 555 000 0000" className="form-field" />
                       </div>
                     </div>
                     <div>
-                      <label className="text-label block mb-2">Product Type *</label>
+                      <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Product Type *</label>
                       <select required name="productType" className="form-field" defaultValue={productHint || ""}>
                         <option value="" disabled>Select product category</option>
                         <option value="leather-skins">Finished Leather Skins</option>
@@ -210,11 +208,11 @@ export default function QuoteModal() {
                       </select>
                     </div>
                     <div>
-                      <label className="text-label block mb-2">Estimated Quantity / MOQ</label>
+                      <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Estimated Quantity / MOQ</label>
                       <input name="quantity" type="text" placeholder="e.g. 5,000 sq ft / 200 units per month" className="form-field" />
                     </div>
                     <div>
-                      <label className="text-label block mb-2">Message & Requirements *</label>
+                      <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Message & Requirements *</label>
                       <textarea
                         required
                         name="message"
@@ -225,7 +223,7 @@ export default function QuoteModal() {
                     </div>
 
                     {error && (
-                      <p className="text-sm" style={{ color: "#e5806b" }}>
+                      <p className="text-sm font-semibold text-rose-600">
                         {error}
                       </p>
                     )}
@@ -233,7 +231,7 @@ export default function QuoteModal() {
                     <Button type="submit" size="lg" block disabled={sending}>
                       {sending ? "Sending…" : "Send Inquiry"}
                     </Button>
-                    <p className="text-xs text-center" style={{ color: "var(--color-text-muted)" }}>
+                    <p className="text-xs text-center font-semibold" style={{ color: "#6E4D3B" }}>
                       By submitting, you agree to our privacy policy. No spam, ever.
                     </p>
                   </form>
@@ -244,23 +242,22 @@ export default function QuoteModal() {
                     animate={{ opacity: 1, scale: 1 }}
                   >
                     <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                      style={{ background: "rgba(144,108,86,0.15)", border: "1px solid var(--color-amber)" }}
+                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-[#8C5738]/15 border border-[#8C5738]"
                     >
-                      <Check size={26} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
+                      <Check size={26} className="text-[#8C5738]" aria-hidden="true" />
                     </div>
-                    <h3 className="text-display-sm mb-3" style={{ color: "var(--color-amber)" }}>
+                    <h3 className="text-2xl font-bold mb-3 text-[#1A0E07]" style={{ fontFamily: "var(--font-display)" }}>
                       {delivered ? "Inquiry Received!" : "Almost There"}
                     </h3>
-                    <p style={{ color: "var(--color-text-secondary)" }}>
+                    <p className="font-medium text-[#36251B] leading-relaxed">
                       {delivered ? (
                         <>
-                          Thank you for reaching out to Jafri Enterprises. Our export team will contact you within <strong>24 business hours</strong>.
+                          Thank you for reaching out to Jafri Enterprises. Our export team will contact you within <strong className="text-[#1A0E07]">24 business hours</strong>.
                         </>
                       ) : (
                         <>
                           Email delivery is not configured on this site yet. Please send your requirements directly to{" "}
-                          <a href="mailto:info@jafrienterprises.biz" className="underline" style={{ color: "var(--color-amber)" }}>
+                          <a href="mailto:info@jafrienterprises.biz" className="underline font-bold text-[#8C5738]">
                             info@jafrienterprises.biz
                           </a>{" "}
                           and our export team will respond within 24 business hours.

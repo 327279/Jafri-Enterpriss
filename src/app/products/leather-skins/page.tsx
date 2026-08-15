@@ -223,8 +223,8 @@ export default function LeatherSkinsPage() {
     <div>
       {/* Header */}
       <div
-        className="relative min-h-[60vh] flex items-end overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 70%)" }}
+        className="relative min-h-[50vh] flex items-end overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)", color: "#FFFFFF" }}
       >
         <div
           className="absolute inset-0"
@@ -232,28 +232,26 @@ export default function LeatherSkinsPage() {
             backgroundImage: `url('/images/products/skins/nappa.jpg')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.25,
+            opacity: 0.22,
           }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-void) 0%, transparent 60%)" }} />
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
-            <p className="text-label mb-4">Tannery Division</p>
-            <h1 className="text-display-lg mb-4">
-              Finished{" "}
-              <span className="text-gradient-gold italic">Leather Skins</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Tannery Division</p>
+            <h1 className="text-display-lg mb-4 text-white">
+              Finished <span className="text-[#EBE3D5] italic font-serif">Leather Skins</span>
             </h1>
-            <p className="max-w-xl text-lg" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="max-w-xl text-lg text-[#FAF6F0]/90 font-medium">
               Premium full-grain and top-grain finished leather. Processed in Korangi Industrial Area, Karachi.
             </p>
           </AnimatedSection>
         </div>
       </div>
 
-      {/* Category Intro */}
+      {/* Category Stats Strip */}
       <section
-        className="py-16 on-brown"
-        style={{ background: "linear-gradient(90deg, var(--color-brown-deep) 0%, var(--color-obsidian) 100%)", borderBottom: "1px solid rgba(232,223,212,0.16)" }}
+        className="py-12"
+        style={{ background: "#FAF6F0", borderBottom: "1px solid rgba(140,87,56,0.18)" }}
       >
         <div className="container-luxury">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
@@ -264,8 +262,8 @@ export default function LeatherSkinsPage() {
               { label: "Processing", value: "Raw to Finish" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <StatNumber value={s.value} style={{ fontSize: "1.5rem" }} />
-                <div className="text-xs tracking-widest uppercase mt-1" style={{ color: "var(--color-text-muted)" }}>
+                <StatNumber value={s.value} style={{ fontSize: "1.5rem", color: "#1A0E07", fontWeight: 800 }} />
+                <div className="text-xs font-bold tracking-widest uppercase mt-1 text-[#8C5738]">
                   {s.label}
                 </div>
               </div>
@@ -275,16 +273,12 @@ export default function LeatherSkinsPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      <section className="section-padding" style={{ background: "#FBF8F3" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-14">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Available Types</p>
-            </div>
-            <h2 className="text-display-md">
-              Full Product{" "}
-              <span className="text-gradient-gold italic">Range</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">Available Types</p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              Full Product <span className="text-[#8C5738] italic font-serif">Range</span>
             </h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -297,23 +291,19 @@ export default function LeatherSkinsPage() {
 
       {/* Crust & Semi-Finished Grid */}
       <section
-        className="section-padding on-brown"
+        className="section-padding"
         style={{
-          background: "var(--color-brown-deep)",
-          borderTop: "1px solid var(--color-border)",
+          background: "#FAF6F0",
+          borderTop: "1px solid rgba(140,87,56,0.18)",
         }}
       >
         <div className="container-luxury">
           <AnimatedSection className="mb-14 max-w-2xl">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Crust &amp; Semi-Finished</p>
-            </div>
-            <h2 className="text-display-md mb-5">
-              Supplied Ready to{" "}
-              <span className="text-gradient-gold italic">Finish</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">Crust &amp; Semi-Finished</p>
+            <h2 className="text-display-md mb-5" style={{ color: "#1A0E07" }}>
+              Supplied Ready to <span className="text-[#8C5738] italic font-serif">Finish</span>
             </h2>
-            <p className="text-lg" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="text-lg font-medium leading-relaxed" style={{ color: "#36251B" }}>
               For buyers running their own finishing lines, we supply crust and
               semi-finished stock by application — sorted, graded, and substanced
               to the tolerance your cutting room works to.
@@ -328,13 +318,12 @@ export default function LeatherSkinsPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="section-padding" style={{ background: "var(--color-void)" }}>
+      <section className="section-padding" style={{ background: "#FBF8F3" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-12 text-center">
-            <p className="text-label mb-3">Applications</p>
-            <h2 className="text-display-md">
-              What Our Leather{" "}
-              <span className="text-gradient-gold">Powers</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">Applications</p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              What Our Leather <span className="text-[#8C5738] italic font-serif">Powers</span>
             </h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
@@ -342,16 +331,16 @@ export default function LeatherSkinsPage() {
               const Icon = u.icon;
               return (
                 <AnimatedSection key={u.title} delay={i * 0.07} className="h-full">
-                  <div className="card-luxury flex h-full flex-col items-center justify-start p-6 text-center">
+                  <div className="rounded-2xl bg-white shadow-sm flex h-full flex-col items-center justify-start p-6 text-center border border-amber-900/18 transition-transform duration-300 hover:-translate-y-1">
                     <Icon
-                      size={26}
+                      size={28}
                       className="mb-3"
-                      style={{ color: "var(--color-amber)" }}
+                      style={{ color: "#8C5738" }}
                       aria-hidden="true"
                     />
                     <p
-                      className="text-xs font-semibold leading-snug"
-                      style={{ color: "var(--color-text-heading)" }}
+                      className="text-xs font-bold leading-snug"
+                      style={{ color: "#1A0E07" }}
                     >
                       {u.title}
                     </p>
@@ -371,22 +360,21 @@ export default function LeatherSkinsPage() {
         intro={customIntro}
         specs={customSpecs}
         outro={customOutro}
-        background="var(--color-dark)"
+        background="#FAF6F0"
       />
 
       {/* Custom leather builder */}
       <CustomLeatherForm defaultApplication="Other" />
 
       {/* CTA */}
-      <section className="py-20 text-center" style={{ background: "var(--color-dark)", borderTop: "1px solid var(--color-border)" }}>
+      <section className="py-20 text-center text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <AnimatedSection>
-            <p className="text-label mb-4">Ready to Order?</p>
-            <h2 className="text-display-md mb-8">
-              Get a Quote for{" "}
-              <span className="text-gradient-gold italic">Leather Skins</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Ready to Order?</p>
+            <h2 className="text-display-md mb-8 text-white">
+              Get a Quote for <span className="text-[#EBE3D5] italic font-serif">Leather Skins</span>
             </h2>
-            <QuoteButton label="Request a Quote" hint="leather-skins" />
+            <QuoteButton label="Request a Quote" hint="leather-skins" size="lg" />
           </AnimatedSection>
         </div>
       </section>

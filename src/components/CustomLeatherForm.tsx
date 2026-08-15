@@ -57,11 +57,12 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className="rounded-full px-3.5 py-2 text-xs font-medium transition-all duration-200"
+      className="rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 cursor-pointer"
       style={{
-        background: selected ? "rgba(144,108,86,0.22)" : "rgba(144,108,86,0.06)",
-        border: `1px solid ${selected ? "var(--color-amber)" : "var(--color-border-strong)"}`,
-        color: selected ? "var(--color-amber-light)" : "var(--color-text-secondary)",
+        background: selected ? "#8C5738" : "#FAF6F0",
+        border: `1.5px solid ${selected ? "#8C5738" : "rgba(140,87,56,0.25)"}`,
+        color: selected ? "#FFFFFF" : "#36251B",
+        boxShadow: selected ? "0 2px 8px rgba(140,87,56,0.25)" : "none",
       }}
     >
       {label}
@@ -142,59 +143,53 @@ export default function CustomLeatherForm({
   };
 
   return (
-    // scroll-mt clears the fixed 80px header when linked to by hash from the
-    // navbar, so the eyebrow is not parked underneath it on arrival.
     <section
       id="custom-leather"
       className="section-padding scroll-mt-24"
-      style={{ background: "var(--color-void)" }}
+      style={{ background: "#FAF6F0" }}
     >
       <div className="container-luxury">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 items-start">
           {/* Pitch */}
           <AnimatedSection>
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Bespoke Development</p>
-            </div>
-            <h2 className="text-display-md mb-5">
-              Can&apos;t Find It?{" "}
-              <span className="text-gradient-gold italic">We&apos;ll Make It.</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#8C5738]">
+              Bespoke Development
+            </p>
+            <h2 className="text-display-md mb-5" style={{ color: "#1A0E07" }}>
+              Can&apos;t Find It?<br />
+              <span className="text-[#8C5738] italic font-serif">We&apos;ll Make It.</span>
             </h2>
-            <p className="mb-6 leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="mb-6 leading-relaxed font-medium" style={{ color: "#36251B" }}>
               Our Korangi tannery processes hide from raw to finished in-house, so
-              we are not limited to what is on this page. Describe the leather you
+              we are not limited to stock options. Describe the leather you
               need — substrate, finish, thickness, colour, hand feel — and our
               development team will match it or produce a sample to your reference.
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5 mb-8">
               {[
                 "Any Pantone colour matched in-house",
                 "Custom embossing and print plates",
                 "Physical swatch posted worldwide",
                 "Development samples in 3–4 weeks",
               ].map((point) => (
-                <li key={point} className="flex items-start gap-3 text-sm">
+                <li key={point} className="flex items-start gap-3 text-sm font-semibold" style={{ color: "#36251B" }}>
                   <Wand2
-                    size={15}
-                    className="mt-0.5 shrink-0"
-                    style={{ color: "var(--color-amber)" }}
+                    size={16}
+                    className="mt-0.5 shrink-0 text-[#8C5738]"
                     aria-hidden="true"
                   />
-                  <span style={{ color: "var(--color-text)" }}>{point}</span>
+                  <span>{point}</span>
                 </li>
               ))}
             </ul>
           </AnimatedSection>
 
-          {/* Builder */}
+          {/* Builder Card (Fixes Screenshot 5) */}
           <AnimatedSection direction="right">
             <div
-              className="p-6 sm:p-9"
+              className="p-8 sm:p-10 rounded-2xl bg-white shadow-sm"
               style={{
-                background: "rgba(26,18,8,0.62)",
-                border: "1px solid var(--color-border-strong)",
-                borderRadius: "14px",
+                border: "1px solid rgba(140,87,56,0.22)",
               }}
             >
               {done ? (
@@ -204,27 +199,25 @@ export default function CustomLeatherForm({
                   animate={{ opacity: 1, scale: 1 }}
                 >
                   <div
-                    className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full"
-                    style={{
-                      background: "rgba(144,108,86,0.15)",
-                      border: "1px solid var(--color-amber)",
-                    }}
+                    className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-[#8C5738]/15 border border-[#8C5738]"
                   >
-                    <Send size={24} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
+                    <Send size={24} className="text-[#8C5738]" aria-hidden="true" />
                   </div>
-                  <h3 className="text-display-sm mb-3" style={{ color: "var(--color-amber)" }}>
+                  <h3 className="text-display-sm mb-3 text-[#1A0E07]">
                     Spec Received
                   </h3>
-                  <p style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="font-medium text-[#36251B]">
                     Our development team will review your requirement and respond
-                    within <strong>24 business hours</strong>.
+                    within <strong className="text-[#1A0E07]">24 business hours</strong>.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Application */}
                   <fieldset>
-                    <legend className="text-label mb-3">What is it for?</legend>
+                    <legend className="text-xs font-bold uppercase tracking-[0.16em] mb-3 text-[#8C5738]">
+                      What is it for?
+                    </legend>
                     <div className="flex flex-wrap gap-2">
                       {APPLICATIONS.map((a) => (
                         <Chip
@@ -239,7 +232,9 @@ export default function CustomLeatherForm({
 
                   {/* Hide */}
                   <fieldset>
-                    <legend className="text-label mb-3">Hide type</legend>
+                    <legend className="text-xs font-bold uppercase tracking-[0.16em] mb-3 text-[#8C5738]">
+                      Hide type
+                    </legend>
                     <div className="flex flex-wrap gap-2">
                       {HIDES.map((h) => (
                         <Chip
@@ -254,7 +249,9 @@ export default function CustomLeatherForm({
 
                   {/* Finish */}
                   <fieldset>
-                    <legend className="text-label mb-3">Finish</legend>
+                    <legend className="text-xs font-bold uppercase tracking-[0.16em] mb-3 text-[#8C5738]">
+                      Finish
+                    </legend>
                     <div className="flex flex-wrap gap-2">
                       {FINISHES.map((f) => (
                         <Chip
@@ -267,24 +264,24 @@ export default function CustomLeatherForm({
                     </div>
                   </fieldset>
 
-                  {/* Free text — the part that actually carries the spec. */}
+                  {/* Free text */}
                   <div>
-                    <label htmlFor="cl-description" className="text-label mb-2 block">
+                    <label htmlFor="cl-description" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                       Describe what you want *
                     </label>
                     <textarea
                       required
                       id="cl-description"
                       name="description"
-                      rows={5}
-                      placeholder="e.g. Soft glove-hand lamb nappa, 0.7mm, deep oxblood close to Pantone 19-1522, slight sheen but not glossy. Needs to pass EU REACH. Reference: the shell of a Loro Piana bomber."
+                      rows={4}
+                      placeholder="e.g. Soft glove-hand lamb nappa, 0.7mm, deep oxblood close to Pantone 19-1522, slight sheen but not glossy. Needs to pass EU REACH."
                       className="form-field resize-none"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
                     <div>
-                      <label htmlFor="cl-thickness" className="text-label mb-2 block">
+                      <label htmlFor="cl-thickness" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                         Thickness
                       </label>
                       <input
@@ -296,7 +293,7 @@ export default function CustomLeatherForm({
                       />
                     </div>
                     <div>
-                      <label htmlFor="cl-color" className="text-label mb-2 block">
+                      <label htmlFor="cl-color" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                         Colour
                       </label>
                       <input
@@ -308,7 +305,7 @@ export default function CustomLeatherForm({
                       />
                     </div>
                     <div>
-                      <label htmlFor="cl-quantity" className="text-label mb-2 block">
+                      <label htmlFor="cl-quantity" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                         Quantity
                       </label>
                       <input
@@ -323,11 +320,11 @@ export default function CustomLeatherForm({
 
                   <div
                     className="border-t pt-6"
-                    style={{ borderColor: "var(--color-border)" }}
+                    style={{ borderColor: "rgba(140,87,56,0.18)" }}
                   >
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
                       <div>
-                        <label htmlFor="cl-name" className="text-label mb-2 block">
+                        <label htmlFor="cl-name" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                           Your name *
                         </label>
                         <input
@@ -340,7 +337,7 @@ export default function CustomLeatherForm({
                         />
                       </div>
                       <div>
-                        <label htmlFor="cl-company" className="text-label mb-2 block">
+                        <label htmlFor="cl-company" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                           Company *
                         </label>
                         <input
@@ -353,7 +350,7 @@ export default function CustomLeatherForm({
                         />
                       </div>
                       <div>
-                        <label htmlFor="cl-email" className="text-label mb-2 block">
+                        <label htmlFor="cl-email" className="text-xs font-bold uppercase tracking-[0.16em] mb-2 block text-[#8C5738]">
                           Email *
                         </label>
                         <input
@@ -372,8 +369,8 @@ export default function CustomLeatherForm({
                     {sending ? "Sending…" : "Send My Custom Spec"}
                   </Button>
                   <p
-                    className="text-center text-xs"
-                    style={{ color: "var(--color-text-muted)" }}
+                    className="text-center text-xs font-semibold"
+                    style={{ color: "#6E4D3B" }}
                   >
                     No obligation. We reply with feasibility, pricing, and a sample plan.
                   </p>

@@ -36,7 +36,7 @@ export default function ProseSection({
   specs,
   specsHeading,
   outro,
-  background = "var(--color-void)",
+  background = "#FAF6F0",
 }: {
   eyebrow: string;
   title: string;
@@ -49,26 +49,23 @@ export default function ProseSection({
   background?: string;
 }) {
   return (
-    <section className="section-padding" style={{ background }}>
+    <section className="section-padding" style={{ background, borderTop: "1px solid rgba(140,87,56,0.18)" }}>
       <div className="container-luxury">
         <AnimatedSection className="mb-12">
-          <div className="section-eyebrow">
-            <div className="divider-gold" />
-            <p className="text-label">{eyebrow}</p>
-          </div>
-          <h2 className="text-display-md">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">{eyebrow}</p>
+          <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
             {title}
             {titleAccent && (
               <>
                 {" "}
-                <span className="text-gradient-gold italic">{titleAccent}</span>
+                <span className="text-[#8C5738] italic font-serif">{titleAccent}</span>
               </>
             )}
           </h2>
           {intro && (
             <p
-              className="mt-5 text-lg leading-relaxed"
-              style={{ color: "var(--color-text-secondary)", maxWidth: "var(--measure)" }}
+              className="mt-5 text-lg leading-relaxed font-medium"
+              style={{ color: "#36251B", maxWidth: "var(--measure)" }}
             >
               {intro}
             </p>
@@ -79,13 +76,13 @@ export default function ProseSection({
           <div className="grid grid-cols-1 gap-x-14 gap-y-10 lg:grid-cols-2">
             {blocks.map((block, i) => (
               <AnimatedSection key={block.heading} delay={i * 0.06}>
-                <h3 className="text-display-xs mb-3">{block.heading}</h3>
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>{block.heading}</h3>
                 {block.paragraphs.map((p, j) => (
                   <p
                     key={j}
-                    className="mb-4 last:mb-0 leading-relaxed"
+                    className="mb-4 last:mb-0 leading-relaxed font-medium text-base"
                     style={{
-                      color: "var(--color-text-secondary)",
+                      color: "#36251B",
                       maxWidth: "var(--measure)",
                     }}
                   >
@@ -100,27 +97,25 @@ export default function ProseSection({
         {specs && specs.length > 0 && (
           <AnimatedSection className={blocks && blocks.length > 0 ? "mt-14" : ""}>
             {specsHeading && (
-              <h3 className="text-display-xs mb-6">{specsHeading}</h3>
+              <h3 className="text-xl font-bold mb-6" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>{specsHeading}</h3>
             )}
             <dl
               className="grid grid-cols-1 border-t md:grid-cols-2"
-              style={{ borderColor: "var(--color-border)" }}
+              style={{ borderColor: "rgba(140,87,56,0.22)" }}
             >
               {specs.map((s) => (
                 <div
                   key={s.label}
                   className="flex flex-col gap-1 border-b py-4 pr-6 sm:flex-row sm:gap-4"
-                  style={{ borderColor: "var(--color-border)" }}
+                  style={{ borderColor: "rgba(140,87,56,0.18)" }}
                 >
                   <dt
-                    className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.14em] sm:w-36 sm:pt-0.5"
-                    style={{ color: "var(--color-amber)" }}
+                    className="shrink-0 text-xs font-bold uppercase tracking-[0.14em] sm:w-36 sm:pt-0.5 text-[#8C5738]"
                   >
                     {s.label}
                   </dt>
                   <dd
-                    className="text-sm leading-relaxed"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    className="text-sm leading-relaxed font-medium text-[#36251B]"
                   >
                     {s.value}
                   </dd>
@@ -133,8 +128,8 @@ export default function ProseSection({
         {outro && (
           <AnimatedSection className="mt-12">
             <p
-              className="leading-relaxed"
-              style={{ color: "var(--color-text-secondary)", maxWidth: "var(--measure)" }}
+              className="leading-relaxed font-medium text-base"
+              style={{ color: "#36251B", maxWidth: "var(--measure)" }}
             >
               {outro}
             </p>

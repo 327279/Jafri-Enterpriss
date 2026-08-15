@@ -250,27 +250,24 @@ export default function OEMPage() {
         </div>
       </section>
 
-      {/* Export Markets */}
-      <section className="section-padding" style={{ background: "var(--color-dark)" }}>
+      {/* Export Markets (Fixes Screenshot 1) */}
+      <section className="section-padding" style={{ background: "#FAF6F0" }}>
         <div className="container-luxury">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <div className="section-eyebrow">
-                <div className="divider-gold" />
-                <p className="text-label">Global Reach</p>
-              </div>
-              <h2 className="text-display-md mb-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#8C5738]">Global Reach</p>
+              <h2 className="text-display-md mb-6" style={{ color: "#1A0E07" }}>
                 Export Markets{" "}
-                <span style={{ color: "var(--color-amber)" }}>Worldwide</span>
+                <span className="text-[#8C5738] italic font-serif">Worldwide</span>
               </h2>
-              <p className="mb-8" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-8 font-medium text-base leading-relaxed" style={{ color: "#36251B" }}>
                 Our leather products reach fashion brands and retailers across 20+ countries. Experienced in EU REACH compliance, US customs, and international export documentation.
               </p>
               <ul className="space-y-3">
                 {markets.map((m) => (
-                  <li key={m} className="flex items-center gap-3 text-sm">
-                    <ArrowRight size={15} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
-                    <span style={{ color: "var(--color-text)" }}>{m}</span>
+                  <li key={m} className="flex items-center gap-3 text-sm font-semibold" style={{ color: "#36251B" }}>
+                    <ArrowRight size={16} style={{ color: "#8C5738" }} aria-hidden="true" />
+                    <span>{m}</span>
                   </li>
                 ))}
               </ul>
@@ -279,25 +276,25 @@ export default function OEMPage() {
             {/* CBR Partnership highlight */}
             <AnimatedSection direction="right">
               <div
-                className="p-10 rounded-sm"
-                style={{ background: "rgba(144,108,86,0.07)", border: "1px solid rgba(144,108,86,0.28)" }}
+                className="p-8 sm:p-10 rounded-2xl bg-white shadow-sm"
+                style={{ border: "1px solid rgba(140,87,56,0.22)" }}
               >
-                <div className="text-label mb-4">Official Partnership</div>
-                <h3 className="text-display-sm mb-4">
+                <div className="text-xs font-bold tracking-[0.18em] uppercase mb-3 text-[#8C5738]">Official Partnership</div>
+                <h3 className="text-2xl font-bold mb-4" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                   CBR Group Partnership
                 </h3>
-                <p className="mb-4" style={{ color: "var(--color-text-muted)" }}>
-                  Jafri Enterprises is the official Pakistan agent for Germany&apos;s <strong style={{ color: "var(--color-text-heading)" }}>CBR Group</strong> — managing renowned European brands:
+                <p className="mb-5 font-medium text-sm leading-relaxed" style={{ color: "#36251B" }}>
+                  Jafri Enterprises is the official Pakistan agent for Germany&apos;s <strong style={{ color: "#1A0E07" }}>CBR Group</strong> — managing renowned European brands:
                 </p>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2.5 mb-6">
                   {["Street One", "One Touch", "Cecil"].map((brand) => (
                     <li key={brand} className="flex items-center gap-3">
-                      <Check size={16} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
-                      <span className="font-medium" style={{ color: "var(--color-text-heading)" }}>{brand}</span>
+                      <Check size={18} style={{ color: "#8C5738" }} aria-hidden="true" />
+                      <span className="font-bold text-base" style={{ color: "#1A0E07" }}>{brand}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+                <p className="text-xs font-semibold leading-relaxed" style={{ color: "#6E4D3B" }}>
                   Services: R&D, sampling, styling direction, quality control, and production management for European fashion brands.
                 </p>
               </div>
@@ -306,19 +303,19 @@ export default function OEMPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 text-center" style={{ background: "var(--color-void)", borderTop: "1px solid var(--color-border)" }}>
+      {/* CTA (Dark Leather Section) */}
+      <section className="py-20 text-center text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <AnimatedSection>
-            <p className="text-label mb-4">Start OEM Partnership</p>
-            <h2 className="text-display-md mb-4">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Start OEM Partnership</p>
+            <h2 className="text-display-md mb-4 text-white">
               Ready to Launch Your{" "}
-              <span className="text-gradient-gold italic">Leather Line?</span>
+              <span className="text-[#EBE3D5] italic font-serif">Leather Line?</span>
             </h2>
-            <p className="max-w-xl mx-auto mb-10" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="max-w-xl mx-auto mb-10 text-[#FAF6F0]/90 font-medium">
               Minimum 200 units per style. Free consultation and no-obligation quotes. Samples shipped worldwide.
             </p>
-            <QuoteButton label="Start OEM Inquiry" hint="oem" />
+            <QuoteButton label="Start OEM Inquiry" hint="oem" size="lg" />
           </AnimatedSection>
         </div>
       </section>

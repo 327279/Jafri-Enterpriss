@@ -106,15 +106,13 @@ export default function CertificationsPage() {
       {/* Header */}
       <div
         className="relative min-h-[50vh] flex items-end overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 70%)" }}
+        style={{ background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)", color: "#FFFFFF" }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-void) 0%, transparent 60%)" }} />
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
-            <p className="text-label mb-4">Quality & Compliance</p>
-            <h1 className="text-display-lg">
-              Our{" "}
-              <span className="text-gradient-gold italic">Certifications</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Quality & Compliance</p>
+            <h1 className="text-display-lg text-white">
+              Our <span className="text-[#EBE3D5] italic font-serif">Certifications</span>
             </h1>
           </AnimatedSection>
         </div>
@@ -122,22 +120,20 @@ export default function CertificationsPage() {
 
       {/* Intro */}
       <section
-        className="py-16 on-brown"
-        style={{ background: "var(--color-obsidian)", borderBottom: "1px solid rgba(232,223,212,0.16)" }}
+        className="py-16"
+        style={{ background: "#FAF6F0", borderBottom: "1px solid rgba(140,87,56,0.20)" }}
       >
         <div className="container-luxury">
           <AnimatedSection>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="section-eyebrow mb-6">
-                  <div className="divider-gold" />
-                  <p className="text-label">Export-Ready Quality</p>
-                </div>
-                <h2 className="text-display-md mb-6">
-                  Built for{" "}
-                  <span className="text-gradient-gold italic">Global Standards</span>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">
+                  Export-Ready Quality
+                </p>
+                <h2 className="text-display-md mb-6" style={{ color: "#1A0E07" }}>
+                  Built for <span className="text-[#8C5738] italic font-serif">Global Standards</span>
                 </h2>
-                <p className="leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed font-medium" style={{ color: "#36251B" }}>
                   Jafri Enterprises is committed to meeting the highest quality, chemical compliance, and ethical standards demanded by global B2B buyers. Our certifications open doors to EU, US, and worldwide markets.
                 </p>
               </div>
@@ -145,11 +141,11 @@ export default function CertificationsPage() {
                 {["ISO 9001", "REACH", "TDAP", "CBR Group", "LCP", "KIA"].map((cert, i) => (
                   <AnimatedSection key={cert} delay={i * 0.07}>
                     <div
-                      className="h-full px-3 py-5 text-center sm:px-4 sm:py-6"
-                      style={{ background: "rgba(144,108,86,0.06)", border: "1px solid var(--color-border-strong)" }}
+                      className="h-full px-3 py-5 text-center sm:px-4 sm:py-6 bg-white rounded-xl shadow-sm"
+                      style={{ border: "1px solid rgba(140,87,56,0.20)" }}
                     >
-                      <Award size={24} className="mx-auto mb-2" style={{ color: "var(--color-amber)" }} />
-                      <div className="text-xs font-semibold" style={{ color: "var(--color-cream)" }}>{cert}</div>
+                      <Award size={24} className="mx-auto mb-2" style={{ color: "#8C5738" }} />
+                      <div className="text-xs font-bold" style={{ color: "#1A0E07" }}>{cert}</div>
                     </div>
                   </AnimatedSection>
                 ))}
@@ -159,17 +155,15 @@ export default function CertificationsPage() {
         </div>
       </section>
 
-      {/* Certifications Grid */}
-      <section className="section-padding" style={{ background: "var(--color-void)" }}>
+      {/* Certifications Grid (Fixes Screenshot 2) */}
+      <section className="section-padding" style={{ background: "#FBF8F3" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-14">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Full Certification List</p>
-            </div>
-            <h2 className="text-display-md">
-              Verified &{" "}
-              <span className="text-gradient-gold italic">Compliant</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">
+              Full Certification List
+            </p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              Verified & <span className="text-[#8C5738] italic font-serif">Compliant</span>
             </h2>
           </AnimatedSection>
 
@@ -177,42 +171,43 @@ export default function CertificationsPage() {
             {certifications.map((cert, i) => (
               <AnimatedSection key={cert.title} delay={i * 0.08}>
                 <div
-                  className="card-luxury p-8 h-full"
+                  className="rounded-2xl p-8 h-full bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   style={{
-                    background: "rgba(26,18,8,0.6)",
-                    border: `1px solid var(--color-border)`,
-                    borderTop: `3px solid ${cert.color}`,
+                    border: "1px solid rgba(140,87,56,0.22)",
+                    borderTop: `4px solid ${cert.color === "var(--color-amber-light)" ? "#A37557" : "#8C5738"}`,
                   }}
                 >
                   <div className="flex items-start gap-4 mb-5">
                     <div
-                      className="w-12 h-12 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.1)", border: "1px solid var(--color-border-strong)" }}
+                      className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)", border: "1px solid rgba(140,87,56,0.25)" }}
                     >
-                      <Award size={22} style={{ color: cert.color }} />
+                      <Award size={22} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <div className="text-label mb-1">{cert.category}</div>
-                      <h3 className="text-display-xs">
+                      <div className="text-xs font-bold tracking-[0.18em] uppercase mb-1" style={{ color: "#8C5738" }}>
+                        {cert.category}
+                      </div>
+                      <h3 className="text-xl font-bold" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                         {cert.title}
                       </h3>
-                      <p className="text-xs mt-1" style={{ color: "var(--color-text-muted)" }}>
+                      <p className="text-xs mt-1 font-semibold" style={{ color: "#6E4D3B" }}>
                         Issued by: {cert.authority}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="text-sm leading-relaxed mb-6 font-medium" style={{ color: "#36251B" }}>
                     {cert.description}
                   </p>
 
                   <div
-                    className="flex items-start gap-2 p-4 text-xs"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid rgba(144,108,86,0.12)" }}
+                    className="flex items-start gap-2.5 p-4 rounded-xl text-xs font-medium"
+                    style={{ background: "#FAF6F0", border: "1px solid rgba(140,87,56,0.18)" }}
                   >
-                    <CheckCircle size={14} className="mt-0.5 shrink-0" style={{ color: "var(--color-amber)" }} />
-                    <span style={{ color: "var(--color-text-secondary)" }}>
-                      <strong style={{ color: "var(--color-amber)" }}>Scope: </strong>
+                    <CheckCircle size={15} className="mt-0.5 shrink-0" style={{ color: "#8C5738" }} />
+                    <span style={{ color: "#36251B" }}>
+                      <strong style={{ color: "#1A0E07" }}>Scope: </strong>
                       {cert.scope}
                     </span>
                   </div>
@@ -224,20 +219,18 @@ export default function CertificationsPage() {
       </section>
 
       {/* Scanned documents */}
-      <section className="section-padding" style={{ background: "var(--color-dark)" }}>
+      <section className="section-padding" style={{ background: "#FAF6F0" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-12">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Registered Memberships</p>
-            </div>
-            <h2 className="text-display-md">
-              Chamber &{" "}
-              <span className="text-gradient-gold italic">Association Records</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">
+              Registered Memberships
+            </p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              Chamber & <span className="text-[#8C5738] italic font-serif">Association Records</span>
             </h2>
             <p
-              className="mt-5 leading-relaxed"
-              style={{ color: "var(--color-text-secondary)", maxWidth: "var(--measure)" }}
+              className="mt-4 leading-relaxed font-medium"
+              style={{ color: "#523B2D", maxWidth: "var(--measure)" }}
             >
               Jafri Enterprises is a registered member of Pakistan&apos;s principal
               trade bodies. Current-year certificates are available on request for
@@ -248,28 +241,27 @@ export default function CertificationsPage() {
           <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {documents.map((doc, i) => (
               <AnimatedSection key={doc.title} delay={i * 0.08} className="h-full">
-                <figure className="card-luxury group flex h-full flex-col overflow-hidden">
-                  {/* Scans are mixed portrait/landscape, so the frame is fixed
-                      and the page is contained inside it rather than cropped —
-                      a cropped certificate reads as a mistake. */}
+                <figure className="rounded-2xl group flex h-full flex-col overflow-hidden bg-white shadow-sm border border-amber-900/18">
                   <div
                     className="relative h-64 w-full overflow-hidden"
-                    style={{ background: "rgba(232,223,212,0.04)" }}
+                    style={{ background: "#FBF8F3" }}
                   >
                     <Image
                       src={doc.image}
                       alt={`${doc.title} — ${doc.issuer}`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
                   <figcaption
                     className="border-t p-5"
-                    style={{ borderColor: "var(--color-border)" }}
+                    style={{ borderColor: "rgba(140,87,56,0.18)" }}
                   >
-                    <h3 className="text-display-xs mb-1">{doc.title}</h3>
-                    <p className="text-xs leading-snug" style={{ color: "var(--color-text-muted)" }}>
+                    <h3 className="text-base font-bold mb-1" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
+                      {doc.title}
+                    </h3>
+                    <p className="text-xs leading-snug font-semibold" style={{ color: "#6E4D3B" }}>
                       {doc.issuer}
                     </p>
                   </figcaption>
@@ -280,24 +272,22 @@ export default function CertificationsPage() {
         </div>
       </section>
 
-      {/* Standards */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      {/* Standards (Dark Section) */}
+      <section className="section-padding text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <div className="section-eyebrow mb-6">
-                <div className="divider-gold" />
-                <p className="text-label">Chemical & Material Standards</p>
-              </div>
-              <h2 className="text-display-md mb-8">
-                Chemical{" "}
-                <span className="text-gradient-gold italic">Compliance</span>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">
+                Chemical & Material Standards
+              </p>
+              <h2 className="text-display-md mb-8 text-white">
+                Chemical <span className="text-[#EBE3D5] italic font-serif">Compliance</span>
               </h2>
               <ul className="space-y-4">
                 {standards.map((s) => (
                   <li key={s} className="flex items-center gap-3">
-                    <CheckCircle size={18} style={{ color: "var(--color-amber)" }} />
-                    <span style={{ color: "var(--color-cream)" }}>{s}</span>
+                    <CheckCircle size={18} className="text-[#D4B296]" />
+                    <span className="text-[#FAF6F0] font-medium">{s}</span>
                   </li>
                 ))}
               </ul>
@@ -305,12 +295,11 @@ export default function CertificationsPage() {
 
             <AnimatedSection direction="right">
               <div
-                className="p-10"
-                style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border-strong)" }}
+                className="p-10 rounded-2xl bg-white/10 border border-white/20 shadow-xl"
               >
-                <Award size={48} className="mb-6" style={{ color: "var(--color-amber)" }} />
-                <h3 className="text-display-sm mb-4">Request Documentation</h3>
-                <p className="mb-8" style={{ color: "var(--color-text-secondary)" }}>
+                <Award size={48} className="mb-6 text-[#D4B296]" />
+                <h3 className="text-display-sm mb-4 text-white">Request Documentation</h3>
+                <p className="mb-8 text-[#FAF6F0]/90 font-medium">
                   Need certification copies, test reports, or compliance documentation for your procurement process? Contact our export team.
                 </p>
                 <QuoteButton label="Request Documentation" />

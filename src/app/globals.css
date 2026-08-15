@@ -336,41 +336,26 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
 
 /* ── Surface panels ────────────────────────────────────── */
 .glass-panel {
-  background: rgba(26, 18, 8, 0.72);
-  border: 1px solid var(--color-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-lg);
+  background: #FFFFFF;
+  border: 1px solid rgba(140, 87, 56, 0.20);
+  box-shadow: 0 4px 20px rgba(60, 40, 25, 0.04);
 }
 .glass-panel-amber {
-  background: rgba(144, 108, 86, 0.08);
-  border: 1px solid rgba(144, 108, 86, 0.24);
+  background: #FAF6F0;
+  border: 1px solid rgba(140, 87, 56, 0.22);
 }
 
-/* ── Mid-brown sections ────────────────────────────────────
-   --color-obsidian (#553A2E) is a mid-brown, far lighter than
-   the page ground. The muted browns read at only 2.5:1 on it,
-   so body copy there looked washed out and hard to read.
-
-   No token VALUE changes here — the variables are simply
-   rebound within these sections to lighter colours already in
-   the palette. Because custom properties inherit, even inline
-   `color: var(--color-text-secondary)` picks this up.
-
-     text-on-dark (#E8DFD4) on #553A2E → 7.85:1  (AAA)
-     amber-pale   (#C9B5A8) on #553A2E → 5.25:1  (AA)
-   ───────────────────────────────────────────────────────── */
 .on-dark, .on-brown {
   --color-text-heading:   #FFFFFF;
   --color-text:           #FAF6F0;
   --color-text-primary:   #FAF6F0;
   --color-text-body:      #FAF6F0;
   --color-text-secondary: #EBE3D5;
-  --color-text-muted:     #C9B5A8;
+  --color-text-muted:     #D4B296;
   --color-border:         rgba(255, 255, 255, 0.18);
   --color-border-strong:  rgba(255, 255, 255, 0.35);
 }
-.on-dark .text-label, .on-brown .text-label { color: #EBE3D5; }
+.on-dark .text-label, .on-brown .text-label { color: #D4B296 !important; }
 
 /* ── Pill Badge ────────────────────────────────────────── */
 .pill-badge {
@@ -380,112 +365,52 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
   padding: 0.35rem 0.85rem;
   border-radius: 9999px;
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(144, 108, 86, 0.12);
-  border: 1px solid rgba(144, 108, 86, 0.30);
-  color: var(--color-amber-light);
+  background: #FAF6F0;
+  border: 1px solid rgba(140, 87, 56, 0.25);
+  color: #6E4D3B;
   transition: background var(--duration-fast) ease,
-              border-color var(--duration-fast) ease;
+              border-color var(--duration-fast) ease,
+              color var(--duration-fast) ease;
 }
 .pill-badge:hover {
-  background: rgba(144, 108, 86, 0.22);
-  border-color: rgba(144, 108, 86, 0.48);
-}
-.on-dark .pill-badge {
-  background: rgba(144, 108, 86, 0.12);
-  border-color: rgba(144, 108, 86, 0.30);
-  color: var(--color-amber-light);
+  background: #8C5738;
+  border-color: #8C5738;
+  color: #FFFFFF;
 }
 
 /* ── Accent text ───────────────────────────────────────── */
 .text-gradient-gold {
-  background: linear-gradient(100deg, #B6A292 0%, #906C56 55%, #B6A292 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--color-amber-light);
+  color: #8C5738;
+}
+.on-dark .text-gradient-gold,
+.on-brown .text-gradient-gold {
+  color: #EBE3D5;
 }
 
 .glow-gold {
-  filter: drop-shadow(0 0 18px rgba(144, 108, 86, 0.30));
-}
-.text-glow-gold {
-  text-shadow: 0 0 24px rgba(144, 108, 86, 0.38);
+  filter: drop-shadow(0 0 18px rgba(140, 87, 56, 0.20));
 }
 
 /* ── Card ──────────────────────────────────────────────── */
-/*
- * Spotlight card. Three effects, none of which require touching card markup:
- *   background — a radial wash that tracks the cursor via --mx/--my (written
- *                by SpotlightTracker). Rides as a background layer rather than
- *                a pseudo-element so it always paints beneath child content.
- *   ::before   — a hairline sheen along the top edge, always faintly on. Reads
- *                as a lit bevel, so the card has depth before it's hovered.
- *   box-shadow — a layered ambient + contact + rim set rather than one blur,
- *                which is what actually sells elevation.
- */
 .card-luxury {
   position: relative;
-  isolation: isolate;
-  background:
-    radial-gradient(
-      460px circle at var(--mx, -100%) var(--my, -100%),
-      rgba(144, 108, 86, 0.20),
-      rgba(144, 108, 86, 0.06) 42%,
-      transparent 72%
-    ),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  /* Clips children (images, tag badges) to the rounded shell — otherwise
-     square corners poke out past the radius. */
+  background: #FFFFFF;
+  border: 1px solid rgba(140, 87, 56, 0.20);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 4px 20px rgba(60, 40, 25, 0.04);
   transition: transform var(--duration-base) var(--ease-luxury),
               box-shadow var(--duration-base) var(--ease-luxury),
               border-color var(--duration-base) var(--ease-luxury);
 }
 
-/* Top-edge sheen — 1px tall, brightest at the centre. */
-.card-luxury::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    rgba(182, 162, 146, 0.20) 25%,
-    rgba(214, 199, 186, 0.40) 50%,
-    rgba(182, 162, 146, 0.20) 75%,
-    transparent 100%
-  );
-  opacity: 0.65;
-  transition: opacity var(--duration-base) var(--ease-luxury);
-}
-
 .card-luxury:hover {
-  transform: translateY(-6px);
-  border-color: rgba(144, 108, 86, 0.42);
-  box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.62),
-    0 8px 16px -8px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(144, 108, 86, 0.10),
-    0 0 46px -18px rgba(144, 108, 86, 0.42);
-}
-.card-luxury:hover::before { opacity: 1; }
-
-/* The lift and the wash both read as motion; honour the OS setting. */
-@media (prefers-reduced-motion: reduce) {
-  .card-luxury {
-    transition: border-color var(--duration-fast) ease,
-                box-shadow var(--duration-fast) ease;
-  }
-  .card-luxury:hover { transform: none; }
+  transform: translateY(-4px);
+  border-color: rgba(140, 87, 56, 0.35);
+  box-shadow: 0 12px 30px rgba(60, 40, 25, 0.08);
 }
 
 /* ── Image Parallax Container ──────────────────────────── */
@@ -612,28 +537,27 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
 /* ── Form fields ───────────────────────────────────────── */
 .form-field {
   width: 100%;
-  background: rgba(232, 223, 212, 0.04);
-  border: 1px solid var(--color-border-strong);
-  border-radius: 2px;
-  color: var(--color-text);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(140, 87, 56, 0.25);
+  border-radius: 8px;
+  color: #1A0E07;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   padding: 0.8rem 1rem;
   outline: none;
   transition: border-color var(--duration-fast) ease,
-              box-shadow var(--duration-fast) ease,
-              background var(--duration-fast) ease;
+              box-shadow var(--duration-fast) ease;
 }
 .form-field:focus {
-  background: rgba(232, 223, 212, 0.07);
-  border-color: var(--color-amber);
-  box-shadow: 0 0 0 3px rgba(144, 108, 86, 0.18);
+  background: #FFFFFF;
+  border-color: #8C5738;
+  box-shadow: 0 0 0 3px rgba(140, 87, 56, 0.15);
 }
-.form-field::placeholder { color: var(--color-text-muted); opacity: 0.8; }
+.form-field::placeholder { color: #6E4D3B; opacity: 0.65; }
 
 .form-field option {
-  background: var(--color-surface);
-  color: var(--color-text);
+  background: #FFFFFF;
+  color: #1A0E07;
 }
 
 /* ── Scrollbar hide utility ────────────────────────────── */
@@ -682,7 +606,8 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 60%);
+  background: linear-gradient(135deg, #362217 0%, #1A0E07 100%);
+  color: #FFFFFF;
 }
 
 /* ── Footer ────────────────────────────────────────────── */

@@ -55,56 +55,53 @@ export default function ContactPage() {
       {/* Header */}
       <div
         className="relative min-h-[50vh] flex items-end overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 70%)" }}
+        style={{ background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)", color: "#FFFFFF" }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-void) 0%, transparent 60%)" }} />
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
-            <p className="text-label mb-4">Get In Touch</p>
-            <h1 className="text-display-lg">
-              Contact{" "}
-              <span className="text-gradient-gold italic">Our Team</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Get In Touch</p>
+            <h1 className="text-display-lg text-white">
+              Contact <span className="text-[#EBE3D5] italic font-serif">Our Team</span>
             </h1>
           </AnimatedSection>
         </div>
       </div>
 
-      {/* Main content */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      {/* Main content (Fixes Screenshot 3) */}
+      <section className="section-padding" style={{ background: "#FAF6F0" }}>
         <div className="container-luxury">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
             {/* Contact info — 2 cols */}
             <div className="lg:col-span-2 space-y-8">
               <AnimatedSection>
-                <div className="section-eyebrow mb-6">
-                  <div className="divider-gold" />
-                  <p className="text-label">Reach Us Directly</p>
-                </div>
-                <h2 className="text-display-md mb-6">
-                  Let&apos;s Discuss{" "}
-                  <span className="text-gradient-gold italic">Your Order</span>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">
+                  Reach Us Directly
+                </p>
+                <h2 className="text-display-md mb-6" style={{ color: "#1A0E07" }}>
+                  Let&apos;s Discuss<br />
+                  <span className="text-[#8C5738] italic font-serif">Your Order</span>
                 </h2>
-                <p style={{ color: "var(--color-text-secondary)" }}>
+                <p className="font-medium text-base leading-relaxed" style={{ color: "#36251B" }}>
                   Our export team is ready to discuss your requirements, provide samples, and prepare custom quotations for leather skins, garments, and accessories.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* Email */}
                   <div
-                    className="flex items-start gap-4 p-5"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border)" }}
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                   >
                     <div
-                      className="w-10 h-10 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.12)" }}
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
                     >
-                      <Mail size={18} style={{ color: "var(--color-amber)" }} />
+                      <Mail size={18} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <p className="text-label mb-1">Email</p>
-                      <a href="mailto:info@jafrienterprises.biz" className="hover-accent transition-colors" style={{ color: "var(--color-cream)" }}>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Email</p>
+                      <a href="mailto:info@jafrienterprises.biz" className="text-sm font-bold transition-colors hover:text-[#8C5738]" style={{ color: "#1A0E07" }}>
                         info@jafrienterprises.biz
                       </a>
                     </div>
@@ -112,18 +109,18 @@ export default function ContactPage() {
 
                   {/* Phone */}
                   <div
-                    className="flex items-start gap-4 p-5"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border)" }}
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                   >
                     <div
-                      className="w-10 h-10 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.12)" }}
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
                     >
-                      <Phone size={18} style={{ color: "var(--color-amber)" }} />
+                      <Phone size={18} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <p className="text-label mb-1">Phone / WhatsApp</p>
-                      <a href="tel:+922135000000" className="hover-accent transition-colors" style={{ color: "var(--color-cream)" }}>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Phone / WhatsApp</p>
+                      <a href="tel:+922135000000" className="text-sm font-bold transition-colors hover:text-[#8C5738]" style={{ color: "#1A0E07" }}>
                         +92 (21) 3500-0000
                       </a>
                     </div>
@@ -131,18 +128,18 @@ export default function ContactPage() {
 
                   {/* Head Office */}
                   <div
-                    className="flex items-start gap-4 p-5"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border)" }}
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                   >
                     <div
-                      className="w-10 h-10 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.12)" }}
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
                     >
-                      <MapPin size={18} style={{ color: "var(--color-amber)" }} />
+                      <MapPin size={18} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <p className="text-label mb-1">Head Office</p>
-                      <p style={{ color: "var(--color-cream)" }}>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Head Office</p>
+                      <p className="text-sm font-semibold leading-relaxed" style={{ color: "#1A0E07" }}>
                         Plot #A-024, Block-3<br />
                         Gulistan-E-Jauhar<br />
                         Karachi, Pakistan
@@ -152,18 +149,18 @@ export default function ContactPage() {
 
                   {/* Factory */}
                   <div
-                    className="flex items-start gap-4 p-5"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border)" }}
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                   >
                     <div
-                      className="w-10 h-10 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.12)" }}
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
                     >
-                      <MapPin size={18} style={{ color: "var(--color-amber)" }} />
+                      <MapPin size={18} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <p className="text-label mb-1">Manufacturing Facility</p>
-                      <p style={{ color: "var(--color-cream)" }}>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Manufacturing Facility</p>
+                      <p className="text-sm font-semibold leading-relaxed" style={{ color: "#1A0E07" }}>
                         Plot #40, Sector 7-A<br />
                         Korangi Industrial Area<br />
                         Karachi, Pakistan
@@ -173,20 +170,20 @@ export default function ContactPage() {
 
                   {/* Hours */}
                   <div
-                    className="flex items-start gap-4 p-5"
-                    style={{ background: "rgba(144,108,86,0.05)", border: "1px solid var(--color-border)" }}
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                   >
                     <div
-                      className="w-10 h-10 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(144,108,86,0.12)" }}
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
                     >
-                      <Clock size={18} style={{ color: "var(--color-amber)" }} />
+                      <Clock size={18} style={{ color: "#8C5738" }} />
                     </div>
                     <div>
-                      <p className="text-label mb-1">Business Hours</p>
-                      <p style={{ color: "var(--color-cream)" }}>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Business Hours</p>
+                      <p className="text-sm font-semibold" style={{ color: "#1A0E07" }}>
                         Mon – Sat: 9:00 AM – 6:00 PM<br />
-                        <span style={{ color: "var(--color-text-muted)" }}>Pakistan Standard Time (PKT, UTC+5)</span>
+                        <span className="text-xs font-semibold text-[#6E4D3B]">Pakistan Standard Time (PKT, UTC+5)</span>
                       </p>
                     </div>
                   </div>
@@ -194,49 +191,49 @@ export default function ContactPage() {
               </AnimatedSection>
             </div>
 
-            {/* Form — 3 cols */}
+            {/* Form — 3 cols (Clean White Card) */}
             <div className="lg:col-span-3">
               <AnimatedSection direction="right">
                 <div
-                  className="p-10"
-                  style={{ background: "rgba(26,18,8,0.8)", border: "1px solid var(--color-border)" }}
+                  className="p-8 sm:p-10 rounded-2xl bg-white shadow-sm"
+                  style={{ border: "1px solid rgba(140,87,56,0.22)" }}
                 >
                   {!submitted ? (
                     <>
-                      <h3 className="text-display-sm mb-2">
+                      <h3 className="text-2xl font-bold mb-2" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                         Send Us a Message
                       </h3>
-                      <p className="text-sm mb-8" style={{ color: "var(--color-text-secondary)" }}>
+                      <p className="text-sm font-medium mb-8" style={{ color: "#523B2D" }}>
                         For quotes, samples, and general inquiries. Response within 24 business hours.
                       </p>
 
                       <form onSubmit={handleSubmit} className="space-y-5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="text-label block mb-2">Full Name *</label>
+                            <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Full Name *</label>
                             <input required name="name" type="text" placeholder="John Smith" className="form-field" />
                           </div>
                           <div>
-                            <label className="text-label block mb-2">Company *</label>
+                            <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Company *</label>
                             <input required name="company" type="text" placeholder="Your Company Ltd." className="form-field" />
                           </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="text-label block mb-2">Email *</label>
+                            <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Email *</label>
                             <input required name="email" type="email" placeholder="john@company.com" className="form-field" />
                           </div>
                           <div>
-                            <label className="text-label block mb-2">Phone / WhatsApp</label>
+                            <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Phone / WhatsApp</label>
                             <input name="phone" type="tel" placeholder="+1 555 000 0000" className="form-field" />
                           </div>
                         </div>
                         <div>
-                          <label className="text-label block mb-2">Country</label>
+                          <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Country</label>
                           <input name="country" type="text" placeholder="United States" className="form-field" />
                         </div>
                         <div>
-                          <label className="text-label block mb-2">Inquiry Type</label>
+                          <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Inquiry Type</label>
                           <select name="inquiryType" className="form-field" defaultValue="">
                             <option value="" disabled>Select inquiry type</option>
                             <option value="quote">Request a Quote</option>
@@ -248,7 +245,7 @@ export default function ContactPage() {
                           </select>
                         </div>
                         <div>
-                          <label className="text-label block mb-2">Message *</label>
+                          <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Message *</label>
                           <textarea
                             required
                             name="message"
@@ -259,7 +256,7 @@ export default function ContactPage() {
                         </div>
 
                         {error && (
-                          <p className="text-sm" style={{ color: "#e5806b" }}>
+                          <p className="text-sm font-semibold text-rose-600">
                             {error}
                           </p>
                         )}
@@ -273,23 +270,22 @@ export default function ContactPage() {
                   ) : (
                     <div className="text-center py-16">
                       <div
-                        className="w-16 h-16 mx-auto mb-6 flex items-center justify-center"
-                        style={{ background: "rgba(144,108,86,0.15)", border: "1px solid var(--color-amber)" }}
+                        className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-[#8C5738]/15 border border-[#8C5738]"
                       >
-                        <Check size={26} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
+                        <Check size={26} className="text-[#8C5738]" aria-hidden="true" />
                       </div>
-                      <h3 className="text-display-sm mb-3" style={{ color: "var(--color-amber)" }}>
+                      <h3 className="text-2xl font-bold mb-3 text-[#1A0E07]" style={{ fontFamily: "var(--font-display)" }}>
                         {delivered ? "Message Sent!" : "Almost There"}
                       </h3>
-                      <p style={{ color: "var(--color-text-secondary)" }}>
+                      <p className="font-medium text-[#36251B] leading-relaxed">
                         {delivered ? (
                           <>
-                            Thank you for contacting Jafri Enterprises. Our export team will be in touch within <strong>24 business hours</strong>.
+                            Thank you for contacting Jafri Enterprises. Our export team will be in touch within <strong className="text-[#1A0E07]">24 business hours</strong>.
                           </>
                         ) : (
                           <>
                             Email delivery is not configured on this site yet. Please send your requirements directly to{" "}
-                            <a href="mailto:info@jafrienterprises.biz" className="underline" style={{ color: "var(--color-amber)" }}>
+                            <a href="mailto:info@jafrienterprises.biz" className="underline font-bold text-[#8C5738]">
                               info@jafrienterprises.biz
                             </a>{" "}
                             and our export team will respond within 24 business hours.
