@@ -18,61 +18,61 @@
 
 /* ── Design Tokens ─────────────────────────────────────── */
 :root {
-  /* ── Surfaces ────────────────────────────────────────── */
-  --color-void:           #1A1208;
-  --color-obsidian:       #553A2E;
-  --color-dark:           #14100D;
-  --color-brown-deep:     #553A2E;
-  --color-brown:          #6B4520;
-  --color-brown-mid:      #906C56;
+  /* ── Bright Parchment & Leather Palette (matching reference) ─ */
+  --color-page:           #FBF8F3;   /* Light parchment cream main bg */
+  --color-page-alt:       #EFE7DC;   /* Soft warm sand alternate section bg */
+  --color-surface:        #EAE0D0;   /* Soft warm sand card bg */
+  --color-surface-white:  #FFFFFF;   /* Pure white card box */
+  --color-dark:           #2B1B12;   /* Deep espresso dark brown */
+  --color-obsidian:       #362217;   /* Rich leather dark brown */
+  --color-brown-deep:     #5C3D2E;   /* Deep leather brown accent */
+  --color-brown:          #634232;
+  --color-brown-mid:      #A37557;   /* Sienna tan accent */
 
   /* Primary references */
-  --color-page:           var(--color-void);
-  --color-surface:        var(--color-obsidian);
-  --color-inverse:        var(--color-void);
-  --color-inverse-2:      var(--color-dark);
+  --color-void:           #FBF8F3;
+  --color-inverse:        #2B1B12;
+  --color-inverse-2:      #362217;
 
-  /* ── Brand ──────────────────────────────────────────── */
-  --color-amber:          #906C56;
-  --color-amber-light:    #B6A292;
-  --color-amber-pale:     #C9B5A8;
-
-  /* Aliases so new code reads naturally */
-  --color-tan:            var(--color-amber);
-  --color-tan-deep:       var(--color-brown);
-  --color-tan-light:      var(--color-amber-light);
+  /* ── Brand & Accent ──────────────────────────────────── */
+  --color-amber:          #A37557;   /* Eyebrow tan brown */
+  --color-amber-light:    #B08060;
+  --color-amber-pale:     #EAE0D0;
+  --color-tan:            #A37557;
+  --color-tan-deep:       #5C3D2E;
+  --color-tan-light:      #B08060;
 
   /* ── Text ───────────────────────────────────────────── */
   --color-pure-white:     #FFFFFF;
-  --color-soft-white:     #F6F1EB;
-  --color-cream:          #E8DFD4;
-  --color-warm-white:     #FBF7F2;
-  --color-text:           #B6A292;
-  --color-text-primary:   #B6A292;
-  --color-text-heading:   #F6F1EB;
-  --color-text-on-light:  #3D2A1F;
-  --color-text-body:      #B6A292;
-  --color-text-secondary: #8A7A6E;
-  --color-text-muted:     #8A7A6E;
-  --color-text-on-dark:   #E8DFD4;
-  --color-text-on-dark-2: #B6A292;
+  --color-soft-white:     #FBF8F3;
+  --color-cream:          #FBF8F3;
+  --color-warm-white:     #FAF6F0;
+  --color-text:           #4A3A30;   /* Body text: rich dark warm brown */
+  --color-text-primary:   #4A3A30;
+  --color-text-heading:   #2B1B12;   /* Deep espresso dark headings */
+  --color-text-on-light:  #2B1B12;
+  --color-text-body:      #4A3A30;
+  --color-text-secondary: #7A685B;   /* Muted sand brown */
+  --color-text-muted:     #A37557;   /* Eyebrow sienna tan */
+  --color-text-on-dark:   #FBF8F3;   /* Light parchment text when on dark cards */
+  --color-text-on-dark-2: #EAE0D0;
   --color-on-accent:      #FFFFFF;
 
   /* ── Borders ────────────────────────────────────────── */
-  --color-border:         rgba(85, 58, 46, 0.15);
-  --color-border-strong:  rgba(85, 58, 46, 0.28);
-  --color-border-light:   rgba(85, 58, 46, 0.12);
-  --color-border-on-dark: rgba(232, 223, 212, 0.14);
+  --color-border:         rgba(163, 117, 87, 0.18);
+  --color-border-strong:  rgba(163, 117, 87, 0.35);
+  --color-border-light:   rgba(163, 117, 87, 0.12);
+  --color-border-on-dark: rgba(251, 248, 243, 0.15);
 
   /* ── Typography ─────────────────────────────────────── */
   --font-display: 'Archivo Black', 'Inter', system-ui, sans-serif;
   --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
-  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-xl: 0 28px 70px rgba(0, 0, 0, 0.65);
+  --shadow-sm: 0 2px 8px rgba(60, 40, 25, 0.04);
+  --shadow-md: 0 8px 24px rgba(60, 40, 25, 0.06);
+  --shadow-lg: 0 16px 40px rgba(60, 40, 25, 0.08);
+  --shadow-xl: 0 28px 70px rgba(60, 40, 25, 0.12);
 
   /* Spacing */
   --section-padding: clamp(4rem, 8vw, 9rem);

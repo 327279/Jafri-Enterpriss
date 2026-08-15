@@ -73,10 +73,11 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
         style={{
           background: scrolled
-            ? "rgba(28,13,4,0.95)"
-            : "transparent",
-          backdropFilter: scrolled ? "blur(24px) saturate(1.4)" : "none",
-          borderBottom: scrolled ? "1px solid var(--color-border)" : "1px solid transparent",
+            ? "rgba(251, 248, 243, 0.94)"
+            : "rgba(251, 248, 243, 0.75)",
+          backdropFilter: "blur(20px) saturate(1.4)",
+          borderBottom: scrolled ? "1px solid rgba(163, 117, 87, 0.18)" : "1px solid transparent",
+          boxShadow: scrolled ? "0 4px 20px rgba(60, 40, 25, 0.04)" : "none",
         }}
       >
         <div className="container-luxury">
@@ -84,7 +85,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div
-                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-white/20 shadow-md group-hover:scale-105 transition-transform duration-300"
+                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src="/images/jafri-logo.png"
@@ -96,14 +97,14 @@ export default function Navbar() {
               </div>
               <div>
                 <div
-                  className="text-sm font-semibold leading-none tracking-wide"
-                  style={{ color: "var(--color-warm-white)", fontFamily: "var(--font-display)" }}
+                  className="text-base font-bold leading-none tracking-wide"
+                  style={{ color: "#2B1B12", fontFamily: "var(--font-display)" }}
                 >
                   Jafri Enterprises
                 </div>
                 <div
-                  className="text-[0.6rem] tracking-[0.2em] uppercase mt-1"
-                  style={{ color: "var(--color-amber-pale)" }}
+                  className="text-[0.65rem] font-bold tracking-[0.2em] uppercase mt-1"
+                  style={{ color: "#A37557" }}
                 >
                   Est. 2005 · Karachi
                 </div>
@@ -121,11 +122,11 @@ export default function Navbar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
-                      className="flex items-center gap-1 text-sm font-medium transition-colors duration-200"
+                      className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
                       style={{
                         color: pathname.startsWith(link.href)
-                          ? "var(--color-amber)"
-                          : "var(--color-text-secondary)",
+                          ? "#A37557"
+                          : "#2B1B12",
                       }}
                     >
                       {link.label}
@@ -134,8 +135,7 @@ export default function Navbar() {
                     <AnimatePresence>
                       {activeDropdown === link.href && (
                         <motion.div
-                          className="absolute top-full left-0 mt-3 min-w-[200px] glass-panel py-2"
-                          style={{ borderRadius: "2px" }}
+                          className="absolute top-full left-0 mt-3 min-w-[210px] bg-white rounded-xl shadow-lg p-2 border border-amber-900/15"
                           initial={{ opacity: 0, y: -8 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
@@ -145,9 +145,9 @@ export default function Navbar() {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className="block px-5 py-3 text-sm transition-colors duration-200 hover-accent"
+                              className="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-[#FBF8F3]"
                               style={{
-                                color: pathname === child.href ? "var(--color-amber)" : "var(--color-text-secondary)",
+                                color: pathname === child.href ? "#A37557" : "#2B1B12",
                               }}
                             >
                               {child.label}
@@ -161,9 +161,9 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-medium transition-colors duration-200 underline-gold"
+                    className="text-sm font-semibold transition-colors duration-200 hover:text-[#A37557]"
                     style={{
-                      color: pathname === link.href ? "var(--color-amber)" : "var(--color-text-secondary)",
+                      color: pathname === link.href ? "#A37557" : "#2B1B12",
                     }}
                   >
                     {link.label}

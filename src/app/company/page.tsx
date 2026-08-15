@@ -107,59 +107,55 @@ export default function CompanyPage() {
         </div>
       </div>
 
-      {/* ── About Us ───────────────────────────────────── */}
+      {/* ── About Us Section (Matching Reference Image 1) ───────────────── */}
       <section
         className="section-padding"
-        style={{ background: "var(--color-warm-white)" }}
+        style={{ background: "#FBF8F3" }}
       >
         <div className="container-luxury">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left — text block */}
-            <AnimatedSection>
-              <p className="text-label mb-4" style={{ color: "var(--color-amber)" }}>About Us</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column — Content Block */}
+            <AnimatedSection className="lg:col-span-6">
+              <p
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-4"
+                style={{ color: "#A37557" }}
+              >
+                About Us
+              </p>
               <h2
                 className="text-display-lg mb-8"
-                style={{ color: "var(--color-void)" }}
+                style={{ color: "#2B1B12", lineHeight: 1.1 }}
               >
-                Two Decades of Premium Leather
+                Two Decades of<br />
+                Premium Leather
               </h2>
-              <div className="space-y-5" style={{ color: "var(--color-dark)" }}>
-                <p className="text-lg leading-relaxed">
+              <div className="space-y-6" style={{ color: "#3D2E24", fontSize: "1.05rem", lineHeight: 1.75 }}>
+                <p>
                   Jafri Enterprises is an established leather tannery and exporter based in
                   Karachi, Pakistan, with over two decades of experience in the leather
                   manufacturing industry since 2005. We specialize in the tanning and supply
                   of premium leather for clothing, bags, shoes, jackets, and a wide range of
                   finished leather goods.
                 </p>
-                <p className="text-lg leading-relaxed">
-                  We serve valued clients across <strong>Korea, Germany, China,</strong> and
+                <p>
+                  We serve valued clients across <strong style={{ color: "#2B1B12", fontWeight: 700 }}>Korea, Germany, China,</strong> and
                   several other markets worldwide — backed by advanced tanning facilities,
                   skilled craftsmen, and rigorous quality control at every stage.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p>
                   Our approach is built on three core commitments:{" "}
-                  <span style={{ color: "var(--color-brown-deep)", fontWeight: 600 }}>
+                  <strong style={{ color: "#362217", fontWeight: 700 }}>
                     the highest quality, competitive pricing, and on-time delivery
-                  </span>{" "}
+                  </strong>{" "}
                   — supported by efficient management and a well-trained team.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  In an increasingly competitive global market, we remain focused on agility,
-                  efficiency, and close, long-term relationships with our clients. Every
-                  partnership we build is grounded in a simple principle:{" "}
-                  <em style={{ color: "var(--color-brown-deep)" }}>
-                    your needs are our concern, and your satisfaction is our aim.
-                  </em>
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* Right — stats + markets */}
-            <AnimatedSection delay={0.15}>
-              {/* Stats strip */}
-              <div
-                className="grid grid-cols-2 gap-4 mb-8"
-              >
+            {/* Right Column — 2x2 Stats Grid + Export Markets Box */}
+            <AnimatedSection delay={0.15} className="lg:col-span-6 space-y-6">
+              {/* 2x2 Grid of Stat Cards */}
+              <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "20+", label: "Years Experience" },
                   { value: "4+", label: "Export Markets" },
@@ -168,53 +164,57 @@ export default function CompanyPage() {
                 ].map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl p-6 text-center"
+                    className="rounded-2xl p-6 md:p-8 text-center transition-transform duration-300 hover:-translate-y-1"
                     style={{
-                      background: "var(--color-cream)",
-                      border: "1px solid var(--color-border-strong)",
+                      background: "#EBE3D5",
+                      border: "1px solid rgba(163, 117, 87, 0.22)",
+                      boxShadow: "0 4px 20px rgba(60, 40, 25, 0.04)",
                     }}
                   >
                     <div
-                      className="text-display-md mb-1"
-                      style={{ color: "var(--color-brown-deep)", fontFamily: "var(--font-display)" }}
+                      className="text-3xl md:text-4xl font-black mb-2"
+                      style={{ color: "#2B1B12", fontFamily: "var(--font-display)" }}
                     >
                       {s.value}
                     </div>
-                    <div className="text-sm tracking-wide uppercase" style={{ color: "var(--color-text-muted)" }}>
+                    <div
+                      className="text-[0.7rem] md:text-xs font-bold tracking-[0.15em] uppercase"
+                      style={{ color: "#A37557" }}
+                    >
                       {s.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Export markets */}
+              {/* Export Markets Card */}
               <div
-                className="rounded-2xl p-6"
+                className="rounded-2xl p-6 md:p-8"
                 style={{
-                  background: "var(--color-cream)",
-                  border: "1px solid var(--color-border-strong)",
+                  background: "#EBE3D5",
+                  border: "1px solid rgba(163, 117, 87, 0.22)",
+                  boxShadow: "0 4px 20px rgba(60, 40, 25, 0.04)",
                 }}
               >
-                <h3
-                  className="text-label mb-4"
-                  style={{ color: "var(--color-amber)" }}
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-4"
+                  style={{ color: "#A37557" }}
                 >
                   Export Markets
-                </h3>
-                <div className="space-y-3">
+                </p>
+                <div className="divide-y divide-[rgba(163,117,87,0.18)]">
                   {markets.map((m) => (
                     <div
                       key={m.country}
-                      className="flex items-center justify-between py-2"
-                      style={{ borderBottom: "1px solid var(--color-border)" }}
+                      className="flex items-center justify-between py-3.5"
                     >
                       <span
-                        className="font-semibold text-base"
-                        style={{ color: "var(--color-void)" }}
+                        className="font-bold text-base md:text-lg"
+                        style={{ color: "#2B1B12" }}
                       >
                         {m.country}
                       </span>
-                      <span className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+                      <span className="text-xs md:text-sm text-right" style={{ color: "#7A685B" }}>
                         {m.detail}
                       </span>
                     </div>
@@ -226,20 +226,22 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ── Key Highlights ─────────────────────────────── */}
+      {/* ── Key Highlights Section ─────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: "var(--color-void)" }}
+        style={{ background: "#EFE7DC" }}
       >
         <div className="container-luxury">
           <AnimatedSection className="text-center mb-16">
-            <p className="text-label mb-3">Key Highlights</p>
-            <h2 className="text-display-lg" style={{ color: "var(--color-cream)" }}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#A37557" }}>
+              Key Highlights
+            </p>
+            <h2 className="text-display-lg" style={{ color: "#2B1B12" }}>
               Why Work With Us
             </h2>
             <p
               className="max-w-2xl mx-auto mt-4 text-lg"
-              style={{ color: "var(--color-text-secondary)" }}
+              style={{ color: "#7A685B" }}
             >
               We believe the true value of a quality product should always be maximized —
               that belief drives everything we do.
@@ -250,25 +252,24 @@ export default function CompanyPage() {
             {highlights.map((h, i) => (
               <AnimatedSection key={h.title} delay={i * 0.1}>
                 <div
-                  className="rounded-2xl p-7 h-full flex flex-col gap-4"
+                  className="rounded-2xl p-7 h-full flex flex-col gap-4 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   style={{
-                    background: "rgba(144,108,86,0.06)",
-                    border: "1px solid var(--color-border)",
+                    border: "1px solid rgba(163, 117, 87, 0.18)",
                   }}
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(144,108,86,0.18)", color: "var(--color-amber-light)" }}
+                    style={{ background: "rgba(163, 117, 87, 0.12)", color: "#A37557" }}
                   >
                     <h.icon size={22} />
                   </div>
                   <h3
-                    className="text-display-sm"
-                    style={{ color: "var(--color-cream)" }}
+                    className="text-display-xs"
+                    style={{ color: "#2B1B12" }}
                   >
                     {h.title}
                   </h3>
-                  <p style={{ color: "var(--color-text-secondary)", lineHeight: 1.65 }}>
+                  <p style={{ color: "#7A685B", lineHeight: 1.65, fontSize: "0.95rem" }}>
                     {h.description}
                   </p>
                 </div>
@@ -278,29 +279,29 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ── Timeline ───────────────────────────────────── */}
+      {/* ── Timeline Section (Matching Reference Image 2) ───────────────── */}
       <section
         className="section-padding"
-        style={{ background: "var(--color-cream)" }}
+        style={{ background: "#EFE7DC" }}
       >
         <div className="container-luxury">
           <AnimatedSection className="text-center mb-16">
-            <p className="text-label mb-3" style={{ color: "var(--color-brown)" }}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#A37557" }}>
               Our Journey
             </p>
-            <h2 className="text-display-lg" style={{ color: "var(--color-void)" }}>
+            <h2 className="text-display-lg" style={{ color: "#2B1B12" }}>
               Two Decades of Growth
             </h2>
           </AnimatedSection>
 
-          <div className="relative">
-            {/* vertical line */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* vertical center line */}
             <div
-              className="absolute left-1/2 top-0 bottom-0 w-px hidden lg:block"
-              style={{ background: "var(--color-border-strong)", transform: "translateX(-50%)" }}
+              className="absolute left-1/2 top-4 bottom-4 w-0.5 hidden lg:block"
+              style={{ background: "rgba(163, 117, 87, 0.25)", transform: "translateX(-50%)" }}
             />
 
-            <div className="space-y-10">
+            <div className="space-y-12">
               {milestones.map((m, i) => (
                 <AnimatedSection key={m.year} delay={i * 0.08}>
                   <div
@@ -308,36 +309,34 @@ export default function CompanyPage() {
                       i % 2 === 0 ? "" : "lg:flex-row-reverse"
                     }`}
                   >
-                    {/* Content side */}
-                    <div className={`lg:w-[calc(50%-2.5rem)] ${i % 2 === 0 ? "lg:text-right lg:pr-12" : "lg:text-left lg:pl-12"}`}>
+                    {/* Content side — White Card */}
+                    <div className={`lg:w-[calc(50%-3rem)] w-full ${i % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
                       <div
-                        className="inline-block rounded-xl px-5 py-4"
+                        className="rounded-2xl p-6 bg-white shadow-sm inline-block w-full"
                         style={{
-                          background: "var(--color-warm-white)",
-                          border: "1px solid var(--color-border-strong)",
-                          boxShadow: "0 2px 16px rgba(107,58,26,0.08)",
+                          border: "1px solid rgba(163, 117, 87, 0.16)",
                         }}
                       >
                         <p
-                          className="text-sm font-semibold tracking-widest uppercase mb-1"
-                          style={{ color: "var(--color-amber)" }}
+                          className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5"
+                          style={{ color: "#A37557" }}
                         >
                           {m.label}
                         </p>
-                        <p className="text-base" style={{ color: "var(--color-dark)" }}>
+                        <p className="text-base md:text-lg font-medium leading-snug" style={{ color: "#2B1B12" }}>
                           {m.detail}
                         </p>
                       </div>
                     </div>
 
-                    {/* Year bubble */}
-                    <div className="lg:w-20 flex justify-center">
+                    {/* Center Year Bubble Circle */}
+                    <div className="lg:w-24 flex justify-center w-full my-2 lg:my-0">
                       <div
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold z-10"
+                        className="w-16 h-16 rounded-full flex items-center justify-center text-base font-black z-10 shadow-md"
                         style={{
-                          background: "var(--color-brown-deep)",
-                          color: "var(--color-amber-pale)",
-                          border: "3px solid var(--color-amber)",
+                          background: "#5C3D2E",
+                          color: "#FFFFFF",
+                          border: "4px solid #EFE7DC",
                           fontFamily: "var(--font-display)",
                         }}
                       >
@@ -346,7 +345,7 @@ export default function CompanyPage() {
                     </div>
 
                     {/* Spacer for alternating side */}
-                    <div className="hidden lg:block lg:w-[calc(50%-2.5rem)]" />
+                    <div className="hidden lg:block lg:w-[calc(50%-3rem)]" />
                   </div>
                 </AnimatedSection>
               ))}
@@ -357,25 +356,27 @@ export default function CompanyPage() {
 
       {/* ── Get in Touch CTA ───────────────────────────── */}
       <section
-        className="section-padding on-brown"
-        style={{ background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 100%)" }}
+        className="section-padding"
+        style={{ background: "#362217", color: "#FBF8F3" }}
       >
         <div className="container-luxury">
           <AnimatedSection className="text-center max-w-2xl mx-auto">
-            <p className="text-label mb-4">Get in Touch</p>
-            <h2 className="text-display-lg mb-5" style={{ color: "var(--color-cream)" }}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#EAE0D0" }}>
+              Get in Touch
+            </p>
+            <h2 className="text-display-lg mb-5" style={{ color: "#FFFFFF" }}>
               Start a Partnership
             </h2>
-            <p className="text-lg mb-2" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="text-lg mb-2" style={{ color: "#EAE0D0" }}>
               Karachi, Pakistan
             </p>
-            <p className="text-lg mb-8" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="text-lg mb-8" style={{ color: "#EAE0D0", opacity: 0.9 }}>
               We work with importers, brands, and retailers worldwide.
               All inquiries are handled personally with a quote within 24–48 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <QuoteButton label="Request a Quote" size="lg" />
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-[#362217]">
                 <Link href="/contact">
                   Contact Us
                   <ArrowRight />
