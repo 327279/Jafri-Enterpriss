@@ -73,11 +73,11 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
         style={{
           background: scrolled
-            ? "rgba(251, 248, 243, 0.94)"
-            : "rgba(251, 248, 243, 0.75)",
+            ? "rgba(251, 248, 243, 0.96)"
+            : "rgba(43, 27, 18, 0.65)",
           backdropFilter: "blur(20px) saturate(1.4)",
-          borderBottom: scrolled ? "1px solid rgba(163, 117, 87, 0.18)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 20px rgba(60, 40, 25, 0.04)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(163, 117, 87, 0.18)" : "1px solid rgba(255, 255, 255, 0.12)",
+          boxShadow: scrolled ? "0 4px 20px rgba(60, 40, 25, 0.05)" : "none",
         }}
       >
         <div className="container-luxury">
@@ -97,14 +97,14 @@ export default function Navbar() {
               </div>
               <div>
                 <div
-                  className="text-base font-bold leading-none tracking-wide"
-                  style={{ color: "#2B1B12", fontFamily: "var(--font-display)" }}
+                  className="text-base font-bold leading-none tracking-wide transition-colors duration-300"
+                  style={{ color: scrolled ? "#2B1B12" : "#FFFFFF", fontFamily: "var(--font-display)" }}
                 >
                   Jafri Enterprises
                 </div>
                 <div
-                  className="text-[0.65rem] font-bold tracking-[0.2em] uppercase mt-1"
-                  style={{ color: "#A37557" }}
+                  className="text-[0.65rem] font-bold tracking-[0.2em] uppercase mt-1 transition-colors duration-300"
+                  style={{ color: scrolled ? "#A37557" : "#EBE3D5" }}
                 >
                   Est. 2005 · Karachi
                 </div>
@@ -122,11 +122,13 @@ export default function Navbar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
-                      className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
+                      className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
                       style={{
                         color: pathname.startsWith(link.href)
                           ? "#A37557"
-                          : "#2B1B12",
+                          : scrolled
+                          ? "#2B1B12"
+                          : "#FFFFFF",
                       }}
                     >
                       {link.label}
@@ -161,9 +163,9 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-semibold transition-colors duration-200 hover:text-[#A37557]"
+                    className="text-sm font-semibold transition-colors duration-300 hover:text-[#A37557]"
                     style={{
-                      color: pathname === link.href ? "#A37557" : "#2B1B12",
+                      color: pathname === link.href ? "#A37557" : scrolled ? "#2B1B12" : "#FFFFFF",
                     }}
                   >
                     {link.label}

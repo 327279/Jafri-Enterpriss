@@ -165,13 +165,12 @@ export default function HomePage() {
               transition={{ duration: 0.9, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <span className="block text-white">Leather That</span>
-              <span className="block text-amber-100/90">Defines Quality</span>
+              <span className="block text-[#EBE3D5]">Defines Quality</span>
             </motion.h1>
 
-            {/* Sub Paragraph */}
+            {/* Sub Paragraph — High contrast for dark background */}
             <motion.p
-              className="text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
-              style={{ color: "var(--color-text-secondary)" }}
+              className="text-lg sm:text-xl max-w-2xl leading-relaxed mb-10 text-[#FAF6F0]/90 font-medium"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.55 }}
@@ -190,7 +189,7 @@ export default function HomePage() {
                 Request a Quote
                 <ArrowRight />
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="heroOutline" size="lg">
                 <Link href="/products">View Products</Link>
               </Button>
             </motion.div>

@@ -30,13 +30,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "btn-sheen bg-[var(--color-amber)] text-white border border-transparent shadow-[var(--shadow-sm)] hover:brightness-110 hover:shadow-[var(--shadow-md)] hover:[&_svg]:translate-x-[3px]",
+          "btn-sheen bg-gradient-to-r from-[#A37557] to-[#B07B54] text-white font-bold border border-transparent shadow-md shadow-amber-950/20 hover:from-[#8F613F] hover:to-[#A37557] hover:shadow-lg hover:shadow-amber-950/30 hover:[&_svg]:translate-x-[3px]",
         outline:
-          "bg-transparent text-[var(--color-text-heading)] border border-[var(--color-border-strong)] hover:bg-[var(--color-text-heading)] hover:text-[var(--color-void)] hover:border-[var(--color-text-heading)]",
+          "bg-white/90 text-[#2B1B12] border-2 border-[#2B1B12] font-bold shadow-sm hover:bg-[#2B1B12] hover:text-white hover:border-[#2B1B12]",
+        heroOutline:
+          "bg-white/10 backdrop-blur-md text-white border-2 border-white/80 font-bold shadow-sm hover:bg-white hover:text-[#2B1B12] hover:border-white",
         subtle:
-          "bg-[rgba(144,108,86,0.12)] text-[var(--color-text-heading)] border border-[rgba(144,108,86,0.30)] hover:bg-[rgba(144,108,86,0.22)] hover:border-[rgba(144,108,86,0.48)]",
+          "bg-[#EBE3D5] text-[#2B1B12] border border-[rgba(163,117,87,0.25)] font-bold hover:bg-[#FAF6F0] hover:border-[rgba(163,117,87,0.45)]",
         ghost:
-          "bg-transparent text-[var(--color-amber-light)] border border-transparent hover:bg-[rgba(144,108,86,0.14)]",
+          "bg-transparent text-[#A37557] border border-transparent font-semibold hover:bg-[rgba(163,117,87,0.12)] hover:text-[#2B1B12]",
       },
       // Heights are set with min-h in addition to h so the button keeps its
       // size when it is a flex child on a column axis — `flex-1` resolves

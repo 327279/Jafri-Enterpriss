@@ -360,20 +360,17 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
      text-on-dark (#E8DFD4) on #553A2E → 7.85:1  (AAA)
      amber-pale   (#C9B5A8) on #553A2E → 5.25:1  (AA)
    ───────────────────────────────────────────────────────── */
-.on-brown {
-  --color-text:           var(--color-text-on-dark);
-  --color-text-primary:   var(--color-text-on-dark);
-  --color-text-body:      var(--color-text-on-dark);
-  --color-text-secondary: var(--color-text-on-dark);
-  --color-text-muted:     var(--color-amber-pale);
-  --color-text-on-dark-2: var(--color-amber-pale);
-  --color-border:         rgba(232, 223, 212, 0.16);
-  --color-border-strong:  rgba(232, 223, 212, 0.30);
+.on-dark, .on-brown {
+  --color-text-heading:   #FFFFFF;
+  --color-text:           #FAF6F0;
+  --color-text-primary:   #FAF6F0;
+  --color-text-body:      #FAF6F0;
+  --color-text-secondary: #EBE3D5;
+  --color-text-muted:     #C9B5A8;
+  --color-border:         rgba(255, 255, 255, 0.18);
+  --color-border-strong:  rgba(255, 255, 255, 0.35);
 }
-/* Eyebrow labels use the amber accent, which reads at only 2.2:1
-   on this ground. Amber-pale is the same family at 5.25:1.
-   Icons and dividers keep the full-strength amber. */
-.on-brown .text-label { color: var(--color-amber-pale); }
+.on-dark .text-label, .on-brown .text-label { color: #EBE3D5; }
 
 /* ── Pill Badge ────────────────────────────────────────── */
 .pill-badge {
