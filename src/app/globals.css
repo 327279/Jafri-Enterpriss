@@ -18,51 +18,51 @@
 
 /* ── Design Tokens ─────────────────────────────────────── */
 :root {
-  /* ── Bright Parchment & Leather Palette (matching reference) ─ */
+  /* ── Bright Parchment & Leather Palette ── */
   --color-page:           #FBF8F3;   /* Light parchment cream main bg */
   --color-page-alt:       #EFE7DC;   /* Soft warm sand alternate section bg */
   --color-surface:        #EAE0D0;   /* Soft warm sand card bg */
   --color-surface-white:  #FFFFFF;   /* Pure white card box */
-  --color-dark:           #2B1B12;   /* Deep espresso dark brown */
+  --color-dark:           #1A0E07;   /* Deepest dark espresso */
   --color-obsidian:       #362217;   /* Rich leather dark brown */
   --color-brown-deep:     #5C3D2E;   /* Deep leather brown accent */
   --color-brown:          #634232;
-  --color-brown-mid:      #A37557;   /* Sienna tan accent */
+  --color-brown-mid:      #8C5738;   /* Sienna tan accent */
 
   /* Primary references */
   --color-void:           #FBF8F3;
-  --color-inverse:        #2B1B12;
+  --color-inverse:        #1A0E07;
   --color-inverse-2:      #362217;
 
   /* ── Brand & Accent ──────────────────────────────────── */
-  --color-amber:          #A37557;   /* Eyebrow tan brown */
-  --color-amber-light:    #B08060;
-  --color-amber-pale:     #EAE0D0;
-  --color-tan:            #A37557;
+  --color-amber:          #8C5738;   /* High-contrast sienna tan */
+  --color-amber-light:    #A37557;
+  --color-amber-pale:     #6E4D3B;   /* High contrast sienna brown for text labels on light bg */
+  --color-tan:            #8C5738;
   --color-tan-deep:       #5C3D2E;
-  --color-tan-light:      #B08060;
+  --color-tan-light:      #A37557;
 
-  /* ── Text ───────────────────────────────────────────── */
+  /* ── Text (LIGHT BG DEFAULT) ─────────────────────────── */
   --color-pure-white:     #FFFFFF;
   --color-soft-white:     #FBF8F3;
   --color-cream:          #FBF8F3;
   --color-warm-white:     #FAF6F0;
-  --color-text:           #4A3A30;   /* Body text: rich dark warm brown */
-  --color-text-primary:   #4A3A30;
-  --color-text-heading:   #2B1B12;   /* Deep espresso dark headings */
-  --color-text-on-light:  #2B1B12;
-  --color-text-body:      #4A3A30;
-  --color-text-secondary: #7A685B;   /* Muted sand brown */
-  --color-text-muted:     #A37557;   /* Eyebrow sienna tan */
-  --color-text-on-dark:   #FBF8F3;   /* Light parchment text when on dark cards */
-  --color-text-on-dark-2: #EAE0D0;
+  --color-text:           #36251B;   /* Body text: rich dark warm brown (10:1 contrast) */
+  --color-text-primary:   #36251B;
+  --color-text-heading:   #1A0E07;   /* Deepest dark espresso headings (15:1 contrast) */
+  --color-text-on-light:  #1A0E07;
+  --color-text-body:      #36251B;
+  --color-text-secondary: #523B2D;   /* Dark warm sienna secondary text (7:1 contrast) */
+  --color-text-muted:     #6E4D3B;   /* Crisp dark sienna text for labels/microcopy (5.5:1 contrast) */
+  --color-text-on-dark:   #FAF6F0;   /* Light parchment text when on dark cards */
+  --color-text-on-dark-2: #EBE3D5;
   --color-on-accent:      #FFFFFF;
 
   /* ── Borders ────────────────────────────────────────── */
-  --color-border:         rgba(163, 117, 87, 0.18);
-  --color-border-strong:  rgba(163, 117, 87, 0.35);
-  --color-border-light:   rgba(163, 117, 87, 0.12);
-  --color-border-on-dark: rgba(251, 248, 243, 0.15);
+  --color-border:         rgba(140, 87, 56, 0.22);
+  --color-border-strong:  rgba(140, 87, 56, 0.40);
+  --color-border-light:   rgba(140, 87, 56, 0.15);
+  --color-border-on-dark: rgba(251, 248, 243, 0.20);
 
   /* ── Typography ─────────────────────────────────────── */
   --font-display: 'Archivo Black', 'Inter', system-ui, sans-serif;

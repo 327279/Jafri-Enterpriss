@@ -224,23 +224,25 @@ export default function HomePage() {
           STATS BAR
       ══════════════════════════════════════════ */}
       <section
-        className="on-dark"
+        className="py-12"
         style={{
-          background: "var(--color-void)",
-          borderTop: "1px solid var(--color-border-on-dark)",
-          borderBottom: "1px solid var(--color-border-on-dark)",
+          background: "#FAF6F0",
+          borderTop: "1px solid rgba(140,87,56,0.20)",
+          borderBottom: "1px solid rgba(140,87,56,0.20)",
         }}
       >
-        <div className="container-luxury py-12">
+        <div className="container-luxury">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => {
               const Icon = stat.icon;
               return (
                 <AnimatedSection key={stat.label} delay={i * 0.1} direction="up">
                   <div className="text-center">
-                    <Icon size={32} className="mx-auto mb-2" style={{ color: "var(--color-amber-light)" }} aria-hidden="true" />
-                    <StatNumber value={stat.value} className="stat-number mb-1" />
-                    <div className="text-xs tracking-widest uppercase" style={{ color: "var(--color-text-on-dark-2)" }}>
+                    <Icon size={32} className="mx-auto mb-2" style={{ color: "#8C5738" }} aria-hidden="true" />
+                    <div className="text-3xl lg:text-4xl font-black mb-1" style={{ color: "#8C5738", fontFamily: "var(--font-display)" }}>
+                      {stat.value}
+                    </div>
+                    <div className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: "#523B2D" }}>
                       {stat.label}
                     </div>
                   </div>
@@ -252,9 +254,9 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          LEATHER VISUAL SECTION
+          LEATHER VISUAL SECTION (Dark Leather Section)
       ══════════════════════════════════════════ */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      <section className="section-padding text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
@@ -262,10 +264,10 @@ export default function HomePage() {
                 <div
                   className="absolute -inset-4 opacity-20"
                   style={{
-                    background: "radial-gradient(ellipse, var(--color-amber) 0%, transparent 70%)",
+                    background: "radial-gradient(ellipse, #A37557 0%, transparent 70%)",
                   }}
                 />
-                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/15 shadow-2xl" style={{ height: "460px" }}>
+                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl" style={{ height: "460px" }}>
                   <video
                     autoPlay
                     loop
@@ -279,12 +281,12 @@ export default function HomePage() {
                 </div>
                 {/* Floating badge */}
                 <div
-                  className="absolute bottom-6 right-6 glass-panel px-6 py-4 z-20"
+                  className="absolute bottom-6 right-6 bg-[#1A0E07]/90 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20 z-20 shadow-lg"
                 >
-                  <div className="text-2xl font-display leading-none" style={{ color: "var(--color-amber)" }}>
+                  <div className="text-2xl font-black leading-none text-[#EBE3D5]" style={{ fontFamily: "var(--font-display)" }}>
                     30,000
                   </div>
-                  <div className="text-xs tracking-wide mt-1.5" style={{ color: "var(--color-text-secondary)" }}>
+                  <div className="text-xs font-bold tracking-wide mt-1.5 text-white/90">
                     sq ft produced daily
                   </div>
                 </div>
@@ -293,18 +295,17 @@ export default function HomePage() {
 
             <AnimatedSection direction="right">
               <div>
-                <div className="section-eyebrow">
-                  <div className="divider-gold" />
-                  <p className="text-label">Leather Finishes & Quality</p>
-                </div>
-                <h2 className="text-display-lg mb-6">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">
+                  Leather Finishes & Quality
+                </p>
+                <h2 className="text-display-lg mb-6 text-white">
                   Every Hide,{" "}
-                  <span className="text-gradient-gold italic">Perfected</span>
+                  <span className="text-[#EBE3D5] italic font-serif">Perfected</span>
                 </h2>
-                <p className="leading-relaxed mb-6" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed mb-6 text-[#FAF6F0]/90 text-base font-medium">
                   Our Korangi tannery processes leather from the raw state through drum processing, shaving, toggling, and dyeing — delivering consistent, export-grade finished leather to global buyers.
                 </p>
-                <p className="leading-relaxed mb-10" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed mb-10 text-[#FAF6F0]/90 text-base font-medium">
                   Available in full-grain, top-grain, nappa, pebbled, pull-up, and custom embossed finishes. Multiple thicknesses and colors to specification.
                 </p>
 
@@ -313,12 +314,7 @@ export default function HomePage() {
                   {["Full-Grain", "Top-Grain", "Nappa", "Pebbled", "Pull-Up", "Embossed"].map((f) => (
                     <span
                       key={f}
-                      className="px-4 py-2 text-xs font-medium"
-                      style={{
-                        background: "rgba(144,108,86,0.06)",
-                        border: "1px solid var(--color-border)",
-                        color: "var(--color-cream)",
-                      }}
+                      className="px-4 py-2 text-xs font-bold rounded-lg bg-white/10 border border-white/20 text-[#FAF6F0]"
                     >
                       {f}
                     </span>
@@ -338,35 +334,31 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          ABOUT SECTION
+          ABOUT SECTION (Matching Parchment Light Reference)
       ══════════════════════════════════════════ */}
       <section
         className="section-padding"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--color-obsidian) 0%, var(--color-void) 100%)",
-        }}
+        style={{ background: "#FBF8F3" }}
       >
         <div className="container-luxury">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div>
-                <div className="section-eyebrow">
-                  <div className="divider-gold" />
-                  <p className="text-label">About Jafri Enterprises</p>
-                </div>
-                <h2 className="text-display-lg mb-6">
-                  Pakistan&apos;s Premier{" "}
-                  <span className="text-gradient-gold italic">Leather House</span>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#8C5738" }}>
+                  About Jafri Enterprises
+                </p>
+                <h2 className="text-display-lg mb-6" style={{ color: "#1A0E07" }}>
+                  Pakistan&apos;s Premier<br />
+                  <span className="text-[#8C5738] italic font-serif">Leather House</span>
                 </h2>
-                <p className="leading-relaxed mb-5" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed mb-5 text-base font-medium" style={{ color: "#36251B" }}>
                   Jafri Enterprises is an established leather tannery and exporter based in Karachi, Pakistan, with over two decades of experience since 2005. We specialize in the tanning and supply of premium leather for clothing, bags, shoes, jackets, and finished leather goods.
                 </p>
-                <p className="leading-relaxed mb-5" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed mb-5 text-base font-medium" style={{ color: "#36251B" }}>
                   We serve valued clients across Korea, Germany, China, and several other markets worldwide — backed by advanced tanning facilities, skilled craftsmen, and rigorous quality control at every production stage.
                 </p>
-                <p className="leading-relaxed mb-10" style={{ color: "var(--color-text-secondary)" }}>
-                  Our approach is built on three core commitments: <strong style={{ color: "var(--color-cream)" }}>the highest quality, competitive pricing, and on-time delivery</strong> — supported by efficient management and a well-trained team dedicated to your satisfaction.
+                <p className="leading-relaxed mb-10 text-base font-medium" style={{ color: "#36251B" }}>
+                  Our approach is built on three core commitments: <strong style={{ color: "#1A0E07", fontWeight: 700 }}>the highest quality, competitive pricing, and on-time delivery</strong> — supported by efficient management and a well-trained team dedicated to your satisfaction.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
@@ -391,20 +383,21 @@ export default function HomePage() {
                   alt="Jafri Enterprises tannery facility"
                   width={640}
                   height={480}
-                  className="w-full object-cover"
+                  className="w-full object-cover rounded-2xl shadow-xl border border-amber-900/15"
                   style={{ maxHeight: "460px" }}
                 />
                 {/* Year badge */}
                 <div
-                  className="absolute -bottom-6 -left-6 w-32 h-32 flex flex-col items-center justify-center"
+                  className="absolute -bottom-6 -left-6 px-7 py-6 rounded-2xl shadow-xl flex flex-col items-center justify-center border border-amber-900/20"
                   style={{
-                    background: "linear-gradient(135deg, var(--color-amber), var(--color-amber-light))",
+                    background: "#362217",
+                    color: "#FFFFFF",
                   }}
                 >
-                  <span className="text-3xl font-display leading-none" style={{ color: "var(--color-void)" }}>
+                  <span className="text-3xl font-black leading-none text-[#EBE3D5]" style={{ fontFamily: "var(--font-display)" }}>
                     20+
                   </span>
-                  <span className="text-xs font-semibold text-center leading-tight mt-1.5" style={{ color: "var(--color-void)" }}>
+                  <span className="text-xs font-bold text-center leading-tight mt-1.5 text-white/90">
                     Years of<br />Excellence
                   </span>
                 </div>
@@ -415,21 +408,18 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PRODUCTS SECTION
+          PRODUCTS SECTION (Dark Leather Section)
       ══════════════════════════════════════════ */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      <section className="section-padding text-white" style={{ background: "#362217" }}>
         <div className="container-luxury">
           <AnimatedSection className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="divider-gold" />
-              <p className="text-label">Our Divisions</p>
-              <div className="divider-gold" style={{ background: "linear-gradient(270deg, var(--color-amber), var(--color-amber-light), transparent)" }} />
-            </div>
-            <h2 className="text-display-lg mb-4">
-              Product{" "}
-              <span className="text-gradient-gold italic">Categories</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">
+              Our Divisions
+            </p>
+            <h2 className="text-display-lg mb-4 text-white">
+              Product <span className="text-[#EBE3D5] italic font-serif">Categories</span>
             </h2>
-            <p className="max-w-xl mx-auto" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="max-w-xl mx-auto text-[#FAF6F0]/90 text-base font-medium">
               Three divisions, one quality standard. Premium leather products for global B2B buyers.
             </p>
           </AnimatedSection>
@@ -441,7 +431,7 @@ export default function HomePage() {
           </div>
 
           <AnimatedSection className="text-center mt-14">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="heroOutline" size="lg">
               <Link href="/products">
                 Browse All Products
                 <ArrowRight />
@@ -452,24 +442,21 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          WHY CHOOSE US
+          WHY CHOOSE US (Light Warm Sand Section)
       ══════════════════════════════════════════ */}
       <section
         className="section-padding"
         style={{
-          background:
-            "linear-gradient(180deg, var(--color-obsidian) 0%, var(--color-dark) 100%)",
+          background: "#EFE7DC",
         }}
       >
         <div className="container-luxury">
           <AnimatedSection className="mb-16">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Why Source With Us</p>
-            </div>
-            <h2 className="text-display-lg max-w-2xl">
-              The Jafri{" "}
-              <span className="text-gradient-gold italic">Advantage</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#8C5738" }}>
+              Why Source With Us
+            </p>
+            <h2 className="text-display-lg max-w-2xl" style={{ color: "#1A0E07" }}>
+              The Jafri <span className="text-[#8C5738] italic font-serif">Advantage</span>
             </h2>
           </AnimatedSection>
 
@@ -477,28 +464,26 @@ export default function HomePage() {
             {features.map((f, i) => (
               <AnimatedSection key={f.title} delay={i * 0.08}>
                 <div
-                  className="card-luxury p-8 h-full"
+                  className="rounded-2xl p-8 h-full bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   style={{
-                    background: "rgba(26,18,8,0.6)",
-                    border: "1px solid var(--color-border)",
+                    border: "1px solid rgba(140,87,56,0.18)",
                   }}
                 >
                   <div
-                    className="w-12 h-12 flex items-center justify-center mb-5"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                     style={{
-                      background: "rgba(144,108,86,0.1)",
-                      border: "1px solid var(--color-border-strong)",
+                      background: "rgba(140,87,56,0.12)",
                     }}
                   >
-                    <f.icon size={22} style={{ color: "var(--color-amber)" }} />
+                    <f.icon size={22} style={{ color: "#8C5738" }} />
                   </div>
                   <h3
-                    className="text-lg font-semibold mb-3"
-                    style={{ fontFamily: "var(--font-display)", color: "var(--color-cream)" }}
+                    className="text-lg font-bold mb-3"
+                    style={{ fontFamily: "var(--font-display)", color: "#1A0E07" }}
                   >
                     {f.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="text-sm leading-relaxed font-medium" style={{ color: "#523B2D" }}>
                     {f.desc}
                   </p>
                 </div>
@@ -509,20 +494,22 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          CERTIFICATIONS STRIP
+          CERTIFICATIONS STRIP (Fixing Screenshot 5!)
       ══════════════════════════════════════════ */}
       <section
         className="py-16"
         style={{
-          background: "var(--color-void)",
-          borderTop: "1px solid var(--color-border)",
-          borderBottom: "1px solid var(--color-border)",
+          background: "#FBF8F3",
+          borderTop: "1px solid rgba(140,87,56,0.20)",
+          borderBottom: "1px solid rgba(140,87,56,0.20)",
         }}
       >
         <div className="container-luxury">
           <AnimatedSection className="text-center mb-10">
-            <p className="text-label">Compliance & Standards</p>
-            <h3 className="text-display-sm mt-2">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: "#8C5738" }}>
+              Compliance & Standards
+            </p>
+            <h3 className="text-display-sm font-black" style={{ color: "#1A0E07" }}>
               Certified for Global Export
             </h3>
           </AnimatedSection>
@@ -536,21 +523,24 @@ export default function HomePage() {
             ].map((cert, i) => (
               <AnimatedSection key={cert.label} delay={i * 0.1}>
                 <div
-                  className="glass-panel-amber text-center p-6"
+                  className="rounded-2xl text-center p-6 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                  style={{
+                    border: "1px solid rgba(140,87,56,0.22)",
+                  }}
                 >
                   <div
-                    className="w-12 h-12 mx-auto mb-4 flex items-center justify-center"
+                    className="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center"
                     style={{
-                      background: "rgba(144,108,86,0.15)",
-                      border: "1px solid var(--color-amber)",
+                      background: "rgba(140,87,56,0.12)",
+                      border: "1px solid rgba(140,87,56,0.25)",
                     }}
                   >
-                    <Award size={20} style={{ color: "var(--color-amber)" }} />
+                    <Award size={22} style={{ color: "#8C5738" }} />
                   </div>
-                  <div className="font-semibold text-sm mb-1" style={{ color: "var(--color-cream)" }}>
+                  <div className="font-bold text-base mb-1" style={{ color: "#1A0E07" }}>
                     {cert.label}
                   </div>
-                  <div className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                  <div className="text-xs font-semibold" style={{ color: "#523B2D" }}>
                     {cert.sub}
                   </div>
                 </div>

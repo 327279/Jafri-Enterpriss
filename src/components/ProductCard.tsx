@@ -40,17 +40,16 @@ export default function ProductCard({
   return (
     <AnimatedSection delay={delay}>
       <div
-        className="card-luxury group relative overflow-hidden flex flex-col h-full"
+        className="rounded-2xl group relative overflow-hidden flex flex-col h-full bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
         style={{
-          background: "rgba(26, 18, 8, 0.8)",
-          border: "1px solid var(--color-border)",
+          border: "1px solid rgba(140, 87, 56, 0.20)",
         }}
       >
         {/* Tag */}
         {tag && (
           <div
-            className="absolute top-3 left-3 z-10 px-2.5 py-1 text-[0.6rem] font-semibold tracking-widest uppercase"
-            style={{ background: "var(--color-amber)", color: "var(--color-void)" }}
+            className="absolute top-3 left-3 z-10 px-3 py-1 text-[0.65rem] font-bold tracking-widest uppercase rounded-md shadow-sm"
+            style={{ background: "#8C5738", color: "#FFFFFF" }}
           >
             {tag}
           </div>
@@ -68,29 +67,29 @@ export default function ProductCard({
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to top, rgba(8,6,4,0.85) 0%, transparent 60%)",
+              background: "linear-gradient(to top, rgba(26,14,7,0.3) 0%, transparent 60%)",
             }}
           />
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 p-5">
-          <h3 className="text-display-xs mb-2">
+        <div className="flex flex-col flex-1 p-6">
+          <h3 className="text-xl font-bold mb-2.5" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
             {title}
           </h3>
-          <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "var(--color-text-secondary)" }}>
+          <p className="text-sm leading-relaxed mb-5 flex-1 font-medium" style={{ color: "#36251B" }}>
             {description}
           </p>
 
           {/* Specs */}
           {specs && specs.length > 0 && (
-            <div className="mb-4">
+            <div className="mb-5 divide-y divide-[rgba(140,87,56,0.15)]">
               {specs.map((spec) => (
-                <div key={spec.label} className="spec-row">
-                  <span className="text-xs font-medium" style={{ color: "var(--color-text-muted)" }}>
+                <div key={spec.label} className="flex justify-between py-1.5 text-xs">
+                  <span className="font-semibold" style={{ color: "#6E4D3B" }}>
                     {spec.label}
                   </span>
-                  <span className="text-xs font-semibold" style={{ color: "var(--color-cream)" }}>
+                  <span className="font-bold" style={{ color: "#1A0E07" }}>
                     {spec.value}
                   </span>
                 </div>
@@ -98,37 +97,29 @@ export default function ProductCard({
             </div>
           )}
 
-          {/* MOQ */}
-          {moq && (
-            <div
-              className="flex items-center gap-2 px-3 py-2.5 mb-4 text-xs rounded-md"
-              style={{
-                background: "rgba(144,108,86,0.08)",
-                border: "1px solid var(--color-border)",
-              }}
-            >
-              <span style={{ color: "var(--color-amber)" }}>MOQ:</span>
-              <span style={{ color: "var(--color-cream)" }}>{moq}</span>
-            </div>
-          )}
-
-          {/* CTAs — basis-0 rather than flex-1 so the buttons share width on
-              the row axis without their height collapsing on the column axis. */}
-          <div className="flex flex-col sm:flex-row gap-2.5 mt-auto">
-            <Button onClick={openQuote} size="sm" className="w-full sm:flex-1 sm:w-auto">
-              Request a Quote
-            </Button>
-            {href && (
-              <Button asChild variant="outline" size="sm" className="w-full sm:flex-1 sm:w-auto">
-                <Link href={href}>
-                  View Details
-                  <ArrowRight />
-                </Link>
-              </Button>
+          {/* MOQ badge & Buttons */}
+          <div className="pt-4 border-t border-[rgba(140,87,56,0.18)] flex items-center justify-between gap-3">
+            {moq && (
+              <span className="text-xs font-bold" style={{ color: "#8C5738" }}>
+                MOQ: {moq}
+              </span>
             )}
+            <div className="flex items-center gap-2 ml-auto">
+              <Button onClick={openQuote} size="sm">
+                Inquire
+              </Button>
+              {href && (
+                <Button asChild variant="outline" size="sm">
+                  <Link href={href}>
+                    Details
+                  </Link>
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </div>
     </AnimatedSection>
+
   );
 }
