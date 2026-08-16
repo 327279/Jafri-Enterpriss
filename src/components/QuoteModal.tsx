@@ -209,7 +209,7 @@ export default function QuoteModal() {
                     </div>
                     <div>
                       <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Estimated Quantity / MOQ</label>
-                      <input name="quantity" type="text" placeholder="e.g. 5,000 sq ft / 200 units per month" className="form-field" />
+                      <input name="quantity" type="text" placeholder="e.g. 1,000 sq ft / 40 units per month" className="form-field" />
                     </div>
                     <div>
                       <label className="text-xs font-bold uppercase tracking-[0.16em] block mb-2 text-[#8C5738]">Message & Requirements *</label>

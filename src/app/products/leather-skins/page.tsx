@@ -10,7 +10,7 @@ import ProseSection, { type ProseSpec } from "@/components/ProseSection";
 export const metadata: Metadata = {
   title: "Finished Leather Skins",
   description:
-    "Premium finished leather skins from Jafri Enterprises. Full-grain, top-grain, nappa, pebbled, and custom finishes. B2B bulk supply, MOQ 5,000 sq ft.",
+    "Premium finished leather skins from Jafri Enterprises. Full-grain, top-grain, nappa, pebbled, and custom finishes. B2B bulk supply, MOQ 1,000 sq ft.",
 };
 
 const finishedProducts = [
@@ -25,7 +25,7 @@ const finishedProducts = [
       { label: "Thickness", value: "0.6 – 1.2 mm" },
       { label: "Texture", value: "Ultra-smooth" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
     tag: "Best Seller",
   },
   {
@@ -39,7 +39,7 @@ const finishedProducts = [
       { label: "Thickness", value: "0.8 – 1.6 mm" },
       { label: "Texture", value: "Pebbled" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/pull-up.jpg",
@@ -52,7 +52,7 @@ const finishedProducts = [
       { label: "Thickness", value: "1.0 – 2.0 mm" },
       { label: "Texture", value: "Natural grain" },
     ],
-    moq: "3,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/garment.jpg",
@@ -65,7 +65,7 @@ const finishedProducts = [
       { label: "Thickness", value: "0.5 – 0.9 mm" },
       { label: "Texture", value: "Smooth / Soft" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/embossed.jpg",
@@ -78,7 +78,7 @@ const finishedProducts = [
       { label: "Thickness", value: "0.8 – 1.4 mm" },
       { label: "Texture", value: "Crocodile / Custom" },
     ],
-    moq: "3,000 sq ft / order",
+    moq: "1,000 sq ft / order",
     tag: "Premium",
   },
   {
@@ -92,7 +92,7 @@ const finishedProducts = [
       { label: "Thickness", value: "1.0 – 1.8 mm" },
       { label: "Texture", value: "Smooth / Grain" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
 ];
 
@@ -108,7 +108,7 @@ const crustProducts = [
       { label: "Thickness", value: "1.2 – 2.0 mm" },
       { label: "Hide Size", value: "45 – 55 sq ft avg" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/upholstery-crust.jpg",
@@ -121,7 +121,7 @@ const crustProducts = [
       { label: "Thickness", value: "1.0 – 2.2 mm" },
       { label: "Tannage", value: "Chrome / Veg" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/crust-bags.jpg",
@@ -134,7 +134,7 @@ const crustProducts = [
       { label: "Thickness", value: "0.9 – 1.6 mm" },
       { label: "Applications", value: "Bags & Travel Goods" },
     ],
-    moq: "3,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/crust-belts.jpg",
@@ -147,7 +147,7 @@ const crustProducts = [
       { label: "Thickness", value: "2.0 – 4.0 mm" },
       { label: "Cut", value: "Strips or Full Bend" },
     ],
-    moq: "3,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/cow-lining.jpg",
@@ -160,7 +160,7 @@ const crustProducts = [
       { label: "Thickness", value: "0.6 – 1.0 mm" },
       { label: "Applications", value: "Footwear & Goods Lining" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
   {
     image: "/images/products/skins/shoe-upper-crust.jpg",
@@ -173,7 +173,7 @@ const crustProducts = [
       { label: "Thickness", value: "1.0 – 1.8 mm" },
       { label: "Tannage", value: "Chrome / Semi-Chrome" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
   },
 ];
 
@@ -257,7 +257,7 @@ export default function LeatherSkinsPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {[
               { label: "Capacity", value: "30,000 sq ft/day" },
-              { label: "Min. Order", value: "3,000 sq ft" },
+              { label: "Min. Order", value: "1,000 sq ft" },
               { label: "Lead Time", value: "3–6 weeks" },
               { label: "Processing", value: "Raw to Finish" },
             ].map((s) => (

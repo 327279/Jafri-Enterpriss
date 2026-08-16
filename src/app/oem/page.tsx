@@ -121,7 +121,7 @@ export default function OEMPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             {[
               { value: "20+", label: "Years OEM Experience" },
-              { value: "200", label: "Min. Units / Style" },
+              { value: "40", label: "Min. Units / Style" },
               { value: "3–4wk", label: "Sample Turnaround" },
               { value: "CBR", label: "Group Certified" },
             ].map((s) => (
@@ -299,7 +299,7 @@ export default function OEMPage() {
               <span className="text-[#EBE3D5] italic font-serif">Leather Line?</span>
             </h2>
             <p className="max-w-xl mx-auto mb-10 text-[#FAF6F0]/90 font-medium">
-              Minimum 200 units per style. Free consultation and no-obligation quotes. Samples shipped worldwide.
+              Minimum 40 units per style. Free consultation and no-obligation quotes. Samples shipped worldwide.
             </p>
             <QuoteButton label="Start OEM Inquiry" hint="oem" size="lg" />
           </AnimatedSection>

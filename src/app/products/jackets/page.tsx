@@ -9,7 +9,7 @@ import ProseSection, { type ProseSpec } from "@/components/ProseSection";
 export const metadata: Metadata = {
   title: "Leather Jackets",
   description:
-    "Premium leather jackets from Jafri Enterprises. Biker, casual, classic, and winter styles in sheep nappa and cowhide. OEM & private label, MOQ 200 units.",
+    "Premium leather jackets from Jafri Enterprises. Biker, casual, classic, and winter styles in sheep nappa and cowhide. OEM & private label, MOQ 40 units.",
 };
 
 const products = [
@@ -23,7 +23,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Lining", value: "Satin Polyester" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Bestseller",
   },
   {
@@ -36,7 +36,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Style", value: "Overcoat" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Executive",
   },
   {
@@ -49,7 +49,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Padding", value: "Quilted Shoulders" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Designer",
   },
   {
@@ -62,7 +62,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Collar", value: "Mandarin Snap" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/FASHIONABLE-CASUAL-JACKET-FOR-MENS.jpg",
@@ -74,7 +74,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Trim", value: "Ribbed Elastic" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/fashionable-classic-pu-leather-jackets.jpg",
@@ -86,7 +86,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Pockets", value: "Dual Cargo + Zip" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/HAND-MADE-BROWN-LEATER-JACKET-FOR-MENS.jpg",
@@ -98,7 +98,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Color", value: "Cognac Brown" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Handcrafted",
   },
   {
@@ -111,7 +111,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Protection", value: "Cold & Wind Proof" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/ladies-lotus-lather-jacket.jpg",
@@ -123,7 +123,7 @@ const products = [
       { label: "Sizes", value: "XS – 3XL" },
       { label: "Fit", value: "Slim Contour" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Women's Collection",
   },
   {
@@ -136,7 +136,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Length", value: "Mid-Thigh / Knee" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/MOTOR-BIKE-LEATHER-CORDURA-JACKET.jpg",
@@ -148,7 +148,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Safety", value: "Reflective Piping" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Motorsport",
   },
   {
@@ -161,7 +161,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Colors", value: "Custom Combos" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/RIVER-ROAD-HOODLUM-JACKET.jpg",
@@ -173,7 +173,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Lining", value: "Removable Vest" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/SHEEP-NAPPA-RED.jpg",
@@ -185,7 +185,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Finish", value: "High-Gloss Aniline" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Statement Piece",
   },
   {
@@ -198,7 +198,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Hardware", value: "Gunmetal Zips" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/STYLISH-LEATHER-JACKETS-FOR-MENS.jpg",
@@ -211,7 +211,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Quilting", value: "Sleeve Channels" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/WINTER-LEATHER-JACKET-600x630.jpg",
@@ -223,7 +223,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Climate", value: "Sub-Zero Rated" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Winter Heavyweight",
   },
   {
@@ -236,7 +236,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Design", value: "Clean Seamline" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
   },
   {
     image: "/images/jackets/80859e84-4d87-404f-a458-61b7a03d832e.webp",
@@ -248,7 +248,7 @@ const products = [
       { label: "Sizes", value: "S – 5XL" },
       { label: "Hardware", value: "Antique Brass" },
     ],
-    moq: "200 units / color",
+    moq: "40 units / color",
     tag: "Vintage",
   },
 ];
@@ -347,7 +347,7 @@ export default function JacketsPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {[
               { label: "Styles", value: "6+" },
-              { label: "Min. Order", value: "200 units" },
+              { label: "Min. Order", value: "40 units" },
               { label: "Sizes", value: "S – 5XL" },
               { label: "Lead Time", value: "8–10 weeks" },
             ].map((s) => (

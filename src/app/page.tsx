@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 const stats = [
   { value: "2005", label: "Established", icon: Factory },
   { value: "20+", label: "Years Experience", icon: Award },
-  { value: "200+", label: "Min. Order Units", icon: Layers },
+  { value: "40+", label: "Min. Order Units", icon: Layers },
   { value: "4+", label: "Export Markets", icon: Globe },
 ];
 
@@ -30,7 +30,7 @@ const products = [
       { label: "Thickness", value: "0.6mm – 2.0mm" },
       { label: "Processing", value: "Drum, Dyeing, Toggling" },
     ],
-    moq: "5,000 sq ft / order",
+    moq: "1,000 sq ft / order",
     href: "/products/leather-skins",
     tag: "Tannery Division",
   },
@@ -45,7 +45,7 @@ const products = [
       { label: "Sizes", value: "S — 5XL (custom)" },
       { label: "Service", value: "OEM / Private Label" },
     ],
-    moq: "200 units / style",
+    moq: "40 units / style",
     href: "/products/jackets",
     tag: "Garments Division",
   },

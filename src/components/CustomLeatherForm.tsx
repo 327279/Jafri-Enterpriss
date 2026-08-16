@@ -312,7 +312,7 @@ export default function CustomLeatherForm({
                         id="cl-quantity"
                         name="quantity"
                         type="text"
-                        placeholder="5,000 sq ft"
+                        placeholder="1,000 sq ft"
                         className="form-field"
                       />
                     </div>

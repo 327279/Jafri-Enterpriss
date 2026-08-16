@@ -23,7 +23,8 @@ Company facts:
 - Products: finished leather skins, leather jackets and garments, bags, shoes, and accessories.
 - Services: OEM and private label manufacturing.
 - Capacity: 30,000 sq ft of finished leather per day across 3 production units in Korangi Industrial Area, Karachi.
-- OEM minimum: 200 units per style. Sample turnaround: 3-4 weeks.
+- Leather skins minimum: 1,000 sq ft per order.
+- Leather jackets & OEM minimum: 40 units per style. Sample turnaround: 3-4 weeks.
 - Export markets: Korea, Germany, China, Europe, North America, and Asia.
 - Contact: info@jafrienterprises.biz
 
@@ -68,9 +69,9 @@ Keep responses short and concrete.`
     if (lastUserMsg.includes("product") || lastUserMsg.includes("leather") || lastUserMsg.includes("skin") || lastUserMsg.includes("jacket")) {
       reply = "We supply finished leather skins, leather jackets and garments, bags, shoes, and accessories. Our tannery handles everything from raw hide to finished product. Which category are you interested in?";
     } else if (lastUserMsg.includes("moq") || lastUserMsg.includes("minimum") || lastUserMsg.includes("quantity") || lastUserMsg.includes("order")) {
-      reply = "For OEM and private label work our minimum is 200 units per style, with a 3-4 week sample turnaround. Minimums on finished leather skins depend on the article and finish — request a quote and our export team will confirm.";
+      reply = "For finished leather skins, our minimum order quantity is 1,000 sq ft. For leather jackets and OEM garments, our minimum is 40 units per style, with a 3-4 week sample turnaround. Request a quote and our export team will confirm details.";
     } else if (lastUserMsg.includes("oem") || lastUserMsg.includes("private label") || lastUserMsg.includes("custom")) {
-      reply = "We offer full OEM and private label manufacturing — your patterns, specs, labels, and packaging. Minimum 200 units per style. See the OEM page, or request a quote to start an inquiry.";
+      reply = "We offer full OEM and private label manufacturing — your patterns, specs, labels, and packaging. Minimum 40 units per style. See the OEM page, or request a quote to start an inquiry.";
     } else if (lastUserMsg.includes("contact") || lastUserMsg.includes("quote") || lastUserMsg.includes("email") || lastUserMsg.includes("sample")) {
       reply = "You can reach our export team at info@jafrienterprises.biz, or use the Request a Quote button on any page. We respond to inquiries within 24 business hours.";
     } else if (lastUserMsg.includes("certif") || lastUserMsg.includes("compliance") || lastUserMsg.includes("audit")) {

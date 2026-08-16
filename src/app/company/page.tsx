@@ -135,7 +135,7 @@ export default function CompanyPage() {
                 {[
                   { value: "20+", label: "Years Experience" },
                   { value: "4+", label: "Export Markets" },
-                  { value: "200+", label: "Min. Order Units" },
+                  { value: "40+", label: "Min. Order Units" },
                   { value: "3", label: "Product Divisions" },
                 ].map((s) => (
                   <div
