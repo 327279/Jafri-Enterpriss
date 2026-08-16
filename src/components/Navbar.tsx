@@ -180,85 +180,126 @@ export default function Navbar() {
                 Request a Quote
               </Button>
               <button
-                className="lg:hidden -mr-2 flex h-11 w-11 items-center justify-center transition-colors"
-                style={{ color: "var(--color-text-primary)" }}
+                className="lg:hidden -mr-2 flex h-11 w-11 items-center justify-center rounded-xl transition-colors"
+                style={{ color: scrolled || mobileOpen ? "#1A0E07" : "#FFFFFF" }}
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={mobileOpen}
               >
-                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer (Light Luxury Parchment Theme) */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] lg:hidden"
-            style={{ background: "rgba(8,6,4,0.98)", backdropFilter: "blur(24px)" }}
+            className="fixed inset-0 z-[99] lg:hidden flex flex-col"
+            style={{ background: "#FAF6F0" }}
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            {/* overflow-y-auto: the link list + CTA is taller than a landscape
-                phone or a small device, so the panel itself must scroll.
-                overscroll-contain stops the scroll chaining to the page. */}
-            <div className="flex h-full flex-col overflow-y-auto overscroll-contain px-6 pt-24 pb-12 sm:px-8">
-              <nav className="flex flex-col gap-2 mb-auto">
+            {/* Top header strip in drawer */}
+            <div
+              className="flex items-center justify-between px-6 h-20 border-b shrink-0 bg-white"
+              style={{ borderColor: "rgba(140,87,56,0.18)" }}
+            >
+              <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center">
+                  <Image
+                    src="/images/jafri-logo.png"
+                    alt="Jafri Enterprises"
+                    width={36}
+                    height={36}
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#1A0E07]" style={{ fontFamily: "var(--font-display)" }}>
+                    Jafri Enterprises
+                  </div>
+                  <div className="text-[0.6rem] font-bold tracking-widest text-[#8C5738] uppercase">
+                    Est. 2005 · Karachi
+                  </div>
+                </div>
+              </Link>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-[#FAF6F0] border border-amber-900/15 text-[#1A0E07]"
+                aria-label="Close menu"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Scrollable links list */}
+            <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-6 sm:px-8">
+              <nav className="flex flex-col gap-1 mb-6">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: 30 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06, duration: 0.3 }}
+                    transition={{ delay: i * 0.05, duration: 0.25 }}
+                    className="border-b last:border-b-0 py-2"
+                    style={{ borderColor: "rgba(140,87,56,0.14)" }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="flex min-h-[3.25rem] items-center border-b py-4 text-xl font-light"
+                      className="flex items-center justify-between py-3 text-lg font-bold transition-colors"
                       style={{
-                        borderColor: "var(--color-border)",
-                        color: pathname === link.href ? "var(--color-amber)" : "var(--color-text-primary)",
+                        color: pathname === link.href ? "#8C5738" : "#1A0E07",
                         fontFamily: "var(--font-display)",
                       }}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      {link.children && <ChevronDown size={18} className="text-[#8C5738]" />}
                     </Link>
-                    {link.children?.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="flex min-h-11 items-center gap-2 py-3 pl-4 text-base"
-                        style={{ color: "var(--color-text-secondary)" }}
-                      >
-                        <ChevronRight size={15} aria-hidden="true" />
-                        {child.label}
-                      </Link>
-                    ))}
+                    {link.children && (
+                      <div className="pl-3 pb-2 space-y-1">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                            style={{
+                              background: pathname === child.href ? "rgba(140,87,56,0.12)" : "transparent",
+                              color: pathname === child.href ? "#8C5738" : "#36251B",
+                            }}
+                          >
+                            <ChevronRight size={14} className="text-[#8C5738] shrink-0" aria-hidden="true" />
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </nav>
-              <motion.button
-                onClick={() => { setMobileOpen(false); openQuote(); }}
-                className={cn(buttonVariants({ size: "lg", block: true }), "mt-8 shrink-0")}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                Request a Quote
-              </motion.button>
-              <a
-                href="mailto:info@jafrienterprises.biz"
-                className="mt-4 flex min-h-11 shrink-0 items-center justify-center text-center text-xs"
-                style={{ color: "var(--color-text-muted)" }}
-              >
-                info@jafrienterprises.biz
-              </a>
+
+              <div className="pt-4 border-t" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
+                <Button
+                  onClick={() => { setMobileOpen(false); openQuote(); }}
+                  size="lg"
+                  block
+                  className="w-full"
+                >
+                  Request a Quote
+                </Button>
+                <a
+                  href="mailto:info@jafrienterprises.biz"
+                  className="mt-4 block text-center text-xs font-bold tracking-wider text-[#8C5738]"
+                >
+                  info@jafrienterprises.biz
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

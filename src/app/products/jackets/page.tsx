@@ -328,8 +328,9 @@ export default function JacketsPage() {
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Garments Division</p>
-            <h1 className="text-display-lg mb-4 text-white">
-              Leather <span className="text-[#EBE3D5] italic font-serif">Jackets</span>
+            <h1 className="text-display-lg mb-4 text-white" style={{ color: "#FFFFFF" }}>
+              <span className="text-white" style={{ color: "#FFFFFF" }}>Leather</span>{" "}
+              <span className="text-[#EBE3D5] italic font-serif">Jackets</span>
             </h1>
             <p className="max-w-xl text-lg text-[#FAF6F0]/90 font-medium">
               Made-to-order leather jackets in all styles and sizes. OEM and private label for global fashion brands.

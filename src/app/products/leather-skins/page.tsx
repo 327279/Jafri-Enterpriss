@@ -238,8 +238,9 @@ export default function LeatherSkinsPage() {
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Tannery Division</p>
-            <h1 className="text-display-lg mb-4 text-white">
-              Finished <span className="text-[#EBE3D5] italic font-serif">Leather Skins</span>
+            <h1 className="text-display-lg mb-4 text-white" style={{ color: "#FFFFFF" }}>
+              <span className="text-white" style={{ color: "#FFFFFF" }}>Finished</span>{" "}
+              <span className="text-[#EBE3D5] italic font-serif">Leather Skins</span>
             </h1>
             <p className="max-w-xl text-lg text-[#FAF6F0]/90 font-medium">
               Premium full-grain and top-grain finished leather. Processed in Korangi Industrial Area, Karachi.

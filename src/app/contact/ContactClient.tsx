@@ -60,8 +60,9 @@ export default function ContactPage() {
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Get In Touch</p>
-            <h1 className="text-display-lg text-white">
-              Contact <span className="text-[#EBE3D5] italic font-serif">Our Team</span>
+            <h1 className="text-display-lg text-white" style={{ color: "#FFFFFF" }}>
+              <span className="text-white" style={{ color: "#FFFFFF" }}>Contact</span>{" "}
+              <span className="text-[#EBE3D5] italic font-serif">Our Team</span>
             </h1>
           </AnimatedSection>
         </div>

@@ -352,7 +352,7 @@ export default function CompanyPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <QuoteButton label="Request a Quote" size="lg" />
-              <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-[#362217]">
+              <Button asChild variant="heroOutline" size="lg">
                 <Link href="/contact">
                   Contact Us
                   <ArrowRight />
