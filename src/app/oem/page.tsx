@@ -77,14 +77,15 @@ const markets = [
 export default function OEMPage() {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero (Fixes Screenshot 3) */}
       <div
         className="relative min-h-[65vh] flex items-end overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, var(--color-brown-deep) 0%, var(--color-void) 60%)",
+          background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)",
+          color: "#FFFFFF",
         }}
       >
-        <div className="absolute inset-0 overflow-hidden opacity-45">
+        <div className="absolute inset-0 overflow-hidden opacity-35">
           <video
             autoPlay
             loop
@@ -96,29 +97,25 @@ export default function OEMPage() {
             <source src="/assets/leather-craftsmanship.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--color-obsidian) 0%, rgba(3,2,1,0.5) 60%, transparent 100%)" }} />
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
-            <div className="section-eyebrow mb-6">
-              <div className="divider-gold" />
-              <p className="text-label">Private Label & OEM</p>
-            </div>
-            <h1 className="text-display-lg mb-6">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Private Label & OEM</p>
+            <h1 className="text-display-lg mb-6 text-white">
               Your Brand,{" "}
-              <span className="block text-gradient-gold italic">Our Manufacturing</span>
+              <span className="block text-[#EBE3D5] italic font-serif">Our Manufacturing</span>
             </h1>
-            <p className="text-lg max-w-2xl mb-10" style={{ color: "var(--color-text-secondary)" }}>
+            <p className="text-lg max-w-2xl mb-10 text-[#FAF6F0]/90 font-medium">
               Partner with Jafri Enterprises for full OEM and private label leather manufacturing. From concept to delivery — with your brand at the center.
             </p>
-            <QuoteButton label="Start Your OEM Inquiry" hint="oem" />
+            <QuoteButton label="Start Your OEM Inquiry" hint="oem" size="lg" />
           </AnimatedSection>
         </div>
       </div>
 
-      {/* Why OEM with us */}
+      {/* Why OEM with us (Fixes Screenshot 3 Stats) */}
       <section
-        className="py-14 on-brown"
-        style={{ background: "linear-gradient(90deg, var(--color-brown-deep) 0%, var(--color-obsidian) 100%)", borderBottom: "1px solid rgba(232,223,212,0.16)" }}
+        className="py-12"
+        style={{ background: "#FAF6F0", borderBottom: "1px solid rgba(140,87,56,0.18)" }}
       >
         <div className="container-luxury">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
@@ -129,8 +126,8 @@ export default function OEMPage() {
               { value: "CBR", label: "Group Certified" },
             ].map((s) => (
               <div key={s.label}>
-                <StatNumber value={s.value} style={{ fontSize: "1.6rem" }} />
-                <div className="text-xs tracking-widest uppercase mt-1" style={{ color: "var(--color-text-muted)" }}>
+                <StatNumber value={s.value} style={{ fontSize: "1.6rem", color: "#1A0E07", fontWeight: 800 }} />
+                <div className="text-xs font-bold tracking-widest uppercase mt-1 text-[#8C5738]">
                   {s.label}
                 </div>
               </div>
@@ -140,35 +137,32 @@ export default function OEMPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="section-padding on-brown" style={{ background: "var(--color-obsidian)" }}>
+      <section className="section-padding" style={{ background: "#FBF8F3" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-16">
-            <div className="section-eyebrow">
-              <div className="divider-gold" />
-              <p className="text-label">Customization Options</p>
-            </div>
-            <h2 className="text-display-md max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">Customization Options</p>
+            <h2 className="text-display-md max-w-2xl" style={{ color: "#1A0E07" }}>
               Everything Customized{" "}
-              <span className="text-gradient-gold italic">to Your Spec</span>
+              <span className="text-[#8C5738] italic font-serif">to Your Spec</span>
             </h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {capabilities.map((cap, i) => (
               <AnimatedSection key={cap.title} delay={i * 0.1}>
                 <div
-                  className="card-luxury p-8 h-full text-center"
-                  style={{ background: "rgba(26,18,8,0.7)", border: "1px solid var(--color-border)" }}
+                  className="rounded-2xl p-8 h-full text-center bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                  style={{ border: "1px solid rgba(140,87,56,0.18)" }}
                 >
                   <div
-                    className="w-14 h-14 flex items-center justify-center mx-auto mb-6"
-                    style={{ background: "rgba(144,108,86,0.1)", border: "1px solid var(--color-border-strong)" }}
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                    style={{ background: "rgba(140,87,56,0.12)" }}
                   >
-                    <cap.icon size={24} style={{ color: "var(--color-amber)" }} />
+                    <cap.icon size={26} style={{ color: "#8C5738" }} />
                   </div>
-                  <h3 className="text-display-xs mb-3">
+                  <h3 className="text-base font-bold mb-3" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                     {cap.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="text-sm font-medium leading-relaxed" style={{ color: "#523B2D" }}>
                     {cap.desc}
                   </p>
                 </div>
@@ -179,13 +173,12 @@ export default function OEMPage() {
       </section>
 
       {/* Process */}
-      <section className="section-padding" style={{ background: "var(--color-void)" }}>
+      <section className="section-padding" style={{ background: "#FAF6F0" }}>
         <div className="container-luxury">
           <AnimatedSection className="mb-16 text-center">
-            <p className="text-label mb-3">How It Works</p>
-            <h2 className="text-display-md">
-              The OEM{" "}
-              <span className="text-gradient-gold">Process</span>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">How It Works</p>
+            <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+              The OEM <span className="text-[#8C5738] italic font-serif">Process</span>
             </h2>
           </AnimatedSection>
 
@@ -193,7 +186,7 @@ export default function OEMPage() {
             {/* Timeline line */}
             <div
               className="absolute left-8 top-0 bottom-0 w-px hidden lg:block"
-              style={{ background: "linear-gradient(180deg, var(--color-amber) 0%, transparent 100%)" }}
+              style={{ background: "linear-gradient(180deg, rgba(140,87,56,0.4) 0%, transparent 100%)" }}
             />
             <div className="space-y-6">
               {steps.map((step, i) => {
@@ -203,39 +196,32 @@ export default function OEMPage() {
                     <div className="flex gap-8 items-start">
                       {/* Icon marker */}
                       <div
-                        className="relative hidden lg:flex w-16 h-16 shrink-0 items-center justify-center z-10 rounded-sm"
+                        className="relative hidden lg:flex w-16 h-16 shrink-0 items-center justify-center z-10 rounded-2xl bg-white shadow-sm"
                         style={{
-                          background: "var(--color-void)",
-                          border: "1px solid rgba(144,108,86,0.45)",
+                          border: "1px solid rgba(140,87,56,0.25)",
                         }}
                       >
-                        <Icon size={24} style={{ color: "var(--color-amber)" }} aria-hidden="true" />
+                        <Icon size={24} style={{ color: "#8C5738" }} aria-hidden="true" />
                       </div>
                       {/* Card */}
-                      <div className="card-luxury flex-1 p-8">
+                      <div className="rounded-2xl flex-1 p-8 bg-white shadow-sm border border-amber-900/18">
                         <div className="flex items-start gap-5">
                           <span
-                            className="text-3xl shrink-0"
-                            style={{
-                              color: "var(--color-amber)",
-                              fontFamily: "var(--font-display)",
-                              fontWeight: 900,
-                            }}
+                            className="text-3xl shrink-0 font-serif font-black text-[#8C5738]"
                           >
                             {step.number}
                           </span>
                           <div>
                             <h3
-                              className="text-xl mb-2"
+                              className="text-xl mb-2 font-bold"
                               style={{
                                 fontFamily: "var(--font-display)",
-                                fontWeight: 900,
-                                color: "var(--color-text-heading)",
+                                color: "#1A0E07",
                               }}
                             >
                               {step.title}
                             </h3>
-                            <p style={{ color: "var(--color-text-muted)" }}>
+                            <p className="font-medium text-sm leading-relaxed" style={{ color: "#523B2D" }}>
                               {step.description}
                             </p>
                           </div>

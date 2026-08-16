@@ -153,8 +153,8 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="divider-gold" />
-              <p className="text-label">Karachi, Pakistan · Est. 2005</p>
+              <div className="w-10 h-0.5 bg-[#D4B296]" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4B296]">Karachi, Pakistan · Est. 2005</p>
             </motion.div>
 
             {/* Headline */}
