@@ -228,16 +228,17 @@ export default function JacketsPage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover object-[75%_center] lg:object-right scale-105"
           >
             <source src="/assets/jackets-showcase-hero.mp4" type="video/mp4" />
+            <source src="/assets/jackets-hero.mp4" type="video/mp4" />
           </video>
           {/* Gradients to fit video cleanly and keep text highly readable */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(105deg, rgba(26,14,7,0.85) 0%, rgba(26,14,7,0.70) 50%, rgba(26,14,7,0.55) 100%)",
+                "linear-gradient(90deg, rgba(26,14,7,0.90) 0%, rgba(26,14,7,0.72) 40%, rgba(26,14,7,0.30) 70%, rgba(26,14,7,0.15) 100%)",
             }}
           />
         </div>

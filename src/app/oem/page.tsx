@@ -77,7 +77,7 @@ const markets = [
 export default function OEMPage() {
   return (
     <div>
-      {/* Hero (Fixes Screenshot 3) */}
+      {/* Hero */}
       <div
         className="relative min-h-[65vh] flex items-end overflow-hidden"
         style={{
@@ -85,17 +85,26 @@ export default function OEMPage() {
           color: "#FFFFFF",
         }}
       >
-        <div className="absolute inset-0 overflow-hidden opacity-35">
+        <div className="absolute inset-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/hero/oem-workshop.jpg"
-            className="w-full h-full object-cover scale-105"
+            poster="/images/jackets/elegant-mens-leather-jacket-black.jpg"
+            className="w-full h-full object-cover object-[75%_center] lg:object-right scale-105"
           >
-            <source src="/assets/leather-craftsmanship.mp4" type="video/mp4" />
+            <source src="/assets/jackets-showcase-hero.mp4" type="video/mp4" />
+            <source src="/assets/jackets-hero.mp4" type="video/mp4" />
           </video>
+          {/* Subtle directional gradient so text on left is sharp and jacket on right is visible */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(26,14,7,0.92) 0%, rgba(26,14,7,0.72) 45%, rgba(26,14,7,0.30) 75%, rgba(26,14,7,0.15) 100%)",
+            }}
+          />
         </div>
         <div className="container-luxury relative z-10 pb-20 pt-44">
           <AnimatedSection>
