@@ -4,6 +4,27 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+function InstagramIcon({ size = 16, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      style={style}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 const footerLinks = {
   Products: [
     { label: "Leather Skins", href: "/products/leather-skins" },
@@ -96,16 +117,41 @@ export default function Footer() {
                 <MapPin size={16} className="mt-0.5 shrink-0" style={{ color: "#8C5738" }} />
                 <span>Plot #40, Sector 7-A, Korangi Industrial Area, Karachi</span>
               </li>
-              <li className="flex items-center gap-3 text-sm font-medium" style={{ color: "#36251B" }}>
-                <Mail size={16} style={{ color: "#8C5738" }} />
-                <a href="mailto:info@jafrienterprises.biz" className="hover:text-[#8C5738] transition-colors">
-                  info@jafrienterprises.biz
-                </a>
+              <li className="flex flex-col gap-1 text-sm font-medium" style={{ color: "#36251B" }}>
+                <div className="flex items-center gap-3">
+                  <Mail size={16} className="shrink-0" style={{ color: "#8C5738" }} />
+                  <a href="mailto:info@jafrienterprises.biz" className="hover:text-[#8C5738] transition-colors">
+                    info@jafrienterprises.biz
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 pl-7">
+                  <a href="mailto:jafrienterprises026@gmail.com" className="hover:text-[#8C5738] transition-colors text-xs text-[#6E4D3B]">
+                    jafrienterprises026@gmail.com
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3 text-sm font-medium" style={{ color: "#36251B" }}>
-                <Phone size={16} style={{ color: "#8C5738" }} />
-                <a href="tel:+922135000000" className="hover:text-[#8C5738] transition-colors">
-                  +92 (21) 3500-0000
+              <li className="flex flex-col gap-1 text-sm font-medium" style={{ color: "#36251B" }}>
+                <div className="flex items-center gap-3">
+                  <Phone size={16} className="shrink-0" style={{ color: "#8C5738" }} />
+                  <a href="https://wa.me/923701132411" target="_blank" rel="noopener noreferrer" className="hover:text-[#8C5738] transition-colors font-semibold">
+                    +92 370 1132411 (WhatsApp)
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 pl-7">
+                  <a href="tel:+923349219214" className="hover:text-[#8C5738] transition-colors text-xs text-[#6E4D3B]">
+                    +92 334 9219214
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-3 text-sm font-medium pt-1" style={{ color: "#36251B" }}>
+                <InstagramIcon size={16} className="shrink-0" style={{ color: "#8C5738" }} />
+                <a
+                  href="https://www.instagram.com/jafrienterprises?igsh=dGVnc2Q3aXk0c2l5&igsi=dGVnc2Q3aXk0c2l5&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#8C5738] transition-colors font-medium"
+                >
+                  @jafrienterprises
                 </a>
               </li>
             </ul>

@@ -7,6 +7,7 @@ import LenisProvider from "@/components/LenisProvider";
 import ScrollProgress from "@/components/ScrollProgress";
 import SpotlightTracker from "@/components/SpotlightTracker";
 import Toaster from "@/components/Toaster";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jafrienterprises.biz"),
@@ -92,6 +93,7 @@ export default function RootLayout({
           <QuoteModal />
           <main>{children}</main>
           <Footer />
+          <WhatsAppButton />
           <Toaster />
         </LenisProvider>
       </body>
