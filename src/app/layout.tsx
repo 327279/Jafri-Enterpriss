@@ -58,6 +58,13 @@ export const metadata: Metadata = {
     description:
       "Karachi's premier leather manufacturer. Finished skins, garments, OEM. Bulk export worldwide.",
   },
+  icons: {
+    icon: [
+      { url: "/images/jafri-logo.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/images/jafri-logo.svg",
+    apple: "/images/jafri-logo.svg",
+  },
 };
 
 export default function RootLayout({
