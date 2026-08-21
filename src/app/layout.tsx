@@ -61,7 +61,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/images/jafri-logo.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
     ],
     shortcut: "/images/jafri-logo.svg",
     apple: "/images/jafri-logo.svg",
@@ -83,7 +82,6 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link rel="icon" href="/images/jafri-logo.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/images/jafri-logo.svg" />
       </head>
       <body className="antialiased">
