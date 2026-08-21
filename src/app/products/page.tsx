@@ -33,7 +33,7 @@ const categories = [
     title: "Leather Jackets",
     description:
       "Biker, casual, classic, and winter leather jackets in sheep nappa and other premium leathers. Made to order from S to 5XL with full OEM and private label capability.",
-    image: "/images/products/jacket-biker.jpg",
+    image: "/images/jackets/Untitled_design_19.webp",
     href: "/products/jackets",
     moq: "40 units",
     moqLabel: "per style",
