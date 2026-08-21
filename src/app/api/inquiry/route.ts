@@ -13,85 +13,87 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.INQUIRY_TO_EMAIL || "Jafrienterprises026@gmail.com";
+    const recipient = process.env.INQUIRY_RECIPIENT_EMAIL;
 
-    console.log("[inquiry] API key present:", !!apiKey);
-    console.log("[inquiry] Sending to:", toEmail);
-
-    if (!apiKey) {
-      console.error("[inquiry] RESEND_API_KEY is missing from environment variables!");
-      // Still use FormSubmit as fallback
-    } else {
-      const resendRes = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          from: "Jafri Enterprises <onboarding@resend.dev>",
-          to: [toEmail],
-          reply_to: email,
-          subject: `New Sourcing Inquiry from ${name} (${company || "Individual"})`,
-          html: `
-            <h2>New Inquiry from Jafri Enterprises Website</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Company:</strong> ${company || "Not provided"}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-            <p><strong>Product Type:</strong> ${productType || "General Inquiry"}</p>
-            <p><strong>Quantity:</strong> ${quantity || "Not provided"}</p>
-            <p><strong>Source:</strong> ${source || "Website Form"}</p>
-            <hr />
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
-          `,
-        }),
-      });
-
-      const resendBody = await resendRes.text();
-      console.log("[inquiry] Resend status:", resendRes.status);
-      console.log("[inquiry] Resend response:", resendBody);
-
-      if (resendRes.ok) {
-        console.log("[inquiry] Delivered via Resend ✓");
-        return NextResponse.json({ ok: true, delivered: true });
-      } else {
-        console.error("[inquiry] Resend rejected:", resendRes.status, resendBody);
-      }
+    if (!apiKey || !recipient) {
+      console.error("Missing RESEND_API_KEY or INQUIRY_RECIPIENT_EMAIL env vars");
+      return NextResponse.json({ error: "Server configuration error." }, { status: 500 });
     }
 
-    // Fallback: FormSubmit
-    console.log("[inquiry] Trying FormSubmit fallback...");
-    const fsRes = await fetch(`https://formsubmit.co/ajax/${toEmail}`, {
+    // Send email using Resend
+    const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        "Client Name": name,
-        "Company": company || "Not provided",
-        "Email": email,
-        "Phone": phone || "Not provided",
-        "Product Type": productType || "General Inquiry",
-        "Quantity / MOQ": quantity || "Not provided",
-        "Message": message,
-        "_subject": `New B2B Inquiry from ${name} - Jafri Enterprises`,
-        "_template": "table",
+        from: "Jafri Enterprises <onboarding@resend.dev>",
+        to: [recipient],
+        reply_to: email,
+        subject: `New B2B Inquiry from ${name} (${company || "Individual"})`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1A0E07; line-height: 1.6;">
+            <div style="background-color: #362217; color: #FAF6F0; padding: 24px; text-align: center; border-radius: 8px 8px 0 0;">
+              <h2 style="margin: 0; font-size: 22px;">New Sourcing Inquiry</h2>
+              <p style="margin: 4px 0 0 0; font-size: 13px; color: #D4B296;">Jafri Enterprises Website</p>
+            </div>
+            
+            <div style="background-color: #FAF6F0; padding: 24px; border: 1px solid rgba(140,87,56,0.2); border-radius: 0 0 8px 8px;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738; width: 35%;">Client Name:</td>
+                  <td style="padding: 8px 0;">${name}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Company:</td>
+                  <td style="padding: 8px 0;">${company || "Not provided"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Client Email:</td>
+                  <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #8C5738; text-decoration: underline;">${email}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Phone:</td>
+                  <td style="padding: 8px 0;">${phone || "Not provided"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Product Category:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">${productType || "General Inquiry"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Quantity / MOQ:</td>
+                  <td style="padding: 8px 0;">${quantity || "Not specified"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; color: #8C5738;">Source:</td>
+                  <td style="padding: 8px 0; font-size: 12px; color: #6E4D3B;">${source || "Website Form"}</td>
+                </tr>
+              </table>
+
+              <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(140,87,56,0.2);">
+                <p style="font-weight: bold; margin-bottom: 8px; color: #8C5738;">Client Message & Requirements:</p>
+                <div style="background: #FFFFFF; padding: 16px; border-radius: 6px; border: 1px solid rgba(140,87,56,0.15); white-space: pre-wrap;">${message}</div>
+              </div>
+            </div>
+          </div>
+        `,
       }),
     });
 
-    const fsBody = await fsRes.text();
-    console.log("[inquiry] FormSubmit status:", fsRes.status);
-    console.log("[inquiry] FormSubmit response:", fsBody);
+    const resendData = await resendResponse.json();
 
-    // Always return delivered:true so UI shows success
-    // The actual delivery is confirmed in Vercel function logs
-    return NextResponse.json({ ok: true, delivered: true });
+    if (!resendResponse.ok) {
+      console.error("Resend API Error:", resendData);
+      return NextResponse.json(
+        { error: resendData.message || "Failed to send email via Resend." },
+        { status: 500 }
+      );
+    }
 
+    return NextResponse.json({ ok: true, delivered: true, id: resendData.id });
   } catch (error) {
-    console.error("[inquiry] Unexpected error:", error);
+    console.error("Inquiry route error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }
