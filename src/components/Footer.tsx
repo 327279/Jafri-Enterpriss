@@ -71,7 +71,7 @@ export default function Footer() {
                 className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-amber-900/20 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
-                  src="/images/jafri-logo.png"
+                  src="/images/jafri-logo.svg"
                   alt="Jafri Enterprises Logo"
                   width={48}
                   height={48}

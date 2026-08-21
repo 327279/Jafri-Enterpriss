@@ -88,7 +88,7 @@ export default function Navbar() {
                 className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
-                  src="/images/jafri-logo.png"
+                  src="/images/jafri-logo.svg"
                   alt="Jafri Enterprises Logo"
                   width={48}
                   height={48}
@@ -212,7 +212,7 @@ export default function Navbar() {
               <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center">
                   <Image
-                    src="/images/jafri-logo.png"
+                    src="/images/jafri-logo.svg"
                     alt="Jafri Enterprises"
                     width={36}
                     height={36}
