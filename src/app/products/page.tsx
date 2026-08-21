@@ -107,7 +107,7 @@ export default function ProductsPage() {
               return (
                 <AnimatedSection key={cat.title} delay={i * 0.08} className="h-full">
                   <article className="rounded-2xl bg-white shadow-sm flex h-full flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1" style={{ border: "1px solid rgba(140,87,56,0.20)" }}>
-                    <div className="relative aspect-[16/9] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#FAF6F0]">
                       <Image
                         src={cat.image}
                         alt={cat.title}

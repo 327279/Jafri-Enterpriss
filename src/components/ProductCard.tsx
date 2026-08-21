@@ -56,19 +56,13 @@ export default function ProductCard({
         )}
 
         {/* Image */}
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative aspect-square w-full overflow-hidden bg-[#FAF6F0]">
           <Image
             src={image}
             alt={title}
             fill
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to top, rgba(26,14,7,0.3) 0%, transparent 60%)",
-            }}
           />
         </div>
 
