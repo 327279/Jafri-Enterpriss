@@ -68,14 +68,14 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <div
-                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-amber-900/20 shadow-sm group-hover:scale-105 transition-transform duration-300"
+                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-2xl bg-white p-1.5 border border-amber-900/20 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src="/images/jafri-logo.svg"
                   alt="Jafri Enterprises Logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain rounded-xl"
                 />
               </div>
               <div>

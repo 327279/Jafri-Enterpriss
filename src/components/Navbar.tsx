@@ -85,14 +85,14 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div
-                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-white p-1 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
+                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-2xl bg-white p-1.5 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src="/images/jafri-logo.svg"
                   alt="Jafri Enterprises Logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain rounded-xl"
                 />
               </div>
               <div>
@@ -210,13 +210,13 @@ export default function Navbar() {
               style={{ borderColor: "rgba(140,87,56,0.18)" }}
             >
               <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center overflow-hidden">
                   <Image
                     src="/images/jafri-logo.svg"
                     alt="Jafri Enterprises"
                     width={36}
                     height={36}
-                    className="object-contain"
+                    className="object-contain rounded-xl"
                   />
                 </div>
                 <div>
