@@ -6,11 +6,12 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     <ReactLenis
       root
       options={{
-        lerp: 0.1,
-        duration: 1.1,
+        lerp: 0.085,
+        duration: 1.2,
         smoothWheel: true,
-        wheelMultiplier: 1.0,
-        touchMultiplier: 1.2,
+        wheelMultiplier: 0.95,
+        touchMultiplier: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       }}
     >
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}

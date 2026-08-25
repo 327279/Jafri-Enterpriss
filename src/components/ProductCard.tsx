@@ -40,7 +40,7 @@ export default function ProductCard({
   return (
     <AnimatedSection delay={delay}>
       <div
-        className="rounded-2xl group relative overflow-hidden flex flex-col h-full bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+        className="card-luxury rounded-2xl group relative overflow-hidden flex flex-col h-full bg-white transition-all duration-300 hover:-translate-y-1"
         style={{
           border: "1px solid rgba(140, 87, 56, 0.20)",
         }}
@@ -55,7 +55,7 @@ export default function ProductCard({
           </div>
         )}
 
-        {/* Image */}
+        {/* Image with subtle ambient vignette */}
         <div className="relative aspect-square w-full overflow-hidden bg-[#FAF6F0]">
           <Image
             src={image}
@@ -64,6 +64,7 @@ export default function ProductCard({
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
         </div>
 
         {/* Content */}

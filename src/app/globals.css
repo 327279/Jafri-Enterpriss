@@ -395,16 +395,36 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
   border: 1px solid rgba(140, 87, 56, 0.20);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(60, 40, 25, 0.04);
+  box-shadow: 0 4px 20px rgba(60, 40, 25, 0.04), 0 1px 3px rgba(60, 40, 25, 0.06);
   transition: transform var(--duration-base) var(--ease-luxury),
               box-shadow var(--duration-base) var(--ease-luxury),
               border-color var(--duration-base) var(--ease-luxury);
 }
 
+.card-luxury::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    450px circle at var(--mx, -9999px) var(--my, -9999px),
+    rgba(140, 87, 56, 0.08),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-luxury);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .card-luxury:hover {
   transform: translateY(-4px);
-  border-color: rgba(140, 87, 56, 0.35);
-  box-shadow: 0 12px 30px rgba(60, 40, 25, 0.08);
+  border-color: rgba(140, 87, 56, 0.38);
+  box-shadow: 0 16px 36px rgba(60, 40, 25, 0.09), 0 4px 12px rgba(60, 40, 25, 0.05);
+}
+
+.card-luxury:hover::before {
+  opacity: 1;
 }
 
 /* ── Image Parallax Container ──────────────────────────── */
