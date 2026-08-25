@@ -25,8 +25,8 @@ export default function WhatsAppButton() {
 
       {/* Round Button */}
       <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 border-2 border-white/80 transition-transform duration-300">
-        {/* Subtle ping ring */}
-        <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none opacity-75 -z-10" />
+        {/* Subtle ping ring - suppressed on reduced motion */}
+        <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none opacity-75 -z-10 motion-reduce:hidden" />
 
         {/* WhatsApp Icon */}
         <svg

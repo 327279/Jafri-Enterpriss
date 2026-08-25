@@ -122,39 +122,64 @@ export default function Navbar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
-                      className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
+                      className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 cursor-pointer"
                       style={{
                         color: pathname.startsWith(link.href)
-                          ? "#A37557"
+                          ? scrolled
+                            ? "#8C5738"
+                            : "#EBE3D5"
                           : scrolled
                           ? "#2B1B12"
                           : "#FFFFFF",
                       }}
                     >
-                      {link.label}
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${activeDropdown === link.href ? "rotate-180" : ""}`} />
+                      <span>{link.label}</span>
+                      <ChevronDown
+                        size={14}
+                        className={cn(
+                          "transition-transform duration-200",
+                          activeDropdown === link.href ? "rotate-180" : ""
+                        )}
+                        style={{
+                          color: pathname.startsWith(link.href)
+                            ? scrolled
+                              ? "#8C5738"
+                              : "#EBE3D5"
+                            : scrolled
+                            ? "#8C5738"
+                            : "#D4B296",
+                        }}
+                      />
                     </button>
                     <AnimatePresence>
                       {activeDropdown === link.href && (
                         <motion.div
-                          className="absolute top-full left-0 mt-3 min-w-[210px] bg-white rounded-xl shadow-lg p-2 border border-amber-900/15"
-                          initial={{ opacity: 0, y: -8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-3 min-w-[220px] bg-white rounded-xl shadow-xl p-2 border border-amber-900/15"
+                          initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
                         >
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.label}
-                              href={child.href}
-                              className="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-[#FBF8F3]"
-                              style={{
-                                color: pathname === child.href ? "#A37557" : "#2B1B12",
-                              }}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                          {link.children.map((child) => {
+                            const isActive = pathname === child.href;
+                            return (
+                              <Link
+                                key={child.label}
+                                href={child.href}
+                                className={cn(
+                                  "flex items-center justify-between px-3.5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
+                                  isActive
+                                    ? "bg-[#FAF6F0] text-[#8C5738] font-bold shadow-xs"
+                                    : "text-[#2B1B12] hover:bg-[#FBF8F3] hover:text-[#8C5738]"
+                                )}
+                              >
+                                <span>{child.label}</span>
+                                {isActive && (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#8C5738]" />
+                                )}
+                              </Link>
+                            );
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -163,9 +188,16 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-semibold transition-colors duration-300 hover:text-[#A37557]"
+                    className="text-sm font-semibold transition-colors duration-200"
                     style={{
-                      color: pathname === link.href ? "#A37557" : scrolled ? "#2B1B12" : "#FFFFFF",
+                      color:
+                        pathname === link.href
+                          ? scrolled
+                            ? "#8C5738"
+                            : "#EBE3D5"
+                          : scrolled
+                          ? "#2B1B12"
+                          : "#FFFFFF",
                     }}
                   >
                     {link.label}

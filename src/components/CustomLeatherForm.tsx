@@ -57,7 +57,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className="rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 cursor-pointer"
+      className="rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C5738] hover:border-[#8C5738]"
       style={{
         background: selected ? "#8C5738" : "#FAF6F0",
         border: `1.5px solid ${selected ? "#8C5738" : "rgba(140,87,56,0.25)"}`,

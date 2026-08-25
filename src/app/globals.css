@@ -654,3 +654,16 @@ main p.mx-auto { margin-left: auto; margin-right: auto; }
 .delay-500 { animation-delay: 500ms; }
 .delay-600 { animation-delay: 600ms; }
 .delay-800 { animation-delay: 800ms; }
+
+/* ── Accessibility & Reduced Motion ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

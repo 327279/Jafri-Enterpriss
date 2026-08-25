@@ -560,17 +560,34 @@ export default function HomePage() {
           MARQUEE / TICKER
       ══════════════════════════════════════════ */}
       <section
-        className="py-5 overflow-hidden"
+        className="py-5 overflow-hidden select-none"
         style={{
           background: "linear-gradient(90deg, var(--color-amber) 0%, var(--color-amber-light) 100%)",
         }}
+        aria-hidden="true"
       >
-        <div className="flex whitespace-nowrap animate-marquee">
-          {Array(3).fill(["Leather Skins", "Leather Jackets", "OEM Manufacturing", "Private Label", "Bulk Export", "Karachi, Pakistan", "Est. 2005", "30,000 sq ft/day"]).flat().map((item, i) => (
-            <span key={i} className="inline-flex items-center mx-6 text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--color-void)" }}>
-              {item}
-              <span className="mx-4 opacity-40">·</span>
-            </span>
+        <div className="flex w-max animate-marquee motion-reduce:transform-none">
+          {[0, 1].map((track) => (
+            <div key={track} className="flex shrink-0 items-center">
+              {[
+                "Finished Leather Skins",
+                "Leather Jackets",
+                "OEM Manufacturing",
+                "Private Label",
+                "Bulk Export Worldwide",
+                "Karachi, Pakistan",
+                "Est. 2005",
+                "30,000 sq ft / day",
+              ].map((item, i) => (
+                <span
+                  key={`${track}-${i}`}
+                  className="inline-flex items-center mx-5 text-xs font-bold tracking-[0.16em] uppercase text-white drop-shadow-xs"
+                >
+                  {item}
+                  <span className="mx-4 text-white/50">·</span>
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </section>
