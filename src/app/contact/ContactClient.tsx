@@ -25,6 +25,27 @@ function InstagramIcon({ size = 18, className = "", style }: { size?: number; cl
   );
 }
 
+function LinkedinIcon({ size = 18, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      style={style}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -191,6 +212,31 @@ export default function ContactPage() {
                     </div>
                   </div>
 
+                  {/* LinkedIn */}
+                  <div
+                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(140,87,56,0.12)" }}
+                    >
+                      <LinkedinIcon size={18} style={{ color: "#8C5738" }} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">LinkedIn</p>
+                      <a
+                        href="https://www.linkedin.com/in/jafri-enterprises-2141ba42b/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold transition-colors hover:text-[#8C5738]"
+                        style={{ color: "#1A0E07" }}
+                      >
+                        Jafri Enterprises
+                      </a>
+                    </div>
+                  </div>
+
                   {/* Head Office */}
                   <div
                     className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
@@ -226,7 +272,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Manufacturing Facility</p>
                       <p className="text-sm font-semibold leading-relaxed" style={{ color: "#1A0E07" }}>
-                        Plot #40, Sector 7-A<br />
+                        Plot 339, Sector 7-A<br />
                         Korangi Industrial Area<br />
                         Karachi, Pakistan
                       </p>

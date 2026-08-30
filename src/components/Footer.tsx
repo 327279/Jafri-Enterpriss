@@ -25,6 +25,27 @@ function InstagramIcon({ size = 16, className = "", style }: { size?: number; cl
   );
 }
 
+function LinkedinIcon({ size = 16, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      style={style}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 const footerLinks = {
   Products: [
     { label: "Leather Skins", href: "/products/leather-skins" },
@@ -115,7 +136,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm font-medium" style={{ color: "#36251B" }}>
                 <MapPin size={16} className="mt-0.5 shrink-0" style={{ color: "#8C5738" }} />
-                <span>Plot #40, Sector 7-A, Korangi Industrial Area, Karachi</span>
+                <span>Plot 339, Sector 7-A, Korangi Industrial Area, Karachi</span>
               </li>
               <li className="flex flex-col gap-1 text-sm font-medium" style={{ color: "#36251B" }}>
                 <div className="flex items-center gap-3">
@@ -152,6 +173,17 @@ export default function Footer() {
                   className="hover:text-[#8C5738] transition-colors font-medium"
                 >
                   @jafrienterprises
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm font-medium" style={{ color: "#36251B" }}>
+                <LinkedinIcon size={16} className="shrink-0" style={{ color: "#8C5738" }} />
+                <a
+                  href="https://www.linkedin.com/in/jafri-enterprises-2141ba42b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#8C5738] transition-colors font-medium"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>
