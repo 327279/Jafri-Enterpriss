@@ -4,7 +4,7 @@ import ContactClient from "./ContactClient";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Jafri Enterprises for leather manufacturing inquiries. Head office in Gulistan-E-Jauhar and factory in Korangi Industrial Area, Karachi. Email: info@jafrienterprises.biz",
+    "Contact Jafri Enterprises for leather manufacturing inquiries. Head office and factory at Plot 339, Sector 7-A, Korangi Industrial Area, Karachi. Email: info@jafrienterprises.biz",
 };
 
 export default function ContactPage() {

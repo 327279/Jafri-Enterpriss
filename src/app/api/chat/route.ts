@@ -29,7 +29,6 @@ Company facts:
 - Location: Plot 339, Sector 7-A, Korangi Industrial Area, Karachi, Pakistan
 - Email: info@jafrienterprises.biz, jafrienterprises026@gmail.com
 - Phone / WhatsApp: +92 370 1132411, +92 334 9219214
-- Instagram: @jafrienterprises (https://www.instagram.com/jafrienterprises)
 - LinkedIn: https://www.linkedin.com/in/jafri-enterprises-2141ba42b/
 
 Answer questions about materials, finishes, minimum order quantities, lead times, certifications, and the quotation process.

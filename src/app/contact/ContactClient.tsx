@@ -4,27 +4,6 @@ import { Mail, Phone, MapPin, Clock, Send, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
 
-function InstagramIcon({ size = 18, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      className={className}
-      style={style}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
-
 function LinkedinIcon({ size = 18, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
   return (
     <svg
@@ -187,31 +166,6 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Instagram */}
-                  <div
-                    className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
-                    style={{ border: "1px solid rgba(140,87,56,0.18)" }}
-                  >
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(140,87,56,0.12)" }}
-                    >
-                      <InstagramIcon size={18} style={{ color: "#8C5738" }} />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Instagram</p>
-                      <a
-                        href="https://www.instagram.com/jafrienterprises?igsh=dGVnc2Q3aXk0c2l5&igsi=dGVnc2Q3aXk0c2l5&utm_source=qr"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-bold transition-colors hover:text-[#8C5738]"
-                        style={{ color: "#1A0E07" }}
-                      >
-                        @jafrienterprises
-                      </a>
-                    </div>
-                  </div>
-
                   {/* LinkedIn */}
                   <div
                     className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm"
@@ -251,8 +205,8 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.16em] mb-1 text-[#8C5738]">Head Office</p>
                       <p className="text-sm font-semibold leading-relaxed" style={{ color: "#1A0E07" }}>
-                        Plot #A-024, Block-3<br />
-                        Gulistan-E-Jauhar<br />
+                        Plot 339, Sector 7-A<br />
+                        Korangi Industrial Area<br />
                         Karachi, Pakistan
                       </p>
                     </div>

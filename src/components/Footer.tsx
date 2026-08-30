@@ -4,27 +4,6 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-function InstagramIcon({ size = 16, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      className={className}
-      style={style}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
-
 function LinkedinIcon({ size = 16, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
   return (
     <svg
@@ -165,17 +144,6 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-center gap-3 text-sm font-medium pt-1" style={{ color: "#36251B" }}>
-                <InstagramIcon size={16} className="shrink-0" style={{ color: "#8C5738" }} />
-                <a
-                  href="https://www.instagram.com/jafrienterprises?igsh=dGVnc2Q3aXk0c2l5&igsi=dGVnc2Q3aXk0c2l5&utm_source=qr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#8C5738] transition-colors font-medium"
-                >
-                  @jafrienterprises
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm font-medium" style={{ color: "#36251B" }}>
                 <LinkedinIcon size={16} className="shrink-0" style={{ color: "#8C5738" }} />
                 <a
                   href="https://www.linkedin.com/in/jafri-enterprises-2141ba42b/"
