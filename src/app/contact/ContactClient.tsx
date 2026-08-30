@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, Check, ExternalLink, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -366,22 +366,71 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map embed */}
-      <section style={{ background: "var(--color-void)", borderTop: "1px solid var(--color-border)" }}>
-        <AnimatedSection>
-          <div className="h-96 w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.292!2d67.0959!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e5e!2sKorangi+Industrial+Area%2C+Karachi%2C+Pakistan!5e0!3m2!1sen!2s!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(0.85)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Jafri Enterprises Karachi Location"
-            />
-          </div>
-        </AnimatedSection>
+      {/* Map Section */}
+      <section className="section-padding bg-[#F5EFEB] border-t border-[rgba(140,87,56,0.15)] relative overflow-hidden">
+        <div className="container-luxury">
+          <AnimatedSection className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#8C5738]">
+              Location & Facility
+            </p>
+            <h2 className="text-display-md mb-4 text-[#1A0E07]">
+              Visit Our Tannery & <span className="text-[#8C5738] italic font-serif">Head Office</span>
+            </h2>
+            <p className="font-medium text-sm md:text-base text-[#523B2D]">
+              Located in Karachi&apos;s prime industrial district, our facility is equipped for bulk leather manufacturing, custom sampling, and international export logistics.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-[#8C5738]/20 shadow-xl bg-white">
+              {/* Floating Info Badge on Top-Left */}
+              <div className="absolute top-4 left-4 md:top-6 md:left-6 z-10 max-w-xs md:max-w-sm bg-white/95 backdrop-blur-md p-4 md:p-5 rounded-2xl border border-[rgba(140,87,56,0.20)] shadow-lg">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-[#8C5738]/10 text-[#8C5738]">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#8C5738]/10 text-[#8C5738] mb-1">
+                      HQ & Manufacturing
+                    </span>
+                    <h4 className="text-sm font-bold text-[#1A0E07]" style={{ fontFamily: "var(--font-display)" }}>
+                      Jafri Enterprises
+                    </h4>
+                    <p className="text-xs text-[#523B2D] mt-1 leading-relaxed font-medium">
+                      Plot 339, Sector 7-A, Korangi Industrial Area, Karachi, Pakistan
+                    </p>
+                    <div className="mt-3 pt-3 border-t border-[rgba(140,87,56,0.15)] flex items-center gap-3">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Plot+339+Sector+7-A+Korangi+Industrial+Area+Karachi+Pakistan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8C5738] hover:text-[#5A3824] transition-colors"
+                      >
+                        <Navigation size={13} />
+                        Get Directions
+                        <ExternalLink size={12} className="ml-0.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Iframe */}
+              <div className="h-[420px] md:h-[500px] w-full">
+                <iframe
+                  src="https://maps.google.com/maps?q=Plot%20339%20Sector%207-A%20Korangi%20Industrial%20Area%20Karachi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Jafri Enterprises - Plot 339, Sector 7-A, Korangi Industrial Area, Karachi"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </div>
   );
