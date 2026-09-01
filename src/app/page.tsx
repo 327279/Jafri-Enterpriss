@@ -115,13 +115,12 @@ export default function HomePage() {
           HERO SECTION
       ══════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Video — plays once and stays on last frame in background */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Background Video — plays seamlessly in background */}
+        <div className="absolute inset-0 overflow-hidden bg-[#1A0E07]">
           <video
             autoPlay
             muted
             playsInline
-            poster="/images/hero/hero-main.jpg"
             className="w-full h-full object-cover scale-105"
           >
             <source src="/assets/hero-intro.mp4" type="video/mp4" />
@@ -267,13 +266,12 @@ export default function HomePage() {
                     background: "radial-gradient(ellipse, #A37557 0%, transparent 70%)",
                   }}
                 />
-                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl h-[280px] sm:h-[460px]">
+                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl h-[280px] sm:h-[460px] bg-[#1A0E07]">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    poster="/images/hero/texture-closeup.jpg"
                     className="w-full h-full object-cover"
                   >
                     <source src="/assets/leather-craftsmanship.mp4" type="video/mp4" />
