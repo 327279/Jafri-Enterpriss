@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +8,14 @@ import ScrollProgress from "@/components/ScrollProgress";
 import SpotlightTracker from "@/components/SpotlightTracker";
 import Toaster from "@/components/Toaster";
 import WhatsAppButton from "@/components/WhatsAppButton";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#1A0E07",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jafrienterprises.biz"),

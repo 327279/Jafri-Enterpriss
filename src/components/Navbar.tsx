@@ -35,6 +35,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>("/products");
+
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handler, { passive: true });
@@ -76,16 +78,17 @@ export default function Navbar() {
             ? "rgba(251, 248, 243, 0.96)"
             : "rgba(43, 27, 18, 0.65)",
           backdropFilter: "blur(20px) saturate(1.4)",
+          WebkitBackdropFilter: "blur(20px) saturate(1.4)",
           borderBottom: scrolled ? "1px solid rgba(163, 117, 87, 0.18)" : "1px solid rgba(255, 255, 255, 0.12)",
           boxShadow: scrolled ? "0 4px 20px rgba(60, 40, 25, 0.05)" : "none",
         }}
       >
         <div className="container-luxury">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-18 sm:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
               <div
-                className="relative flex items-center justify-center w-12 h-12 overflow-hidden rounded-2xl bg-white p-1.5 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
+                className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-2xl bg-white p-1.5 border border-amber-900/15 shadow-sm group-hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src="/images/jafri-logo.svg"
@@ -93,17 +96,18 @@ export default function Navbar() {
                   width={48}
                   height={48}
                   className="w-full h-full object-contain rounded-xl"
+                  priority
                 />
               </div>
               <div>
                 <div
-                  className="text-base font-bold leading-none tracking-wide transition-colors duration-300"
+                  className="text-sm sm:text-base font-bold leading-none tracking-wide transition-colors duration-300"
                   style={{ color: scrolled ? "#2B1B12" : "#FFFFFF", fontFamily: "var(--font-display)" }}
                 >
                   Jafri Enterprises
                 </div>
                 <div
-                  className="text-[0.65rem] font-bold tracking-[0.2em] uppercase mt-1 transition-colors duration-300"
+                  className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.2em] uppercase mt-1 transition-colors duration-300"
                   style={{ color: scrolled ? "#A37557" : "#EBE3D5" }}
                 >
                   Est. 2005 · Karachi
@@ -207,12 +211,12 @@ export default function Navbar() {
             </nav>
 
             {/* CTA + Mobile toggle */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <Button onClick={openQuote} size="sm" className="hidden lg:inline-flex">
                 Request a Quote
               </Button>
               <button
-                className="lg:hidden -mr-2 flex h-11 w-11 items-center justify-center rounded-xl transition-colors"
+                className="lg:hidden flex h-11 w-11 items-center justify-center rounded-xl transition-colors active:scale-95"
                 style={{ color: scrolled || mobileOpen ? "#1A0E07" : "#FFFFFF" }}
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
@@ -229,7 +233,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] lg:hidden flex flex-col"
+            className="fixed inset-0 z-[99] lg:hidden flex flex-col h-[100dvh] overflow-hidden"
             style={{ background: "#FAF6F0" }}
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
@@ -238,17 +242,17 @@ export default function Navbar() {
           >
             {/* Top header strip in drawer */}
             <div
-              className="flex items-center justify-between px-6 h-20 border-b shrink-0 bg-white"
+              className="flex items-center justify-between px-5 sm:px-6 h-18 sm:h-20 border-b shrink-0 bg-white"
               style={{ borderColor: "rgba(140,87,56,0.18)" }}
             >
-              <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center overflow-hidden">
+              <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#FAF6F0] p-1 border border-amber-900/15 flex items-center justify-center overflow-hidden">
                   <Image
                     src="/images/jafri-logo.svg"
                     alt="Jafri Enterprises"
                     width={36}
                     height={36}
-                    className="object-contain rounded-xl"
+                    className="object-contain rounded-lg"
                   />
                 </div>
                 <div>
@@ -262,7 +266,7 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-[#FAF6F0] border border-amber-900/15 text-[#1A0E07]"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-[#FAF6F0] border border-amber-900/15 text-[#1A0E07] active:scale-95"
                 aria-label="Close menu"
               >
                 <X size={20} />
@@ -270,64 +274,123 @@ export default function Navbar() {
             </div>
 
             {/* Scrollable links list */}
-            <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-6 sm:px-8">
-              <nav className="flex flex-col gap-1 mb-6">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:px-8 flex flex-col justify-between">
+              <nav className="flex flex-col gap-0.5">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05, duration: 0.25 }}
-                    className="border-b last:border-b-0 py-2"
-                    style={{ borderColor: "rgba(140,87,56,0.14)" }}
+                    transition={{ delay: i * 0.04, duration: 0.22 }}
+                    className="border-b last:border-b-0 py-1"
+                    style={{ borderColor: "rgba(140,87,56,0.12)" }}
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-between py-3 text-lg font-bold transition-colors"
-                      style={{
-                        color: pathname === link.href ? "#8C5738" : "#1A0E07",
-                        fontFamily: "var(--font-display)",
-                      }}
-                    >
-                      <span>{link.label}</span>
-                      {link.children && <ChevronDown size={18} className="text-[#8C5738]" />}
-                    </Link>
-                    {link.children && (
-                      <div className="pl-3 pb-2 space-y-1">
-                        {link.children.map((child) => (
+                    {link.children ? (
+                      <div>
+                        <div className="flex items-center justify-between">
                           <Link
-                            key={child.label}
-                            href={child.href}
+                            href={link.href}
                             onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                            className="flex-1 py-3 text-base sm:text-lg font-bold transition-colors"
                             style={{
-                              background: pathname === child.href ? "rgba(140,87,56,0.12)" : "transparent",
-                              color: pathname === child.href ? "#8C5738" : "#36251B",
+                              color: pathname.startsWith(link.href) ? "#8C5738" : "#1A0E07",
+                              fontFamily: "var(--font-display)",
                             }}
                           >
-                            <ChevronRight size={14} className="text-[#8C5738] shrink-0" aria-hidden="true" />
-                            {child.label}
+                            {link.label}
                           </Link>
-                        ))}
+                          <button
+                            type="button"
+                            onClick={() => setMobileExpanded(mobileExpanded === link.href ? null : link.href)}
+                            className="p-3 text-[#8C5738] active:scale-95"
+                            aria-label={`Toggle ${link.label} sub-menu`}
+                          >
+                            <ChevronDown
+                              size={18}
+                              className={cn(
+                                "transition-transform duration-200",
+                                mobileExpanded === link.href ? "rotate-180" : ""
+                              )}
+                            />
+                          </button>
+                        </div>
+                        <AnimatePresence>
+                          {mobileExpanded === link.href && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="pl-3 pb-2 space-y-1 overflow-hidden"
+                            >
+                              {link.children.map((child) => (
+                                <Link
+                                  key={child.label}
+                                  href={child.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                                  style={{
+                                    background: pathname === child.href ? "rgba(140,87,56,0.12)" : "transparent",
+                                    color: pathname === child.href ? "#8C5738" : "#36251B",
+                                  }}
+                                >
+                                  <ChevronRight size={14} className="text-[#8C5738] shrink-0" aria-hidden="true" />
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center justify-between py-3 text-base sm:text-lg font-bold transition-colors"
+                        style={{
+                          color: pathname === link.href ? "#8C5738" : "#1A0E07",
+                          fontFamily: "var(--font-display)",
+                        }}
+                      >
+                        <span>{link.label}</span>
+                        <ChevronRight size={16} className="text-[#8C5738]/60" />
+                      </Link>
                     )}
                   </motion.div>
                 ))}
               </nav>
 
-              <div className="pt-4 border-t" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
+              {/* Bottom drawer actions & contact */}
+              <div className="pt-5 mt-4 border-t pb-[max(1rem,env(safe-area-inset-bottom))]" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
                 <Button
                   onClick={() => { setMobileOpen(false); openQuote(); }}
                   size="lg"
                   block
-                  className="w-full"
+                  className="w-full shadow-lg"
                 >
                   Request a Quote
                 </Button>
+
+                <div className="grid grid-cols-2 gap-2.5 mt-3">
+                  <a
+                    href="https://wa.me/923701132411?text=Hello%20Jafri%20Enterprises%2C%20I%20would%20like%20to%20inquire%20about%20your%20leather%20products."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-[#25D366]/15 text-[#1b7a3e] border border-[#25D366]/30 active:scale-98 transition-transform"
+                  >
+                    <span>WhatsApp Us</span>
+                  </a>
+                  <a
+                    href="tel:+923701132411"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-white text-[#1A0E07] border border-amber-900/20 active:scale-98 transition-transform shadow-xs"
+                  >
+                    <span>Call Sales</span>
+                  </a>
+                </div>
+
                 <a
                   href="mailto:info@jafrienterprises.biz"
-                  className="mt-4 block text-center text-xs font-bold tracking-wider text-[#8C5738]"
+                  className="mt-3 block text-center text-[0.75rem] font-bold tracking-wider text-[#8C5738]"
                 >
                   info@jafrienterprises.biz
                 </a>

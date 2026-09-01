@@ -57,7 +57,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className="rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C5738] hover:border-[#8C5738]"
+      className="rounded-full px-3.5 py-2 sm:px-4 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C5738] hover:border-[#8C5738] active:scale-95"
       style={{
         background: selected ? "#8C5738" : "#FAF6F0",
         border: `1.5px solid ${selected ? "#8C5738" : "rgba(140,87,56,0.25)"}`,
@@ -187,7 +187,7 @@ export default function CustomLeatherForm({
           {/* Builder Card (Fixes Screenshot 5) */}
           <AnimatedSection direction="right">
             <div
-              className="p-8 sm:p-10 rounded-2xl bg-white shadow-sm"
+              className="p-5 sm:p-8 lg:p-10 rounded-2xl bg-white shadow-sm"
               style={{
                 border: "1px solid rgba(140,87,56,0.22)",
               }}

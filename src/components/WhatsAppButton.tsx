@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 group cursor-pointer"
+      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-50 flex items-center gap-2 group cursor-pointer"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.8, type: "spring", stiffness: 260, damping: 20 }}
@@ -24,13 +24,13 @@ export default function WhatsAppButton() {
       </span>
 
       {/* Round Button */}
-      <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 border-2 border-white/80 transition-transform duration-300">
+      <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 border-2 border-white/80 transition-transform duration-300">
         {/* Subtle ping ring - suppressed on reduced motion */}
         <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none opacity-75 -z-10 motion-reduce:hidden" />
 
         {/* WhatsApp Icon */}
         <svg
-          className="w-7 h-7 fill-current"
+          className="w-6 h-6 sm:w-7 sm:h-7 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >

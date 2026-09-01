@@ -153,27 +153,27 @@ export default function QuoteModal() {
                 transition={SHUTTER}
               >
               {/* Header */}
-              <div className="flex items-start justify-between gap-4 border-b p-6 sm:p-8" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
+              <div className="flex items-start justify-between gap-4 border-b p-5 sm:p-8" style={{ borderColor: "rgba(140,87,56,0.18)" }}>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] mb-2 text-[#8C5738]">B2B Inquiry</p>
-                  <h2 className="text-display-md" style={{ color: "#1A0E07" }}>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] mb-1.5 text-[#8C5738]">B2B Inquiry</p>
+                  <h2 className="text-display-sm sm:text-display-md" style={{ color: "#1A0E07" }}>
                     Request a Quote
                   </h2>
-                  <p className="mt-1 text-sm font-medium" style={{ color: "#523B2D" }}>
+                  <p className="mt-1 text-xs sm:text-sm font-medium" style={{ color: "#523B2D" }}>
                     Our team typically responds within 24 business hours.
                   </p>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="-mr-2 -mt-2 flex size-11 shrink-0 items-center justify-center rounded-full text-[#523B2D] hover:bg-[#FAF6F0] hover:text-[#1A0E07] transition-colors"
+                  className="-mr-1 -mt-1 sm:-mr-2 sm:-mt-2 flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-full text-[#523B2D] hover:bg-[#FAF6F0] hover:text-[#1A0E07] transition-colors active:scale-95"
                   aria-label="Close"
                 >
-                  <X size={22} />
+                  <X size={20} />
                 </button>
               </div>
 
               {/* Body */}
-              <div className="p-6 sm:p-8">
+              <div className="p-5 sm:p-8">
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

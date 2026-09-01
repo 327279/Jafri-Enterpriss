@@ -63,7 +63,7 @@ export default function Footer() {
           <p className="mb-10 max-w-xl mx-auto text-[#FAF6F0]/90 text-base font-medium">
             Connect with our export team for pricing, samples, and bulk order arrangements. We ship worldwide.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center items-stretch sm:items-center max-w-sm sm:max-w-none mx-auto [&_button]:w-full sm:[&_button]:w-auto [&_a]:w-full sm:[&_a]:w-auto">
             <Button
               size="lg"
               onClick={() => {

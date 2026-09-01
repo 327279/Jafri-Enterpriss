@@ -178,18 +178,18 @@ export default function HomePage() {
               Two decades of craftsmanship from Pakistan&apos;s tannery capital. Finished leather skins, garments, and accessories for global B2B buyers.
             </motion.p>
 
-            {/* CTAs — kept clean with only Request a Quote and View Products */}
+            {/* CTAs — mobile full-width stack, desktop inline */}
             <motion.div
-              className="flex flex-wrap items-center gap-5"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5 w-full sm:w-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.75 }}
             >
-              <Button onClick={openQuote} size="lg">
+              <Button onClick={openQuote} size="lg" className="w-full sm:w-auto">
                 Request a Quote
                 <ArrowRight />
               </Button>
-              <Button asChild variant="heroOutline" size="lg">
+              <Button asChild variant="heroOutline" size="lg" className="w-full sm:w-auto">
                 <Link href="/products">View Products</Link>
               </Button>
             </motion.div>
@@ -267,7 +267,7 @@ export default function HomePage() {
                     background: "radial-gradient(ellipse, #A37557 0%, transparent 70%)",
                   }}
                 />
-                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl" style={{ height: "460px" }}>
+                <div className="relative z-10 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl h-[280px] sm:h-[460px]">
                   <video
                     autoPlay
                     loop
@@ -388,7 +388,7 @@ export default function HomePage() {
                 />
                 {/* Year badge */}
                 <div
-                  className="absolute -bottom-6 -left-6 px-7 py-6 rounded-2xl shadow-xl flex flex-col items-center justify-center border border-amber-900/20"
+                  className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 px-5 py-4 sm:px-7 sm:py-6 rounded-2xl shadow-xl flex flex-col items-center justify-center border border-amber-900/20"
                   style={{
                     background: "#362217",
                     color: "#FFFFFF",

@@ -260,12 +260,12 @@ export default function ContactPage() {
             <div className="lg:col-span-3">
               <AnimatedSection direction="right">
                 <div
-                  className="p-8 sm:p-10 rounded-2xl bg-white shadow-sm"
+                  className="p-5 sm:p-8 lg:p-10 rounded-2xl bg-white shadow-sm"
                   style={{ border: "1px solid rgba(140,87,56,0.22)" }}
                 >
                   {!submitted ? (
                     <>
-                      <h3 className="text-2xl font-bold mb-2" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: "#1A0E07", fontFamily: "var(--font-display)" }}>
                         Send Us a Message
                       </h3>
                       <p className="text-sm font-medium mb-8" style={{ color: "#523B2D" }}>
