@@ -79,44 +79,52 @@ export default function OEMPage() {
     <div>
       {/* Hero */}
       <div
-        className="relative min-h-[65vh] flex items-end overflow-hidden"
+        className="relative min-h-[60vh] sm:min-h-[65vh] flex items-end overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #362217 0%, #1A0E07 100%)",
+          background: "#1A0E07",
           color: "#FFFFFF",
         }}
       >
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden bg-[#1A0E07]">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/jackets/elegant-mens-leather-jacket-black.jpg"
-            className="w-full h-full object-cover object-[75%_center] lg:object-right scale-105"
+            className="w-full h-full object-cover object-center sm:object-[75%_center] lg:object-right scale-105"
           >
             <source src="/assets/jackets-showcase-hero.mp4" type="video/mp4" />
             <source src="/assets/jackets-hero.mp4" type="video/mp4" />
           </video>
-          {/* Subtle directional gradient so text on left is sharp and jacket on right is visible */}
+          {/* Responsive gradient overlay: top-to-bottom on mobile, left-to-right on desktop */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden sm:block"
             style={{
               background:
                 "linear-gradient(90deg, rgba(26,14,7,0.92) 0%, rgba(26,14,7,0.72) 45%, rgba(26,14,7,0.30) 75%, rgba(26,14,7,0.15) 100%)",
             }}
           />
+          <div
+            className="absolute inset-0 sm:hidden"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(26,14,7,0.80) 0%, rgba(26,14,7,0.50) 40%, rgba(26,14,7,0.92) 100%)",
+            }}
+          />
         </div>
-        <div className="container-luxury relative z-10 pb-20 pt-44">
+        <div className="container-luxury relative z-10 pb-16 sm:pb-20 pt-36 sm:pt-44">
           <AnimatedSection>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#D4B296]">Private Label & OEM</p>
-            <h1 className="text-display-lg mb-6 text-white">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 sm:mb-4 text-[#D4B296]">Private Label & OEM</p>
+            <h1 className="text-display-md sm:text-display-lg mb-4 sm:mb-6 text-white">
               Your Brand,{" "}
               <span className="block text-[#EBE3D5] italic font-serif">Our Manufacturing</span>
             </h1>
-            <p className="text-lg max-w-2xl mb-10 text-[#FAF6F0]/90 font-medium">
+            <p className="text-base sm:text-lg max-w-2xl mb-8 sm:mb-10 text-[#FAF6F0]/90 font-medium leading-relaxed">
               Partner with Jafri Enterprises for full OEM and private label leather manufacturing. From concept to delivery — with your brand at the center.
             </p>
-            <QuoteButton label="Start Your OEM Inquiry" hint="oem" size="lg" />
+            <div className="w-full sm:w-auto [&_button]:w-full sm:[&_button]:w-auto">
+              <QuoteButton label="Start Your OEM Inquiry" hint="oem" size="lg" />
+            </div>
           </AnimatedSection>
         </div>
       </div>

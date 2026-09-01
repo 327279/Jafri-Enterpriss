@@ -220,26 +220,32 @@ export default function JacketsPage() {
   return (
     <div>
       {/* Header with Video Background */}
-      <div className="relative min-h-[70vh] flex items-end overflow-hidden">
+      <div className="relative min-h-[65vh] sm:min-h-[70vh] flex items-end overflow-hidden" style={{ background: "#1A0E07" }}>
         {/* Background Video */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden bg-[#1A0E07]">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/jackets/elegant-mens-leather-jacket-black.jpg"
             className="w-full h-full object-cover object-center scale-105"
           >
             <source src="/assets/jackets-hero.mp4" type="video/mp4" />
             <source src="/assets/jackets-showcase-hero.mp4" type="video/mp4" />
           </video>
-          {/* Left-heavy gradient so text stays sharp, jacket visible on right */}
+          {/* Responsive gradient overlay: top-to-bottom on mobile, left-to-right on desktop */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden sm:block"
             style={{
               background:
                 "linear-gradient(90deg, rgba(26,14,7,0.88) 0%, rgba(26,14,7,0.65) 38%, rgba(26,14,7,0.25) 65%, rgba(26,14,7,0.10) 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0 sm:hidden"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(26,14,7,0.78) 0%, rgba(26,14,7,0.50) 40%, rgba(26,14,7,0.92) 100%)",
             }}
           />
           {/* Bottom fade for smooth content transition */}

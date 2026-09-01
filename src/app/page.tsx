@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Award, Globe, Factory, Layers } from "lucide-react";
+import { ArrowRight, Award, Globe, Factory, Layers, CheckCircle2 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ProductCard from "@/components/ProductCard";
 import StatNumber from "@/components/StatNumber";
@@ -351,17 +351,42 @@ export default function HomePage() {
                   Pakistan&apos;s Premier<br />
                   <span className="text-[#8C5738] italic font-serif">Leather House</span>
                 </h2>
-                <p className="leading-relaxed mb-5 text-base font-medium" style={{ color: "#36251B" }}>
-                  Jafri Enterprises is an established leather tannery and exporter based in Karachi, Pakistan, with over two decades of experience since 2005. We specialize in the tanning and supply of premium leather for clothing, bags, shoes, jackets, and finished leather goods.
-                </p>
-                <p className="leading-relaxed mb-5 text-base font-medium" style={{ color: "#36251B" }}>
-                  We serve valued clients across Korea, Germany, China, and several other markets worldwide — backed by advanced tanning facilities, skilled craftsmen, and rigorous quality control at every production stage.
-                </p>
-                <p className="leading-relaxed mb-10 text-base font-medium" style={{ color: "#36251B" }}>
-                  Our approach is built on three core commitments: <strong style={{ color: "#1A0E07", fontWeight: 700 }}>the highest quality, competitive pricing, and on-time delivery</strong> — supported by efficient management and a well-trained team dedicated to your satisfaction.
+                <p className="text-base sm:text-lg font-medium leading-relaxed mb-6" style={{ color: "#36251B" }}>
+                  Established in Karachi since 2005, Jafri Enterprises is an advanced tannery and finished leather goods exporter — supplying certified premium leather for global fashion and apparel brands.
                 </p>
 
-                <div className="flex flex-wrap gap-4">
+                {/* Key value cards/points instead of heavy text blocks */}
+                <div className="space-y-3.5 mb-8">
+                  {[
+                    {
+                      title: "Global Export Reach",
+                      desc: "Serving long-term B2B partners across Korea, Germany, China, and worldwide.",
+                    },
+                    {
+                      title: "Vertical Tannery Control",
+                      desc: "In-house drum tanning, dyeing, and garment manufacturing under one roof.",
+                    },
+                    {
+                      title: "Certified Export Standards",
+                      desc: "Strict quality control, competitive factory pricing, and on-time international dispatch.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-white border border-amber-900/12 shadow-xs"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-[#8C5738]/12 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 size={16} className="text-[#8C5738]" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-[#1A0E07]">{item.title}</h4>
+                        <p className="text-xs sm:text-sm font-medium text-[#523B2D] mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 [&_button]:w-full sm:[&_button]:w-auto [&_a]:w-full sm:[&_a]:w-auto">
                   <Button asChild size="lg">
                     <Link href="/company">
                       Company Profile
